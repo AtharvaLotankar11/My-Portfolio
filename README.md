@@ -10,8 +10,6 @@
 
 **A modern, responsive portfolio website showcasing my projects, skills, and experience**
 
-[Live Demo](#) • [Report Bug](https://github.com/AtharvaLotankar11/My-Portfolio/issues) • [Request Feature](https://github.com/AtharvaLotankar11/My-Portfolio/issues)
-
 </div>
 
 ---
