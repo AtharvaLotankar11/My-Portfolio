@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronDown, FaUser } from 'react-icons/fa';
+import { FaChevronDown, FaUser, FaTimes } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
@@ -69,7 +69,7 @@ const Navbar = () => {
                 {/* Hamburger Menu Button */}
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center focus:outline-none group z-[60]"
+                    className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center focus:outline-none group z-[70]"
                     aria-label="Toggle menu"
                 >
                     <motion.span
@@ -254,8 +254,10 @@ const Navbar = () => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
+                                transition={{ duration: 0.3 }}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+                                className="fixed inset-0 bg-black/70 backdrop-blur-sm md:hidden"
+                                style={{ zIndex: 998 }}
                             />
 
                             {/* Mobile Menu Panel */}
@@ -263,12 +265,24 @@ const Navbar = () => {
                                 initial={{ x: '100%' }}
                                 animate={{ x: 0 }}
                                 exit={{ x: '100%' }}
-                                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                                className="fixed top-0 right-0 h-full w-[80%] max-w-sm bg-gradient-to-br from-primary via-secondary to-primary border-l border-white/10 shadow-2xl z-50 md:hidden overflow-y-auto"
+                                transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
+                                className="fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] border-l border-white/10 shadow-2xl md:hidden overflow-y-auto"
+                                style={{ zIndex: 999 }}
                             >
+                                {/* Close Button */}
+                                <motion.button
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 hover:text-accent transition-all z-20"
+                                    whileHover={{ scale: 1.1, rotate: 90 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    aria-label="Close menu"
+                                >
+                                    <FaTimes size={18} />
+                                </motion.button>
+
                                 {/* Abstract Gradient Decorations */}
-                                <div className="absolute top-10 right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse" />
-                                <div className="absolute bottom-20 left-10 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+                                <div className="absolute top-10 right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse pointer-events-none" />
+                                <div className="absolute bottom-20 left-10 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
 
                                 <div className="relative z-10 p-8 pt-20">
                                     {/* User Info or Connect */}
