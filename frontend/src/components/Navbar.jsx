@@ -69,7 +69,7 @@ const Navbar = () => {
                 {/* Hamburger Menu Button */}
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center focus:outline-none group z-50"
+                    className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center focus:outline-none group z-[60]"
                     aria-label="Toggle menu"
                 >
                     <motion.span
