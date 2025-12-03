@@ -1,4 +1,4 @@
-name: Deploy Backend to Render
+name: Deploy to Render
 
 on:
   push:
@@ -6,18 +6,20 @@ on:
       - main
     paths:
       - 'backend/**'
+      - 'frontend/**'
   workflow_dispatch:
 
 jobs:
   deploy-backend:
     name: Deploy Backend to Render
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'backend/') || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Trigger Render Deployment
+      - name: Trigger Backend Render Deployment
         env:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
@@ -27,7 +29,31 @@ jobs:
           fi
           curl -X POST "$RENDER_DEPLOY_HOOK_URL"
         
-      - name: Wait for deployment
+      - name: Backend deployment status
         run: |
           echo "Backend deployment triggered on Render"
+          echo "Check your Render dashboard for deployment status"
+
+  deploy-frontend:
+    name: Deploy Frontend to Render
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'frontend/') || github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Trigger Frontend Render Deployment
+        env:
+          RENDER_FRONTEND_DEPLOY_HOOK_URL: ${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$RENDER_FRONTEND_DEPLOY_HOOK_URL" ]; then
+            echo "Error: RENDER_FRONTEND_DEPLOY_HOOK_URL secret is not set"
+            exit 1
+          fi
+          curl -X POST "$RENDER_FRONTEND_DEPLOY_HOOK_URL"
+        
+      - name: Frontend deployment status
+        run: |
+          echo "Frontend deployment triggered on Render"
           echo "Check your Render dashboard for deployment status"
