@@ -6,10 +6,10 @@
 Automatically runs on push to main branch:
 - Builds and tests backend
 - Builds and tests frontend
-- Deploys to GitHub Pages
+- Deploys frontend to GitHub Pages
 
-### 2. Vercel Deployment (`vercel-deploy.yml`)
-Alternative deployment to Vercel platform.
+### 2. Render Backend Deployment (`render-deploy.yml`)
+Automatically deploys backend to Render when backend files change.
 
 ## Required GitHub Secrets
 
@@ -24,23 +24,25 @@ Add these secrets in: Repository Settings → Secrets and variables → Actions
 - `VITE_FIREBASE_APP_ID`
 
 ### API Configuration:
-- `VITE_API_URL` - Your backend API URL
+- `VITE_API_URL` - Your Render backend URL (e.g., https://your-app.onrender.com/api/auth)
 
-### Vercel (if using):
-- `VERCEL_TOKEN` - Get from Vercel account settings
-- `VERCEL_ORG_ID` - From Vercel project settings
-- `VERCEL_PROJECT_ID` - From Vercel project settings
+### Render Configuration:
+- `RENDER_DEPLOY_HOOK_URL` - Get from Render dashboard → Settings → Deploy Hook
 
 ## Setup Instructions
 
+### Backend (Render):
+1. Create a Web Service on Render
+2. Connect your GitHub repo
+3. Set Root Directory: `backend`
+4. Set Build Command: `npm install`
+5. Set Start Command: `node server.js`
+6. Add all environment variables from backend/.env
+7. Copy the Deploy Hook URL
+8. Add it as `RENDER_DEPLOY_HOOK_URL` secret in GitHub
+
+### Frontend (GitHub Pages):
 1. Enable GitHub Pages in repository settings
 2. Set source to "gh-pages" branch
-3. Add required secrets
+3. Add all required secrets
 4. Push to main branch to trigger deployment
-
-## Disable Unused Workflow
-
-If using GitHub Pages, disable Vercel workflow:
-- Go to Actions tab
-- Select workflow
-- Click "..." → Disable workflow
