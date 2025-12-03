@@ -8,6 +8,14 @@ const Projects = () => {
 
     const projects = [
         {
+            title: "FERN Based Portfolio",
+            desc: "Engineered full-stack portfolio using Firebase, Express, React, Node.js with 10+ interactive sections, Deployed responsive design achieving 95% performance score and seamless cross-device compatibility.",
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/My-Portfolio.git" },
+                { icon: <FaExternalLinkAlt />, url: "https://atharva-lotankar-portfolio.onrender.com/" }
+            ]
+        },
+        {
             title: "Student Performance Predictor",
             desc: "Developed Python Decision Tree and Random Forest models improving accuracy 25%, Integrated GROQ API enabling 3x faster AI insight generation efficiency.",
             links: [
@@ -90,14 +98,13 @@ const Projects = () => {
                         <motion.div
                             key={index}
                             ref={(el) => (cardRefs.current[index] = el)}
-                            initial={{ opacity: 0, rotate: -180, scale: 0 }}
-                            whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{
-                                delay: index * 0.15,
-                                type: "spring",
-                                stiffness: 100,
-                                damping: 15
+                                delay: index * 0.1,
+                                duration: 0.5,
+                                ease: "easeOut"
                             }}
                             onMouseMove={(e) => handle3DTilt(e, index)}
                             onMouseLeave={() => {

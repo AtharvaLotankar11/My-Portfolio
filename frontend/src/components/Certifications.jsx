@@ -96,13 +96,13 @@ const Certifications = () => {
                                         href={item.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        initial={{ opacity: 0, scale: 0.8 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        initial={{ opacity: 0, y: 15 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{
-                                            delay: index * 0.2 + idx * 0.03,
-                                            type: "spring",
-                                            stiffness: 200
+                                            delay: idx * 0.05,
+                                            duration: 0.4,
+                                            ease: "easeOut"
                                         }}
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.98 }}
