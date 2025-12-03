@@ -65,13 +65,13 @@ jobs:
         working-directory: ./frontend
         run: npm run build
         env:
-          VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
-          VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
-          VITE_FIREBASE_PROJECT_ID: ${{ secrets.VITE_FIREBASE_PROJECT_ID }}
-          VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_FIREBASE_STORAGE_BUCKET }}
-          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
-          VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_FIREBASE_API_KEY: ${{ "AIzaSyCoyBe9ytnW9tdyJYWVT80XounUz4T9_Zw" }}
+          VITE_FIREBASE_AUTH_DOMAIN: ${{ "portfolio-atharvalotankar.firebaseapp.com" }}
+          VITE_FIREBASE_PROJECT_ID: ${{ "portfolio-atharvalotankar" }}
+          VITE_FIREBASE_STORAGE_BUCKET: ${{ "portfolio-atharvalotankar.firebasestorage.app" }}
+          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ "337592595130" }}
+          VITE_FIREBASE_APP_ID: ${{ "1:337592595130:web:e503a30f5dda79d6ea0883" }}
+          VITE_API_URL: ${{ "https://my-portfolio-backend-7cwe.onrender.com/api/auth" }}
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
