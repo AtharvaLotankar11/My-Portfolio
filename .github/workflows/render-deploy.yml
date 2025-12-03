@@ -1,4 +1,4 @@
-name: Deploy to Render
+name: CI/CD Pipeline
 
 on:
   push:
@@ -11,9 +11,8 @@ on:
 
 jobs:
   deploy-backend:
-    name: Deploy Backend to Render
+    name: Backend CI
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.modified, 'backend/') || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: Checkout code
@@ -35,9 +34,8 @@ jobs:
           echo "Check your Render dashboard for deployment status"
 
   deploy-frontend:
-    name: Deploy Frontend to Render
+    name: Frontend CI/CD
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.modified, 'frontend/') || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: Checkout code
