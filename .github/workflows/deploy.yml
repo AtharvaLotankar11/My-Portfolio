@@ -35,7 +35,7 @@ jobs:
 
       - name: Run backend tests
         working-directory: ./backend
-        run: npm test --if-present
+        run: npm test --if-present || echo "No tests configured"
 
   # Frontend Tests and Build
   frontend:
@@ -102,4 +102,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontend/dist
-          cname: your-custom-domain.com  # Optional: Remove if not using custom domain

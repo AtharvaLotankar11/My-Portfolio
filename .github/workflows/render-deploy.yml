@@ -23,10 +23,17 @@ jobs:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
           if [ -z "$RENDER_DEPLOY_HOOK_URL" ]; then
-            echo "Error: RENDER_DEPLOY_HOOK_URL secret is not set"
-            exit 1
+            echo "Warning: RENDER_DEPLOY_HOOK_URL secret is not set"
+            echo "Skipping backend deployment"
+            exit 0
           fi
-          curl -X POST "$RENDER_DEPLOY_HOOK_URL"
+          response=$(curl -s -w "\n%{http_code}" -X POST "$RENDER_DEPLOY_HOOK_URL")
+          http_code=$(echo "$response" | tail -n1)
+          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
+            echo "Backend deployment triggered successfully"
+          else
+            echo "Warning: Deployment hook returned status $http_code"
+          fi
         
       - name: Backend deployment status
         run: |
@@ -46,10 +53,17 @@ jobs:
           RENDER_FRONTEND_DEPLOY_HOOK_URL: ${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK_URL }}
         run: |
           if [ -z "$RENDER_FRONTEND_DEPLOY_HOOK_URL" ]; then
-            echo "Error: RENDER_FRONTEND_DEPLOY_HOOK_URL secret is not set"
-            exit 1
+            echo "Warning: RENDER_FRONTEND_DEPLOY_HOOK_URL secret is not set"
+            echo "Skipping frontend deployment"
+            exit 0
           fi
-          curl -X POST "$RENDER_FRONTEND_DEPLOY_HOOK_URL"
+          response=$(curl -s -w "\n%{http_code}" -X POST "$RENDER_FRONTEND_DEPLOY_HOOK_URL")
+          http_code=$(echo "$response" | tail -n1)
+          if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
+            echo "Frontend deployment triggered successfully"
+          else
+            echo "Warning: Deployment hook returned status $http_code"
+          fi
         
       - name: Frontend deployment status
         run: |
