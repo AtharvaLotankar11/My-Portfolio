@@ -54,24 +54,24 @@ const Certifications = () => {
     ];
 
     return (
-        <section id="certifications" className="py-20 relative overflow-hidden">
+        <section id="certifications" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[20%] right-[15%] w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute bottom-[30%] left-[10%] w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+                <div className="absolute top-[20%] right-[5%] sm:right-[15%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-purple-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute bottom-[30%] left-[5%] sm:left-[10%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
             </div>
 
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 sm:px-6">
                 <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
                 >
                     Certifications
                 </motion.h2>
 
-                <div className="space-y-12">
+                <div className="space-y-8 sm:space-y-10 md:space-y-12">
                     {categories.map((category, index) => (
                         <motion.div
                             key={index}
@@ -81,7 +81,7 @@ const Certifications = () => {
                             transition={{ delay: index * 0.2 }}
                         >
                             <motion.h3
-                                className="text-2xl font-semibold mb-6 text-white border-l-4 border-accent pl-4"
+                                className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-5 md:mb-6 text-white border-l-4 border-accent pl-3 sm:pl-4"
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
@@ -89,7 +89,7 @@ const Certifications = () => {
                             >
                                 {category.title}
                             </motion.h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                                 {category.items.map((item, idx) => (
                                     <motion.a
                                         key={idx}
@@ -108,7 +108,7 @@ const Certifications = () => {
                                         whileTap={{ scale: 0.98 }}
                                         onMouseEnter={() => setHoveredCert(`${index}-${idx}`)}
                                         onMouseLeave={() => setHoveredCert(null)}
-                                        className="glass-effect p-4 rounded-lg border border-white/10 flex items-center gap-3 hover:border-accent/30 transition-all duration-300 group relative overflow-hidden"
+                                        className="glass-effect p-3 sm:p-4 rounded-lg border border-white/10 flex items-center gap-2.5 sm:gap-3 hover:border-accent/30 transition-all duration-300 group relative overflow-hidden"
                                     >
                                         {/* Shimmer overlay */}
                                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -117,7 +117,7 @@ const Certifications = () => {
 
                                         {/* Glow effect */}
                                         {hoveredCert === `${index}-${idx}` && (
-                                            <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-purple-500/10 animate-pulse-glow rounded-lg"></div>
+                                            <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-purple-500/10 to-pink-500/10 animate-pulse-glow rounded-lg"></div>
                                         )}
 
                                         <motion.div
@@ -127,9 +127,9 @@ const Certifications = () => {
                                             }}
                                             transition={{ duration: 0.6 }}
                                         >
-                                            <FaAward className="text-accent flex-shrink-0 animate-glow-pulse" />
+                                            <FaAward className="text-accent flex-shrink-0 animate-glow-pulse text-base sm:text-lg" />
                                         </motion.div>
-                                        <span className="text-sm text-gray-300 hover:text-white transition-colors line-clamp-2 relative z-10">
+                                        <span className="text-xs sm:text-sm text-gray-300 hover:text-white transition-colors line-clamp-2 relative z-10">
                                             {item.name}
                                         </span>
                                     </motion.a>

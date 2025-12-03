@@ -63,19 +63,19 @@ const Hero = () => {
 
             {/* Animated Background Gradients */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-                <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-600/30 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-accent/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute top-[40%] left-[50%] w-64 h-64 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+                <div className="absolute top-[-10%] left-[-10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-purple-600/30 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-[40%] left-[50%] w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
             </div>
 
-            <div className="container mx-auto px-6 flex flex-col items-center text-center z-10">
+            <div className="container mx-auto px-4 sm:px-6 flex flex-col items-center text-center z-10">
                 {/* Profile Image with 3D Tilt */}
                 <motion.div
                     ref={imageRef}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, type: "spring" }}
-                    className="mb-8 relative cursor-pointer"
+                    className="mb-6 sm:mb-8 relative cursor-pointer"
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
                     style={{
@@ -83,7 +83,7 @@ const Hero = () => {
                         transition: 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
                     }}
                 >
-                    <div className="w-48 h-48 md:w-64 md:h-64 rounded-full p-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500 animate-gradient-shift animate-pulse-glow">
+                    <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full p-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500 animate-gradient-shift animate-pulse-glow">
                         <img
                             src={myPhoto}
                             alt="Atharva Lotankar"
@@ -102,7 +102,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-4xl md:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-accent to-purple-500 animate-gradient-shift magnetic-hover neon-text cursor-pointer"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-accent to-purple-500 animate-gradient-shift magnetic-hover neon-text cursor-pointer px-4"
                 >
                     Atharva Lotankar
                 </motion.h1>
@@ -112,7 +112,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-xl md:text-2xl text-accent mb-8 relative"
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent mb-6 sm:mb-8 relative px-4"
                 >
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0s' }}>F</span>
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0.05s' }}>u</span>
@@ -157,10 +157,10 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 1 }}
-                    className="absolute bottom-10 animate-bounce"
+                    className="absolute bottom-6 sm:bottom-10 animate-bounce"
                 >
-                    <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
-                        <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
+                    <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-accent rounded-full flex justify-center">
+                        <div className="w-1 h-2 sm:h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
                     </div>
                 </motion.div>
             </div>

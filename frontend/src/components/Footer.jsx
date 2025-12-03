@@ -22,15 +22,15 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-secondary border-t border-white/10 py-8 mt-20">
-            <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-                <div className="mb-4 md:mb-0">
-                    <p className="text-gray-400 text-sm font-light tracking-wide">
+        <footer className="bg-secondary border-t border-white/10 py-6 sm:py-8 mt-12 sm:mt-16 md:mt-20">
+            <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+                <div className="mb-2 md:mb-0">
+                    <p className="text-gray-400 text-xs sm:text-sm font-light tracking-wide text-center md:text-left">
                         &copy; {new Date().getFullYear()} Atharva Lotankar
                     </p>
                 </div>
 
-                <div className="flex space-x-6">
+                <div className="flex space-x-5 sm:space-x-6">
                     {socialLinks.map((social, index) => (
                         <motion.a
                             key={index}

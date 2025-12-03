@@ -51,24 +51,24 @@ const Experience = () => {
     ];
 
     return (
-        <section id="experience" className="py-20 relative overflow-hidden">
+        <section id="experience" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[25%] right-[20%] w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
-                <div className="absolute bottom-[15%] left-[10%] w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3.5s' }}></div>
+                <div className="absolute top-[25%] right-[5%] sm:right-[20%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+                <div className="absolute bottom-[15%] left-[5%] sm:left-[10%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3.5s' }}></div>
             </div>
 
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 sm:px-6">
                 <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
                 >
                     Experience
                 </motion.h2>
 
-                <div className="relative border-l-2 border-white/10 ml-4 md:ml-10 space-y-12">
+                <div className="relative border-l-2 border-white/10 ml-3 sm:ml-4 md:ml-10 space-y-8 sm:space-y-10 md:space-y-12">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={index}
@@ -80,11 +80,11 @@ const Experience = () => {
                                 type: "spring",
                                 stiffness: 80
                             }}
-                            className="relative pl-8 md:pl-12"
+                            className="relative pl-6 sm:pl-8 md:pl-12"
                         >
                             {/* Pulsing timeline dot */}
                             <motion.div
-                                className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent border-4 border-primary animate-pulse-glow"
+                                className="absolute -left-[7px] sm:-left-[9px] top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-accent border-2 sm:border-4 border-primary animate-pulse-glow"
                                 animate={{
                                     scale: [1, 1.3, 1],
                                     boxShadow: [
@@ -100,40 +100,40 @@ const Experience = () => {
                                 }}
                             ></motion.div>
 
-                            <div className="glass-effect p-6 rounded-xl border border-white/10 hover:border-accent/30 transition-all duration-500 hover-lift group relative overflow-hidden">
+                            <div className="glass-effect p-4 sm:p-5 md:p-6 rounded-xl border border-white/10 hover:border-accent/30 transition-all duration-500 hover-lift group relative overflow-hidden">
                                 {/* Shimmer overlay */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                     <div className="absolute inset-0 animate-shimmer"></div>
                                 </div>
 
-                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4 relative z-10">
-                                    <div className="flex items-center gap-4">
+                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 sm:mb-4 gap-3 sm:gap-4 relative z-10">
+                                    <div className="flex items-center gap-3 sm:gap-4">
                                         <motion.div
-                                            className="w-12 h-12 bg-white rounded-full p-1 overflow-hidden magnetic-hover"
-                                            whileHover={{ scale: 1.2, rotate: 360 }}
+                                            className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full p-1 overflow-hidden magnetic-hover flex-shrink-0"
+                                            whileHover={{ scale: 1.15, rotate: 360 }}
                                             transition={{ type: "spring", stiffness: 300 }}
                                         >
                                             <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain" />
                                         </motion.div>
                                         <div>
-                                            <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">{exp.role}</h3>
-                                            <p className="text-accent">{exp.company}</p>
+                                            <h3 className="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">{exp.role}</h3>
+                                            <p className="text-accent text-sm sm:text-base">{exp.company}</p>
                                         </div>
                                     </div>
-                                    <span className="text-sm text-gray-400 bg-white/5 px-3 py-1 rounded-full group-hover:bg-accent/20 transition-colors duration-300">{exp.duration}</span>
+                                    <span className="text-xs sm:text-sm text-gray-400 bg-white/5 px-2.5 sm:px-3 py-1 rounded-full group-hover:bg-accent/20 transition-colors duration-300 self-start md:self-auto">{exp.duration}</span>
                                 </div>
 
-                                <p className="text-gray-300 mb-4 text-sm leading-relaxed relative z-10 group-hover:text-white transition-colors">{exp.desc}</p>
+                                <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed relative z-10 group-hover:text-white transition-colors">{exp.desc}</p>
 
                                 {exp.links.length > 0 && (
-                                    <div className="flex flex-wrap gap-3 relative z-10">
+                                    <div className="flex flex-wrap gap-2 sm:gap-3 relative z-10">
                                         {exp.links.map((link, idx) => (
                                             <motion.a
                                                 key={idx}
                                                 href={link.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-xs px-3 py-1 bg-accent/10 text-accent border border-accent/20 rounded hover:bg-accent hover:text-white transition-colors magnetic-hover"
+                                                className="text-[10px] sm:text-xs px-2.5 sm:px-3 py-1 bg-accent/10 text-accent border border-accent/20 rounded hover:bg-accent hover:text-white transition-colors magnetic-hover"
                                                 whileHover={{ scale: 1.1 }}
                                                 whileTap={{ scale: 0.95 }}
                                             >

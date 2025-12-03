@@ -32,24 +32,24 @@ const Education = () => {
     ];
 
     return (
-        <section id="education" className="py-20 bg-secondary/30 relative overflow-hidden">
+        <section id="education" className="py-12 sm:py-16 md:py-20 bg-secondary/30 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[30%] left-[5%] w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[10%] right-[20%] w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-[30%] left-[5%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-purple-500/20 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-[10%] right-[5%] sm:right-[20%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
             </div>
 
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 sm:px-6">
                 <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
                 >
                     Education
                 </motion.h2>
 
-                <div className="space-y-8 max-w-4xl mx-auto">
+                <div className="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
                     {educationData.map((edu, index) => (
                         <motion.div
                             key={index}
@@ -63,7 +63,7 @@ const Education = () => {
                             }}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            className="glass-effect p-6 rounded-xl border border-white/10 flex flex-col md:flex-row items-center md:items-start gap-6 hover-lift group relative overflow-hidden"
+                            className="glass-effect p-4 sm:p-5 md:p-6 rounded-xl border border-white/10 flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-5 md:gap-6 hover-lift group relative overflow-hidden"
                         >
                             {/* Shimmer overlay */}
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -76,18 +76,18 @@ const Education = () => {
                             )}
 
                             <motion.div
-                                className="w-24 h-24 flex-shrink-0 bg-white rounded-lg p-2 overflow-hidden magnetic-hover relative z-10"
+                                className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 bg-white rounded-lg p-2 overflow-hidden magnetic-hover relative z-10"
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
                                 <img src={edu.logo} alt={edu.institution} className="w-full h-full object-contain" />
                             </motion.div>
                             <div className="flex-1 text-center md:text-left relative z-10">
-                                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">{edu.institution}</h3>
-                                <p className="text-accent font-medium mb-1">{edu.degree}</p>
-                                <p className="text-gray-400 text-sm mb-2 group-hover:text-gray-300 transition-colors">{edu.details}</p>
+                                <h3 className="text-lg sm:text-xl font-bold text-white mb-1.5 sm:mb-2 group-hover:text-accent transition-colors duration-300">{edu.institution}</h3>
+                                <p className="text-accent font-medium mb-1 text-sm sm:text-base">{edu.degree}</p>
+                                <p className="text-gray-400 text-xs sm:text-sm mb-2 group-hover:text-gray-300 transition-colors">{edu.details}</p>
                                 <motion.span
-                                    className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs rounded-full border border-accent/20"
+                                    className="inline-block px-2.5 sm:px-3 py-1 bg-accent/10 text-accent text-[10px] sm:text-xs rounded-full border border-accent/20"
                                     whileHover={{ scale: 1.1 }}
                                 >
                                     {edu.duration}

@@ -46,36 +46,36 @@ const Home = () => {
                 {currentUser && <MessageMe />}
 
                 {/* Let's Connect Card - Only visible when NOT logged in */}
-                {!currentUser && <section className="py-20 bg-secondary/30">
-                    <div className="container mx-auto px-6 flex justify-center">
+                {!currentUser && <section className="py-12 sm:py-16 md:py-20 bg-secondary/30">
+                    <div className="container mx-auto px-4 sm:px-6 flex justify-center">
                         <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="bg-gradient-to-r from-secondary to-primary p-8 md:p-12 rounded-2xl border border-white/10 text-center max-w-2xl w-full shadow-2xl relative overflow-hidden"
+                            className="bg-gradient-to-r from-secondary to-primary p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl border border-white/10 text-center max-w-2xl w-full shadow-2xl relative overflow-hidden"
                         >
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-purple-500"></div>
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500"></div>
 
-                            <h2 className="text-3xl font-bold mb-4 text-white">Ready to Collaborate?</h2>
-                            <p className="text-gray-400 mb-8">
+                            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Ready to Collaborate?</h2>
+                            <p className="text-gray-400 mb-6 sm:mb-8 text-sm sm:text-base">
                                 Join our community or sign in to connect with me directly.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <Link to="/register">
+                            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                                <Link to="/register" className="w-full sm:w-auto">
                                     <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="px-8 py-3 bg-accent text-white font-semibold rounded-lg shadow-lg shadow-accent/20 hover:bg-accent-glow transition-colors w-full sm:w-auto"
+                                        className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-accent to-purple-500 text-white font-semibold rounded-lg shadow-lg shadow-accent/20 hover:shadow-accent/40 transition-all w-full sm:w-auto text-sm sm:text-base"
                                     >
                                         Register
                                     </motion.button>
                                 </Link>
-                                <Link to="/login">
+                                <Link to="/login" className="w-full sm:w-auto">
                                     <motion.button
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="px-8 py-3 bg-transparent border border-accent text-accent font-semibold rounded-lg hover:bg-accent/10 transition-colors w-full sm:w-auto"
+                                        className="px-6 sm:px-8 py-2.5 sm:py-3 bg-transparent border border-accent text-accent font-semibold rounded-lg hover:bg-accent/10 transition-colors w-full sm:w-auto text-sm sm:text-base"
                                     >
                                         Login
                                     </motion.button>

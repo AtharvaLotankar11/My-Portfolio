@@ -66,24 +66,24 @@ const Skills = () => {
     ];
 
     return (
-        <section id="skills" className="py-20 relative overflow-hidden">
+        <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute bottom-[30%] left-[15%] w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+                <div className="absolute top-[20%] right-[5%] sm:right-[10%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-purple-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute bottom-[30%] left-[5%] sm:left-[15%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
             </div>
 
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 sm:px-6">
                 <motion.h2
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
                 >
                     Skills
                 </motion.h2>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     {skillCategories.map((category, index) => (
                         <motion.div
                             key={index}
@@ -97,7 +97,7 @@ const Skills = () => {
                             }}
                             onMouseEnter={() => setHoveredCard(index)}
                             onMouseLeave={() => setHoveredCard(null)}
-                            className="glass-effect p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-all duration-500 hover-lift relative overflow-hidden group"
+                            className="glass-effect p-4 sm:p-5 md:p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-all duration-500 hover-lift relative overflow-hidden group"
                         >
                             {/* Shimmer effect on hover */}
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -106,13 +106,13 @@ const Skills = () => {
 
                             {/* Glow effect */}
                             {hoveredCard === index && (
-                                <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-purple-500/10 animate-pulse-glow rounded-xl"></div>
+                                <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-purple-500/10 to-pink-500/10 animate-pulse-glow rounded-xl"></div>
                             )}
 
-                            <h3 className="text-xl font-semibold mb-6 text-center text-white relative z-10 group-hover:text-accent transition-colors duration-300">
+                            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5 md:mb-6 text-center text-white relative z-10 group-hover:text-accent transition-colors duration-300">
                                 {category.title}
                             </h3>
-                            <div className="flex flex-wrap justify-center gap-4 relative z-10">
+                            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 relative z-10">
                                 {category.skills.map((skill, idx) => (
                                     <motion.div
                                         key={idx}
@@ -126,10 +126,10 @@ const Skills = () => {
                                             stiffness: 200
                                         }}
                                     >
-                                        <div className="w-12 h-12 flex items-center justify-center bg-primary rounded-full text-2xl text-gray-400 group-hover/skill:text-accent group-hover/skill:scale-125 transition-all duration-300 mb-2 magnetic-hover animate-glow-pulse">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-primary rounded-full text-xl sm:text-2xl text-gray-400 group-hover/skill:text-accent group-hover/skill:scale-110 sm:group-hover/skill:scale-125 transition-all duration-300 mb-1.5 sm:mb-2 magnetic-hover animate-glow-pulse">
                                             {skill.icon}
                                         </div>
-                                        <span className="text-xs text-gray-500 group-hover/skill:text-white transition-colors">
+                                        <span className="text-[10px] sm:text-xs text-gray-500 group-hover/skill:text-white transition-colors">
                                             {skill.name}
                                         </span>
                                     </motion.div>

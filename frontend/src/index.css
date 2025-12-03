@@ -5,6 +5,10 @@
   body {
     @apply bg-primary text-white font-sans overflow-x-hidden;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Custom Scrollbar */
@@ -245,8 +249,20 @@
 /* Glassmorphism Enhanced - Optimized */
 .glass-effect {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Abstract Gradient Backgrounds */
+.gradient-bg-1 {
+  background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
+}
+
+.gradient-bg-2 {
+  background: radial-gradient(circle at 60% 30%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 30% 70%, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
 }
 
 /* Neon Glow Text - Simplified */
