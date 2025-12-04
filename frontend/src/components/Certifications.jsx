@@ -29,6 +29,7 @@ const Certifications = () => {
         {
             title: "Hackathon Certificates",
             items: [
+                { name: "Ves-Hack-It Hackathon Certificate of Participation by Unstop", url: "https://unstop.com/certificate-preview/8641c967-7775-4a6c-b02e-e18a84b55452" },
                 { name: "Hack-AI-Thon 3.0 Certificate of Achievement by AI Colegion VESIT", url: "https://drive.google.com/file/d/1-muADZcB8Ki56JBQDJNf3PVclV3-Rywy/view" },
             ]
         },
