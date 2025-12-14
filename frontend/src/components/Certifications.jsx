@@ -57,9 +57,9 @@ const Certifications = () => {
                         { name: "Waste Management and Climate Action", url: "https://www.mahayouthnet.in/share-certificate?serialno=R9YZH8DH" }
                     ]
                 },
-                { name: "Manorama Tell Me Why Quiz – Curr..(ctd)", url: "https://media.licdn.com/dms/image/v2/D4E2DAQE6P5eZ9bfP8g/profile-treasury-image-shrink_800_800/B4EZlCPKUYKYAY-/0/1757752898042?e=1766336400&v=beta&t=w6UFLRfTSqJdlQT-bUpH46n4lauzSCtXeVJh8UzymaM" },
-                { name: "Akhil Bhartiya Gandharva Mahavidyalay….(ctd)", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEEIMn0H_wBmg/profile-treasury-image-shrink_800_800/B4EZlCOXHmIQAY-/0/1757752690605?e=1766336400&v=beta&t=ICy2ibllKrOnP8taZPmAZ66siNUn70oAO3Ki7MMaJfI" },
-                { name: "Dr. Homi Bhabha Balvaidnyanik Competition ….. (ctd)", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEY-OQ-VB5utA/profile-treasury-image-shrink_1280_1280/B4EZlCMOgKKoAQ-/0/1757752128119?e=1766336400&v=beta&t=pWetXLDZUGsJ94zYCNSbf6zfmT_lqPAEtDI_gDRXZF0" },
+                { name: "Manorama Tell Me Why Quiz in Current Affairs with association in BSE 2019", url: "https://media.licdn.com/dms/image/v2/D4E2DAQE6P5eZ9bfP8g/profile-treasury-image-shrink_800_800/B4EZlCPKUYKYAY-/0/1757752898042?e=1766336400&v=beta&t=w6UFLRfTSqJdlQT-bUpH46n4lauzSCtXeVJh8UzymaM" },
+                { name: "Akhil Bhartiya Gandharva Mahavidyalay Certification of Excellence in Harmonium", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEEIMn0H_wBmg/profile-treasury-image-shrink_800_800/B4EZlCOXHmIQAY-/0/1757752690605?e=1766336400&v=beta&t=ICy2ibllKrOnP8taZPmAZ66siNUn70oAO3Ki7MMaJfI" },
+                { name: "Dr. Homi Bhabha Balvaidnyanik Competition 6th Grade Certification by The Mumbai Science Teachers' Association", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEY-OQ-VB5utA/profile-treasury-image-shrink_1280_1280/B4EZlCMOgKKoAQ-/0/1757752128119?e=1766336400&v=beta&t=pWetXLDZUGsJ94zYCNSbf6zfmT_lqPAEtDI_gDRXZF0" },
                 { 
                     name: "IProto Robotics & Automation Program Under IRoboKid", 
                     hasDropdown: true,
@@ -80,9 +80,9 @@ const Certifications = () => {
                     ]
                 },
                 { name: "Helen O' Grady International's Course Completion in Speech & Drama", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEc4sZT12HxZA/profile-treasury-image-shrink_800_800/B4EZlCLO8XIwAY-/0/1757751867647?e=1766336400&v=beta&t=WdpoC4fDYUAHAu5jyloUITvCnjMkLI_ZsT7Tf6YOv4k" },
-                { name: "Second Summer Coaching Camp …. (ctd)", url: "https://media.licdn.com/dms/image/v2/D4E2DAQGWR6ddUpOJ9g/profile-treasury-image-shrink_800_800/B4EZlCKVcIGoAY-/0/1757751633977?e=1766336400&v=beta&t=n9bRHUvbtwlgEIldpnQel4ja_AYkM2dwnu_g1eBhEtY" },
-                { name: "SpellBee Certificate of Merit ….. (ctd)", url: "https://media.licdn.com/dms/image/v2/D4E2DAQF5eTREnA6PvA/profile-treasury-image-shrink_1280_1280/B4EZlCE9nYHIAQ-/0/1757750228613?e=1766336400&v=beta&t=7DSOfzf0pUZHociIpdID-fp_hfLaW8UuO5U2nvxi4HE" },
-                { name: "National Abacus & Mental Arithmetic….. (ctd).", url: "https://media.licdn.com/dms/image/v2/D4E2DAQE92UW2rCsFHw/profile-treasury-image-shrink_800_800/B4EZlCEBEwGYAY-/0/1757749979652?e=1766336400&v=beta&t=gAiw_bRJFr_rI2OIdaFyskM2_unOrxB45vRT-QgbI2E" },
+                { name: "Second Summer Coaching Camp in Badminton by Mulund Gymkhana", url: "https://media.licdn.com/dms/image/v2/D4E2DAQGWR6ddUpOJ9g/profile-treasury-image-shrink_800_800/B4EZlCKVcIGoAY-/0/1757751633977?e=1766336400&v=beta&t=n9bRHUvbtwlgEIldpnQel4ja_AYkM2dwnu_g1eBhEtY" },
+                { name: "SpellBee Certificate of Merit International Level issued by Spell Bee International ~ Language for Life", url: "https://media.licdn.com/dms/image/v2/D4E2DAQF5eTREnA6PvA/profile-treasury-image-shrink_1280_1280/B4EZlCE9nYHIAQ-/0/1757750228613?e=1766336400&v=beta&t=7DSOfzf0pUZHociIpdID-fp_hfLaW8UuO5U2nvxi4HE" },
+                { name: "National Abacus & Mental Arithmetic and Mathematics Test issued by The National Abacus & Mental Arithmetic and Mathematics Test Committee", url: "https://media.licdn.com/dms/image/v2/D4E2DAQE92UW2rCsFHw/profile-treasury-image-shrink_800_800/B4EZlCEBEwGYAY-/0/1757749979652?e=1766336400&v=beta&t=gAiw_bRJFr_rI2OIdaFyskM2_unOrxB45vRT-QgbI2E" },
             ]
         }
     ];
