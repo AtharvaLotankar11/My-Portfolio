@@ -9,6 +9,7 @@ const Certifications = () => {
         {
             title: "Co-Curriculum Achievements",
             items: [
+                { name: "Kerala Blockchain Academy's Certificate of Completion in Blockchain Foundation Programs", url: "https://media.licdn.com/dms/document/media/v2/D4D2DAQH_1O0Pv-kYzw/profile-treasury-document-pdf-analyzed/B4DZsKHkooLEBE-/0/1765401359192?e=1766620800&v=beta&t=q3rmmnsxVMpvqcYrdDEmqIhOOFlnRzISOQt__8WgBqc" },
                 { name: "Cloud Speech API in 3 Ways by Google Cloud Skills Boost", url: "https://www.credly.com/badges/06182327-3082-4b23-8227-edb6b3823394/public_url" },
                 { name: "Prompt Design in Vertex AI by Google Cloud Skills Boost", url: "https://www.credly.com/badges/cf7b75bb-c953-4f62-a5b0-7cf662481876/public_url" },
                 { name: "Set Up A Google Cloud Network by Google Cloud Skills Boost", url: "https://www.credly.com/badges/2d0609cd-1056-431f-8af6-b4708bfceda7/public_url" },
