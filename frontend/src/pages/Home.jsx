@@ -58,7 +58,7 @@ const Home = () => {
 
                             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">Ready to Collaborate?</h2>
                             <p className="text-gray-400 mb-6 sm:mb-8 text-sm sm:text-base">
-                                Join our community or sign in to connect with me directly.
+                                💬Sign In To connect with me directly🌐
                             </p>
 
                             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
