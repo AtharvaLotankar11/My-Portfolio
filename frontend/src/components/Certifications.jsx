@@ -38,6 +38,7 @@ const Certifications = () => {
         {
             title: "Hackathon Certificates",
             items: [
+                { name: "Odoo X SPIT 25' Certificate of Participation by FEC Club SPIT", url: "https://media.licdn.com/dms/image/v2/D562DAQHt8VwVf4-KTg/profile-treasury-image-shrink_800_800/B56ZtFcCnQLEAY-/0/1766396541571?e=1767006000&v=beta&t=DG-MWKsZd11v51ZxxI-Z5p2X-MFNi9B6AXGWbMUoXs8" },
                 { name: "Hackathon AI-Thon 3.0 Certificate of Achievement by AI Colegion VESIT", url: "https://drive.google.com/file/d/1-muADZcB8Ki56JBQDJNf3PVclV3-Rywy/view" },
                 { name: "Ves-Hack-It Hackathon Certificate of Participation by Unstop", url: "https://unstop.com/certificate-preview/8641c967-7775-4a6c-b02e-e18a84b55452" },
             ]
