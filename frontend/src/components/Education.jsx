@@ -11,7 +11,7 @@ const Education = () => {
         {
             institution: "Vivekanand Education Society's Institute of Technology",
             degree: "B.E. in Information Technology",
-            details: "Minors in Cloud Computing. Aggregate CGPA: 9.875",
+            details: "Minors in Cloud Computing. Aggregate CGPA: 9.90",
             duration: "Sep 2023 - May 2027",
             logo: fourthwork
         },

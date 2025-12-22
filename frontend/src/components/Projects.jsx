@@ -29,8 +29,7 @@ const Projects = () => {
             desc: "Developed Python Decision Tree and Random Forest models improving accuracy 25%, Integrated GROQ API enabling 3x faster AI insight generation efficiency.",
             image: studentPerfImg,
             links: [
-                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Student-Performance-Predictor---Data-Mining-GROQ-API.git" },
-                { icon: <FaExternalLinkAlt />, url: "https://student-performance-predictor-data.vercel.app/" }
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Student-Performance-Predictor---Data-Mining-GROQ-API.git" }
             ]
         },
         {
