@@ -21,7 +21,7 @@ const Certifications = () => {
                 { name: "Cloud Speech API in 3 Ways by Google Cloud Skills Boost", url: "https://www.credly.com/badges/06182327-3082-4b23-8227-edb6b3823394/public_url" },
                 { name: "Prompt Design in Vertex AI by Google Cloud Skills Boost", url: "https://www.credly.com/badges/cf7b75bb-c953-4f62-a5b0-7cf662481876/public_url" },
                 { name: "Set Up A Google Cloud Network by Google Cloud Skills Boost", url: "https://www.credly.com/badges/2d0609cd-1056-431f-8af6-b4708bfceda7/public_url" },
-                { name: "AWS Academy Graduate in Cloud Foundations by Amazon Web Services (AWS)", url: "https://media.licdn.com/dms/image/v2/D4E2DAQGpT8mi8i_LXQ/profile-treasury-image-shrink_800_800/B4EZmKuQJxGoAY-/0/1758969006685?e=1766336400&v=beta&t=Zebfyn4Empefiy89X_jvNTZ4ynuAli4bL_egUZG-v68" },
+                { name: "AWS Academy Graduate in Cloud Foundations by Amazon Web Services (AWS)", url: "https://drive.google.com/file/d/1ChS3ITWU6tdWz9xH01BLvHFxRY1b2aVD/view?usp=drive_link" },
                 { name: "Applications of AI for Anomaly Detection by NVIDIA", url: "https://learn.nvidia.com/certificates?id=ll-DmDRGRCO-LVUMUYpasA" },
                 { name: "Fundamentals of Deep Learning by NVIDIA", url: "https://learn.nvidia.com/certificates?id=is21AOsNQJqx-T1NnsczMQ#" },
                 { name: "Certificate of Participation in AppSprint Workshop by ISA VESIT", url: "https://drive.google.com/file/d/1SPW5jG1m2PPcnp0oJ6Ya2SUwzlgG7inT/view" },
@@ -32,13 +32,13 @@ const Certifications = () => {
                 { name: "Supervised Machine Learning: Regression and Classification by Stanford University", url: "https://www.coursera.org/account/accomplishments/verify/DVDKP2VFTKVK" },
                 { name: "The Complete Flutter Dev Bootcamp with Dart Certificate by Udemy", url: "https://www.udemy.com/certificate/UC-1ae0c945-a0d8-4b0c-9338-06f211bfec2a/" },
                 { name: "Udemy's 100 Days of Code: The Complete Python Pro Bootcamp Certificate by Udemy", url: "https://www.udemy.com/certificate/UC-517e5de0-e6bc-4f92-82e0-22322f45df56/" },
-                { name: "Bootcamp Certification in Intro to Raspberry Pi and Linux by ISA VESIT", url: "https://media.licdn.com/dms/image/v2/D4E2DAQHCeoTlCq9yXA/profile-treasury-image-shrink_800_800/B4EZoA0v.pIIAg-/0/1760950422630?e=1766336400&v=beta&t=9XPQYE7JeLqY_TzJxbowEgVgFTJmFK8OuKrgtk8Z6_Y" },
+                { name: "Bootcamp Certification in Intro to Raspberry Pi and Linux by ISA VESIT", url: "https://drive.google.com/file/d/1-49tSFn5knydETNt3FzTtRJt1uxBMw1q/view?usp=drive_link" },
             ]
         },
         {
             title: "Hackathon Certificates",
             items: [
-                { name: "Odoo X SPIT 25' Certificate of Participation by FEC Club SPIT", url: "https://media.licdn.com/dms/image/v2/D562DAQHt8VwVf4-KTg/profile-treasury-image-shrink_800_800/B56ZtFcCnQLEAY-/0/1766396541571?e=1767006000&v=beta&t=DG-MWKsZd11v51ZxxI-Z5p2X-MFNi9B6AXGWbMUoXs8" },
+                { name: "Odoo X SPIT 25' Certificate of Participation by FEC Club SPIT", url: "https://drive.google.com/file/d/1QXmzU03Jr9VZEIK4ClSgsMw4KvcwwlO2/view?usp=sharing" },
                 { name: "Hackathon AI-Thon 3.0 Certificate of Achievement by AI Colegion VESIT", url: "https://drive.google.com/file/d/1-muADZcB8Ki56JBQDJNf3PVclV3-Rywy/view" },
                 { name: "Ves-Hack-It Hackathon Certificate of Participation by Unstop", url: "https://unstop.com/certificate-preview/8641c967-7775-4a6c-b02e-e18a84b55452" },
             ]
@@ -46,8 +46,8 @@ const Certifications = () => {
         {
             title: "Extra Curriculum Achievements",
             items: [
-                { name: "Advanced Aircraft Design Workshop by Bharat Space Education Research Centre", url: "https://media.licdn.com/dms/image/v2/D4E2DAQG_YFrzcl9Krw/profile-treasury-image-shrink_800_800/B4EZldKOBxKcAY-/0/1758204587007?e=1766336400&v=beta&t=nrdQYkE2_yN3Gl3awJVnvjV30J63vQoBF7BeTZ3i9ss" },
-                { name: "Games of Shows – Certificate of Participation by VESLIT Council", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEA4SM5-FCSPg/profile-treasury-image-shrink_800_800/B4EZoA4HLzGUAc-/0/1760951303990?e=1766336400&v=beta&t=I6uo1Myxw7VdfceG29DhMpnbp3x2rzWyU0bwXAwV21g" },
+                { name: "Advanced Aircraft Design Workshop by Bharat Space Education Research Centre", url: "https://drive.google.com/file/d/1BkgHljW-MhDvtq-7sLL1RrL3G-TXt5y6/view?usp=drive_link" },
+                { name: "Games of Shows – Certificate of Participation by VESLIT Council", url: "https://drive.google.com/file/d/1mNv3ubFKAidBkVgAxXe4eTbU3AkpxiPJ/view?usp=drive_link" },
                 { 
                     name: "Maharashtra Youth For Climate Action Certifications by MYCA Foundation", 
                     hasDropdown: true,
@@ -58,32 +58,32 @@ const Certifications = () => {
                         { name: "Waste Management and Climate Action", url: "https://www.mahayouthnet.in/share-certificate?serialno=R9YZH8DH" }
                     ]
                 },
-                { name: "Manorama Tell Me Why Quiz in Current Affairs with association in BSE 2019", url: "https://media.licdn.com/dms/image/v2/D4E2DAQE6P5eZ9bfP8g/profile-treasury-image-shrink_800_800/B4EZlCPKUYKYAY-/0/1757752898042?e=1766336400&v=beta&t=w6UFLRfTSqJdlQT-bUpH46n4lauzSCtXeVJh8UzymaM" },
-                { name: "Akhil Bhartiya Gandharva Mahavidyalay Certification of Excellence in Harmonium", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEEIMn0H_wBmg/profile-treasury-image-shrink_800_800/B4EZlCOXHmIQAY-/0/1757752690605?e=1766336400&v=beta&t=ICy2ibllKrOnP8taZPmAZ66siNUn70oAO3Ki7MMaJfI" },
-                { name: "Dr. Homi Bhabha Balvaidnyanik Competition 6th Grade Certification by The Mumbai Science Teachers' Association", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEY-OQ-VB5utA/profile-treasury-image-shrink_1280_1280/B4EZlCMOgKKoAQ-/0/1757752128119?e=1766336400&v=beta&t=pWetXLDZUGsJ94zYCNSbf6zfmT_lqPAEtDI_gDRXZF0" },
+                { name: "Manorama Tell Me Why Quiz in Current Affairs with association in BSE 2019", url: "https://drive.google.com/file/d/1P5-_X4Om6-YtNf3oKvog--fq2vXqKKp6/view?usp=drive_link" },
+                { name: "Akhil Bhartiya Gandharva Mahavidyalay Certification of Excellence in Harmonium", url: "https://drive.google.com/file/d/152gMDRiRKc4yBUNi2PX_-ZLrg3_lfYaT/view?usp=drive_link" },
+                { name: "Dr. Homi Bhabha Balvaidnyanik Competition 6th Grade Certification by The Mumbai Science Teachers' Association", url: "https://drive.google.com/file/d/1CktK5yyhsb5S8X25AXsdl56477U51Tq6/view?usp=drive_link" },
                 { 
                     name: "IProto Robotics & Automation Program Under IRoboKid", 
                     hasDropdown: true,
                     dropdownItems: [
-                        { name: "IProto Level 2", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEzubPpgxt0fA/profile-treasury-image-shrink_800_800/B4EZlIDdJkGwAY-/0/1757850495258?e=1766336400&v=beta&t=g5AXtwKgoNrET-5PadkBIjplnhyNt5Fa9Xvky3m9JfU" },
-                        { name: "IProto Level 1", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEX89n8IlrjIg/profile-treasury-image-shrink_800_800/B4EZlIDZ3qIMAY-/0/1757850480229?e=1766336400&v=beta&t=tvK1fHoR8hYDEsgJMOpEjHgPMprWgWWIDk3f6UO_rdA" }
+                        { name: "IProto Level 2", url: "https://drive.google.com/file/d/1v7FpGXNKhg3quZYVZMjVXZkOfJHG2C52/view?usp=drive_link" },
+                        { name: "IProto Level 1", url: "https://drive.google.com/file/d/1Sb2muUH2qquLfh3cqp8qwSsd0CuLpgKg/view?usp=drive_link" }
                     ]
                 },
                 { 
                     name: "SilverZone Olympiad Certifications by SilverZone Foundation Under Society of Science Education", 
                     hasDropdown: true,
                     dropdownItems: [
-                        { name: "English Language", url: "https://media.licdn.com/dms/image/v2/D4E2DAQFIJYPUHkuMvw/profile-treasury-image-shrink_8192_8192/B4EZlCJX3XIQAg-/0/1757751380991?e=1766336400&v=beta&t=6MZvSLpaoyZLuLbO7m004DDwfPKhfIiDWvPBzv6OyPs" },
-                        { name: "Science", url: "https://media.licdn.com/dms/image/v2/D4E2DAQHxX0l8GVqVQA/profile-treasury-image-shrink_1280_1280/B4EZlCJPGQHEAU-/0/1757751343424?e=1766336400&v=beta&t=e6IHJldoW3qjCcGz4ekCBGSVYWvIKgH4PaoHU4SfG9o" },
-                        { name: "Informatics", url: "https://media.licdn.com/dms/image/v2/D4E2DAQH_mwdUPx3TAA/profile-treasury-image-shrink_1920_1920/B4EZlCJJteIkAc-/0/1757751321144?e=1766336400&v=beta&t=NXM9t8DDHfSfZrt2BZpVPfZjH34RhdQmXdpK0LZn4RQ" },
-                        { name: "Mathematics", url: "https://media.licdn.com/dms/image/v2/D4E2DAQHndWwr890U1A/profile-treasury-image-shrink_8192_8192/B4EZlCJExjKsAg-/0/1757751300978?e=1766336400&v=beta&t=Bc0BEqP6CjSb5YZmNbV4iRFy69nEFg6r8hIK4enOvw8" },
-                        { name: "General Knowledge", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEEu7AtumLasQ/profile-treasury-image-shrink_8192_8192/B4EZlCI1.0GUAg-/0/1757751240097?e=1766336400&v=beta&t=_e1szUkgp5OHc6d5HGrJMOu6-3DemtAxeQC_28-5vb4" }
+                        { name: "English Language", url: "https://drive.google.com/file/d/11uKUrqRdehWbCy1sn0atMW1iV2xu1PLa/view?usp=drive_link" },
+                        { name: "Science", url: "https://drive.google.com/file/d/1i4pK4pb82d8KlhJBAx3TxL_cm9IUA5-o/view?usp=drive_link" },
+                        { name: "Informatics", url: "https://drive.google.com/file/d/1izlEibtOH7nTv04p9V2o4bM4Kv4Or9al/view?usp=drive_link" },
+                        { name: "Mathematics", url: "https://drive.google.com/file/d/1KYRXdI9gh6Fd7r74fmx1zU5N6uu-Hm35/view?usp=drive_link" },
+                        { name: "General Knowledge", url: "https://drive.google.com/file/d/1sZlQUbqK7Eod_6yxsK1t3tp81OcI5uyn/view?usp=drive_link" }
                     ]
                 },
-                { name: "Helen O' Grady International's Course Completion in Speech & Drama", url: "https://media.licdn.com/dms/image/v2/D4E2DAQEc4sZT12HxZA/profile-treasury-image-shrink_800_800/B4EZlCLO8XIwAY-/0/1757751867647?e=1766336400&v=beta&t=WdpoC4fDYUAHAu5jyloUITvCnjMkLI_ZsT7Tf6YOv4k" },
-                { name: "Second Summer Coaching Camp in Badminton by Mulund Gymkhana", url: "https://media.licdn.com/dms/image/v2/D4E2DAQGWR6ddUpOJ9g/profile-treasury-image-shrink_800_800/B4EZlCKVcIGoAY-/0/1757751633977?e=1766336400&v=beta&t=n9bRHUvbtwlgEIldpnQel4ja_AYkM2dwnu_g1eBhEtY" },
-                { name: "SpellBee Certificate of Merit International Level issued by Spell Bee International ~ Language for Life", url: "https://media.licdn.com/dms/image/v2/D4E2DAQF5eTREnA6PvA/profile-treasury-image-shrink_1280_1280/B4EZlCE9nYHIAQ-/0/1757750228613?e=1766336400&v=beta&t=7DSOfzf0pUZHociIpdID-fp_hfLaW8UuO5U2nvxi4HE" },
-                { name: "National Abacus & Mental Arithmetic and Mathematics Test issued by The National Abacus & Mental Arithmetic and Mathematics Test Committee", url: "https://media.licdn.com/dms/image/v2/D4E2DAQE92UW2rCsFHw/profile-treasury-image-shrink_800_800/B4EZlCEBEwGYAY-/0/1757749979652?e=1766336400&v=beta&t=gAiw_bRJFr_rI2OIdaFyskM2_unOrxB45vRT-QgbI2E" },
+                { name: "Helen O' Grady International's Course Completion in Speech & Drama", url: "https://drive.google.com/file/d/1cswXswYmQx5FnFzyY4Y2HUUzzPTZ7ckl/view?usp=drive_link" },
+                { name: "Second Summer Coaching Camp in Badminton by Mulund Gymkhana", url: "https://drive.google.com/file/d/1ireoPGcjnH1Lg-j-jG8OZiZQ_5ODkRlH/view?usp=drive_link" },
+                { name: "SpellBee Certificate of Merit International Level issued by Spell Bee International ~ Language for Life", url: "https://drive.google.com/file/d/1LF7kl5HWB5ZjYuHL3BB2Y6fvBndw28ew/view?usp=drive_link" },
+                { name: "National Abacus & Mental Arithmetic and Mathematics Test issued by The National Abacus & Mental Arithmetic and Mathematics Test Committee", url: "https://drive.google.com/file/d/1Jh9dgB449_m8f2VE_p1iTnuZFGiDVDqL/view?usp=drive_link" },
             ]
         }
     ];
