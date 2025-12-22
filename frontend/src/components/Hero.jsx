@@ -75,7 +75,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, type: "spring" }}
-                    className="mb-6 sm:mb-8 relative cursor-pointer"
+                    className="mb-8 sm:mb-10 relative"
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
                     style={{
@@ -112,7 +112,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent mb-6 sm:mb-8 relative px-4"
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent mb-8 sm:mb-10 relative px-4 mt-4"
                 >
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0s' }}>F</span>
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0.05s' }}>u</span>
