@@ -2,6 +2,14 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
+// Import project images
+import myPortfolioImg from '../assets/project_images/myPortfolio.png';
+import studentPerfImg from '../assets/project_images/student_perf.png';
+import officepulseImg from '../assets/project_images/officepulse.png';
+import kicadImg from '../assets/project_images/kicad.jpg';
+import greenforkImg from '../assets/project_images/greenfork.png';
+import railwayImg from '../assets/project_images/railway_cust_java.jpg';
+
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const cardRefs = useRef([]);
@@ -10,6 +18,7 @@ const Projects = () => {
         {
             title: "FERN Based Portfolio",
             desc: "Engineered full-stack portfolio using Firebase, Express, React, Node.js with 10+ interactive sections, Deployed responsive design achieving 95% performance score and seamless cross-device compatibility.",
+            image: myPortfolioImg,
             links: [
                 { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/My-Portfolio.git" },
                 { icon: <FaExternalLinkAlt />, url: "https://atharva-lotankar-portfolio.onrender.com/" }
@@ -18,6 +27,7 @@ const Projects = () => {
         {
             title: "Student Performance Predictor",
             desc: "Developed Python Decision Tree and Random Forest models improving accuracy 25%, Integrated GROQ API enabling 3x faster AI insight generation efficiency.",
+            image: studentPerfImg,
             links: [
                 { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Student-Performance-Predictor---Data-Mining-GROQ-API.git" },
                 { icon: <FaExternalLinkAlt />, url: "https://student-performance-predictor-data.vercel.app/" }
@@ -26,6 +36,7 @@ const Projects = () => {
         {
             title: "OfficePulse",
             desc: "Built smart desk management system using Chart.js, boosting booking efficiency 50%, Integrated GROQ SDK for AI analytics, improving workspace optimization by 3x.",
+            image: officepulseImg,
             links: [
                 { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/OfficePulse_Project.git" },
                 { icon: <FaExternalLinkAlt />, url: "https://officepulse-frontend.onrender.com/" }
@@ -34,6 +45,7 @@ const Projects = () => {
         {
             title: "PCB Design & Implementation",
             desc: "Designed and routed PCBs using KiCad 9.0 with advanced DRC verification, Developed Touch Piano and Buck Converter schematics with customized footprints.",
+            image: kicadImg,
             links: [
                 { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/PCB-Designing-by-KiCad.git" }
             ]
@@ -41,6 +53,7 @@ const Projects = () => {
         {
             title: "GreenFork",
             desc: "Developed responsive GreenFork platform reducing food waste through surprise bags 40%, Integrated Firebase notifications enabling real-time donations.",
+            image: greenforkImg,
             links: [
                 { icon: <FaGithub />, url: "https://github.com/Flappleton/Greenfork.git" },
                 { icon: <FaExternalLinkAlt />, url: "https://greenfork-jade.vercel.app/index.html" },
@@ -50,6 +63,7 @@ const Projects = () => {
         {
             title: "Railways & Customers",
             desc: "Developed Java OOP system for railway data, improving booking process 30%, Engineered GUI forms using Swing for efficient train, customer data handling.",
+            image: railwayImg,
             links: [
                 { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Railway-and-Customer-Java-Project.git" }
             ]
@@ -128,6 +142,15 @@ const Projects = () => {
                             )}
 
                             <div className="relative z-10">
+                                {/* Project Image */}
+                                <div className="mb-4 overflow-hidden rounded-lg border-2 border-white/10 group-hover:border-accent/50 transition-all duration-300">
+                                    <img 
+                                        src={project.image} 
+                                        alt={project.title}
+                                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />
+                                </div>
+
                                 <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-accent transition-colors duration-300 group-hover:scale-105 inline-block">
                                     {project.title}
                                 </h3>
