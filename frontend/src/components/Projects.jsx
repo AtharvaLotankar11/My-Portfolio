@@ -9,12 +9,21 @@ import officepulseImg from '../assets/project_images/officepulse.png';
 import kicadImg from '../assets/project_images/kicad.jpg';
 import greenforkImg from '../assets/project_images/greenfork.png';
 import railwayImg from '../assets/project_images/railway_cust_java.jpg';
+import compliflowImg from '../assets/project_images/compliflow_img.png';
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const cardRefs = useRef([]);
 
     const projects = [
+        {
+            title: "CompliFlow: A Complaint/Issue Tracking System",
+            desc: "An AI-powered MERN platform for real-time complaint and issue tracking, enabling 40% faster resolution, workflow automation, role-based access, and analytics for enterprise-grade management.",
+            image: compliflowImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/CompliFlow_Website.git" }
+            ]
+        },
         {
             title: "FERN Based Portfolio",
             desc: "Engineered full-stack portfolio using Firebase, Express, React, Node.js with 10+ interactive sections, Deployed responsive design achieving 95% performance score and seamless cross-device compatibility.",
@@ -143,8 +152,8 @@ const Projects = () => {
                             <div className="relative z-10">
                                 {/* Project Image */}
                                 <div className="mb-4 overflow-hidden rounded-lg border-2 border-white/10 group-hover:border-accent/50 transition-all duration-300">
-                                    <img 
-                                        src={project.image} 
+                                    <img
+                                        src={project.image}
                                         alt={project.title}
                                         className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
