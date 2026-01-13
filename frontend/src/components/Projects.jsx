@@ -10,12 +10,21 @@ import kicadImg from '../assets/project_images/kicad.jpg';
 import greenforkImg from '../assets/project_images/greenfork.png';
 import railwayImg from '../assets/project_images/railway_cust_java.jpg';
 import compliflowImg from '../assets/project_images/compliflow_img.png';
+import instagramWrapImg from '../assets/project_images/Instagram_wrap.png';
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const cardRefs = useRef([]);
 
     const projects = [
+        {
+            title: "Instagram Wrapped: a Next JS Project",
+            desc: "Instagram Wrapped–inspired Next.js project generating personalized insight slides from Instagram metadata, including Interaction Key, Night Owl, Doom Scroller, Power Poster, and Group Chat analytics.",
+            image: instagramWrapImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Instagram-Wrapped-Project.git" }
+            ]
+        },
         {
             title: "CompliFlow: A Complaint/Issue Tracking System",
             desc: "An AI-powered MERN platform for real-time complaint and issue tracking, enabling 40% faster resolution, workflow automation, role-based access, and analytics for enterprise-grade management.",
