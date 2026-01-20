@@ -25,13 +25,25 @@ const Certifications = () => {
                         { name: "Database Programming with SQL", url: "https://drive.google.com/file/d/1Y7k-inpiZFXRY82L9xVtg7Gxw2-aCs_i/view?usp=drive_link" }
                     ]
                 },
-                { name: "Kerala Blockchain Academy's Certificate of Completion in Blockchain Foundation Programs", url: "https://media.licdn.com/dms/document/media/v2/D4D2DAQH_1O0Pv-kYzw/profile-treasury-document-pdf-analyzed/B4DZsKHkooLEBE-/0/1765401359192?e=1766620800&v=beta&t=q3rmmnsxVMpvqcYrdDEmqIhOOFlnRzISOQt__8WgBqc" },
-                { name: "Cloud Speech API in 3 Ways by Google Cloud Skills Boost", url: "https://www.credly.com/badges/06182327-3082-4b23-8227-edb6b3823394/public_url" },
-                { name: "Prompt Design in Vertex AI by Google Cloud Skills Boost", url: "https://www.credly.com/badges/cf7b75bb-c953-4f62-a5b0-7cf662481876/public_url" },
-                { name: "Set Up A Google Cloud Network by Google Cloud Skills Boost", url: "https://www.credly.com/badges/2d0609cd-1056-431f-8af6-b4708bfceda7/public_url" },
+                { name: "Kerala Blockchain Academy's Certificate of Completion in Blockchain Foundation Programs", url: "https://verify.kba.ai/view/IIITMK-KBA-BFP-OL-45490" },
+                { 
+                    name: "Google Cloud Skills Boost Badges", 
+                    hasDropdown: true,
+                    dropdownItems: [
+                        { name: "Cloud Speech API in 3 Ways", url: "https://www.credly.com/badges/06182327-3082-4b23-8227-edb6b3823394/public_url" },
+                        { name: "Prompt Design in Vertex AI", url: "https://www.credly.com/badges/cf7b75bb-c953-4f62-a5b0-7cf662481876/public_url" },
+                        { name: "Set up a google cloud network", url: "https://www.credly.com/badges/2d0609cd-1056-431f-8af6-b4708bfceda7/public_url" }
+                    ]
+                },
                 { name: "AWS Academy Graduate in Cloud Foundations by Amazon Web Services (AWS)", url: "https://drive.google.com/file/d/1ChS3ITWU6tdWz9xH01BLvHFxRY1b2aVD/view?usp=drive_link" },
-                { name: "Applications of AI for Anomaly Detection by NVIDIA", url: "https://learn.nvidia.com/certificates?id=ll-DmDRGRCO-LVUMUYpasA" },
-                { name: "Fundamentals of Deep Learning by NVIDIA", url: "https://learn.nvidia.com/certificates?id=is21AOsNQJqx-T1NnsczMQ#" },
+                { 
+                    name: "NVIDIA's Certificate of Competency", 
+                    hasDropdown: true,
+                    dropdownItems: [
+                        { name: "Fundamentals of Deep Learning", url: "https://learn.nvidia.com/certificates?id=is21AOsNQJqx-T1NnsczMQ#" },
+                        { name: "Applications of AI for Anomaly Detection", url: "https://learn.nvidia.com/certificates?id=ll-DmDRGRCO-LVUMUYpasA" }
+                    ]
+                },
                 { name: "Certificate of Participation in AppSprint Workshop by ISA VESIT", url: "https://drive.google.com/file/d/1SPW5jG1m2PPcnp0oJ6Ya2SUwzlgG7inT/view" },
                 { name: "Data Warehouse Concepts, Design, and Data Integration by University of Colorado", url: "https://www.coursera.org/account/accomplishments/verify/V3W7V399KY7K" },
                 { name: "Blockchain Basics - Certificate of Completion by Great Learning", url: "https://www.mygreatlearning.com/certificate/DPWRRJJH" },
