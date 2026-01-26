@@ -58,9 +58,10 @@ const Certifications = () => {
         {
             title: "Hackathon Certificates",
             items: [
-                { name: "Odoo X SPIT 25' Certificate of Participation by FEC Club SPIT", url: "https://drive.google.com/file/d/1QXmzU03Jr9VZEIK4ClSgsMw4KvcwwlO2/view?usp=sharing" },
-                { name: "Hackathon AI-Thon 3.0 Certificate of Achievement by AI Colegion VESIT", url: "https://drive.google.com/file/d/1-muADZcB8Ki56JBQDJNf3PVclV3-Rywy/view" },
-                { name: "Ves-Hack-It Hackathon Certificate of Participation by Unstop", url: "https://unstop.com/certificate-preview/8641c967-7775-4a6c-b02e-e18a84b55452" },
+                { name: "Certificate of Merit, Quasar 4.0 – Top 28 National Selection, PVPPCOE", url: "https://drive.google.com/file/d/1zzkSbHNAWYOaMId-I6Nt0WAtRC1D4o3J/view?usp=sharing" },
+                { name: "Certificate of Participation – Finalist, Odoo X SPIT 25 Hackathon, FEC Club SPIT", url: "https://drive.google.com/file/d/1QXmzU03Jr9VZEIK4ClSgsMw4KvcwwlO2/view?usp=sharing" },
+                { name: "Certificate of Achievement, Hack-AI-Thon 3.0 Hackathon – AI Colegion VESIT", url: "https://drive.google.com/file/d/1-muADZcB8Ki56JBQDJNf3PVclV3-Rywy/view" },
+                { name: "Certificate of Participation, Ves-Hack-It Hackathon – Unstop", url: "https://unstop.com/certificate-preview/8641c967-7775-4a6c-b02e-e18a84b55452" },
             ]
         },
         {
