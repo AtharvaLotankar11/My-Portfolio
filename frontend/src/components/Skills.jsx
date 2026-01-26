@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGitAlt, FaGithub, FaDocker, FaAws, FaMicrosoft, FaGoogle, FaJava, FaPython, FaReact, FaNodeJs, FaUbuntu } from 'react-icons/fa';
-import { SiJenkins, SiKubernetes, SiAutocad, SiKicad, SiOpenscad, SiMongodb, SiFirebase, SiSupabase, SiMysql, SiDart, SiCplusplus, SiC } from 'react-icons/si';
+import { SiJenkins, SiKubernetes, SiAutocad, SiKicad, SiOpenscad, SiMongodb, SiFirebase, SiSupabase, SiMysql, SiPostgresql, SiDjango, SiDart, SiCplusplus, SiC } from 'react-icons/si';
 
 const Skills = () => {
     const [hoveredCard, setHoveredCard] = useState(null);
@@ -37,6 +37,7 @@ const Skills = () => {
             title: "Databases",
             skills: [
                 { name: "MySQL", icon: <SiMysql /> },
+                { name: "PostgreSQL", icon: <SiPostgresql /> },
                 { name: "MongoDB", icon: <SiMongodb /> },
                 { name: "Firebase", icon: <SiFirebase /> },
                 { name: "Supabase", icon: <SiSupabase /> },
@@ -50,6 +51,7 @@ const Skills = () => {
                 { name: "Java", icon: <FaJava /> },
                 { name: "Python", icon: <FaPython /> },
                 { name: "MERN", icon: <FaReact /> },
+                { name: "Django", icon: <SiDjango /> },
                 { name: "Dart", icon: <SiDart /> },
                 { name: "VB", icon: <span className="font-bold text-xs">VB</span> },
             ]
