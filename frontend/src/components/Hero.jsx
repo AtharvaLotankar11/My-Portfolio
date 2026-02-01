@@ -69,19 +69,12 @@ const Hero = () => {
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 flex flex-col items-center text-center z-10">
-                {/* Profile Image with 3D Tilt */}
+                {/* Static Profile Image - Individual component */}
                 <motion.div
-                    ref={imageRef}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, type: "spring" }}
                     className="mb-8 sm:mb-10 relative"
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                    style={{
-                        ...tiltStyle,
-                        transition: 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
-                    }}
                 >
                     <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full p-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500 animate-gradient-shift animate-pulse-glow">
                         <img
@@ -97,22 +90,22 @@ const Hero = () => {
                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent via-purple-500 to-pink-500 blur-2xl -z-10 opacity-60 animate-pulse"></div>
                 </motion.div>
 
-                {/* Name with Magnetic Hover and Neon Effect */}
+                {/* Name - Individual component */}
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-accent to-purple-500 animate-gradient-shift magnetic-hover neon-text cursor-pointer px-4"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-accent to-purple-500 animate-gradient-shift magnetic-hover neon-text cursor-pointer px-4"
                 >
                     Atharva Lotankar
                 </motion.h1>
 
-                {/* Subtitle with Fade Scale Animation */}
+                {/* Subtitle - Individual component */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent mb-8 sm:mb-10 relative px-4 mt-4"
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent -mb-12 sm:-mb-20 md:-mb-28 lg:-mb-36 xl:-mb-44 relative px-4"
                 >
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0s' }}>F</span>
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0.05s' }}>u</span>
@@ -152,6 +145,23 @@ const Hero = () => {
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '1.75s' }}>t</span>
                 </motion.p>
 
+                {/* Mouse Animation - Individual interactive component */}
+                <motion.div
+                    ref={imageRef}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, type: "spring", delay: 0.7 }}
+                    className="mb-8 sm:mb-10 relative w-32 h-40 sm:w-40 sm:h-48 md:w-48 md:h-56 lg:w-56 lg:h-64 xl:w-64 xl:h-72 cursor-pointer"
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    style={{
+                        ...tiltStyle,
+                        transition: 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
+                    }}
+                >
+                    {/* Completely invisible interactive area - just background shows through */}
+                </motion.div>
+
                 {/* Scroll Indicator */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -159,8 +169,8 @@ const Hero = () => {
                     transition={{ delay: 1, duration: 1 }}
                     className="absolute bottom-6 sm:bottom-10 animate-bounce"
                 >
-                    <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-accent rounded-full flex justify-center">
-                        <div className="w-1 h-2 sm:h-3 bg-accent rounded-full mt-2 animate-pulse"></div>
+                    <div className="w-8 h-12 sm:w-10 sm:h-16 md:w-12 md:h-18 border-3 border-accent rounded-full flex justify-center">
+                        <div className="w-2 h-3 sm:w-3 sm:h-4 md:w-4 md:h-5 bg-accent rounded-full mt-3 sm:mt-4 animate-pulse"></div>
                     </div>
                 </motion.div>
             </div>

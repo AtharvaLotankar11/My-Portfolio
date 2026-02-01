@@ -34,7 +34,7 @@ const About = () => {
                         </div>
                         <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">🎓 Education & Skills</h3>
                         <p className="text-sm sm:text-base text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors">
-                            I'm currently pursuing a B.E. in Information Technology at Vivekanand Education Society's Institute of Technology (VESIT), building a strong foundation in computer science, software development, and IT domains. I've gained hands-on experience with languages and technologies like Java, Python, C/C++, SQL, HTML/CSS, JavaScript, TypeScript, Bash, Dart, Visual Basic, and the MERN stack.
+                            I'm currently pursuing a B.E. in Information Technology at Vivekanand Education Society's Institute of Technology (VESIT), building a strong foundation in computer science, software development, and IT domains. I've gained hands-on experience with languages and technologies like Java, Python, C/C++, MySQL and PostgreSQL, HTML/CSS/JS, Django, Bash, Dart, and MERN.
                         </p>
                     </motion.div>
 

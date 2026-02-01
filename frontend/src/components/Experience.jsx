@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import firstWork from '../assets/firstWork.png';
 import secondWork from '../assets/secondWork.jpg';
@@ -6,6 +6,35 @@ import thirdWork from '../assets/thirdWork.png';
 import fourthwork from '../assets/fourthwork.png';
 
 const Experience = () => {
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const experienceSection = document.getElementById('experience');
+            if (!experienceSection) return;
+
+            const rect = experienceSection.getBoundingClientRect();
+            const sectionHeight = experienceSection.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            // Start movement when section comes into view
+            let progress = 0;
+            if (rect.top <= windowHeight && rect.bottom >= 0) {
+                // Calculate how much of the section has been scrolled through
+                const scrolled = Math.max(0, windowHeight - rect.top);
+                const totalScrollable = sectionHeight + windowHeight;
+                progress = Math.min(1, scrolled / totalScrollable);
+            }
+            
+            setScrollProgress(progress);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial call
+        
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const experiences = [
         {
             role: "Senior Technical Officer",
@@ -50,6 +79,9 @@ const Experience = () => {
         }
     ];
 
+    // Calculate rocket position - starts at first pulse point (0%) and moves based on scroll progress
+    const rocketPosition = scrollProgress * 85; // 85% to end near the last experience
+
     return (
         <section id="experience" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
             {/* Animated Background */}
@@ -69,6 +101,91 @@ const Experience = () => {
                 </motion.h2>
 
                 <div className="relative border-l-2 border-white/10 ml-3 sm:ml-4 md:ml-10 space-y-8 sm:space-y-10 md:space-y-12">
+                    {/* Animated Rocket */}
+                    <motion.div
+                        className="absolute -left-[30px] sm:-left-[35px] z-20 pointer-events-none"
+                        style={{
+                            top: `${rocketPosition}%`,
+                        }}
+                        animate={{
+                            rotate: scrollProgress > 0.5 ? [0, 5, -5, 0] : [0, -5, 5, 0],
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    >
+                        {/* Rocket SVG - Increased Size */}
+                        <div className="relative">
+                            <svg 
+                                width="60" 
+                                height="60" 
+                                viewBox="0 0 100 100" 
+                                className="drop-shadow-lg"
+                            >
+                                {/* Rocket Body */}
+                                <ellipse cx="50" cy="45" rx="15" ry="30" fill="url(#rocketGradient)" stroke="#38bdf8" strokeWidth="2"/>
+                                
+                                {/* Rocket Nose */}
+                                <path d="M35 18 L50 8 L65 18 Z" fill="#ec4899" stroke="#38bdf8" strokeWidth="1"/>
+                                
+                                {/* Rocket Fins */}
+                                <path d="M35 65 L28 80 L35 75 Z" fill="#a855f7" stroke="#38bdf8" strokeWidth="1"/>
+                                <path d="M65 65 L72 80 L65 75 Z" fill="#a855f7" stroke="#38bdf8" strokeWidth="1"/>
+                                
+                                {/* Window */}
+                                <circle cx="50" cy="35" r="8" fill="#38bdf8" opacity="0.8"/>
+                                <circle cx="50" cy="35" r="6" fill="#ffffff" opacity="0.9"/>
+                                
+                                {/* Flame */}
+                                <motion.path 
+                                    d="M42 75 L50 92 L58 75 L54 82 L46 82 Z" 
+                                    fill="url(#flameGradient)"
+                                    animate={{
+                                        scaleY: [1, 1.3, 0.8, 1.2, 1],
+                                        opacity: [0.8, 1, 0.6, 1, 0.8]
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                />
+                                
+                                {/* Gradients */}
+                                <defs>
+                                    <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stopColor="#38bdf8" />
+                                        <stop offset="50%" stopColor="#a855f7" />
+                                        <stop offset="100%" stopColor="#ec4899" />
+                                    </linearGradient>
+                                    <linearGradient id="flameGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stopColor="#fbbf24" />
+                                        <stop offset="50%" stopColor="#f97316" />
+                                        <stop offset="100%" stopColor="#dc2626" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            
+                            {/* Rocket Trail */}
+                            <motion.div
+                                className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-t from-accent via-purple-500 to-transparent rounded-full"
+                                style={{
+                                    height: `${Math.max(0, scrollProgress * 120)}px`,
+                                }}
+                                animate={{
+                                    opacity: [0.3, 0.7, 0.3],
+                                }}
+                                transition={{
+                                    duration: 1.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
+                        </div>
+                    </motion.div>
+
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={index}
