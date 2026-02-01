@@ -42,7 +42,7 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center items-center pt-20 relative overflow-hidden">
+        <section id="home" className="min-h-screen flex flex-col justify-center items-center pt-32 relative overflow-hidden">
             {/* Particle Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
                 {particles.map((particle) => (
