@@ -11,12 +11,21 @@ import greenforkImg from '../assets/project_images/greenfork.png';
 import railwayImg from '../assets/project_images/railway_cust_java.jpg';
 import compliflowImg from '../assets/project_images/compliflow_img.png';
 import instagramWrapImg from '../assets/project_images/Instagram_wrap.png';
+import clinifyImg from '../assets/project_images/clinify_his.png';
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const cardRefs = useRef([]);
 
     const projects = [
+        {
+            title: "Clinify – Smart Hospital Information Ecosystem",
+            desc: "Designed modular AI-enabled HIS using Django, PostgreSQL, React, REST APIs, RBAC dashboards, Gemini-powered NLP summarization, voice notes, intelligent scheduling automation.",
+            image: clinifyImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/ronitsahoo/Clinify_HIS" }
+            ]
+        },
         {
             title: "Instagram Wrapped: a Next JS Project",
             desc: "Instagram Wrapped–inspired Next.js project generating personalized insight slides from Instagram metadata, including Interaction Key, Night Owl, Doom Scroller, Power Poster, and Group Chat analytics.",
