@@ -59,6 +59,7 @@ const Certifications = () => {
             title: "Hackathon Certificates",
             items: [
                 { name: "Certificate of Appreciation, InnovGenius - Finalist in TCET, Mumbai", url: "https://drive.google.com/file/d/1fVqQKzsAiDXNM7PisEg1T9htsvvrkdxT/view?usp=drive_link" },
+                { name: "Certificate of Participation, KJSSE's AgriTech 2026 Hackathon - Finalist, 24 Hour National Hackathon", url: "https://drive.google.com/file/d/1ph-jG15H0cDBu2chgXmo6g3b0LWVhEpx/view?usp=drive_link" },
                 { name: "Certificate of Merit, Quasar 4.0 – Top 28 National Selection, PVPPCOE", url: "https://drive.google.com/file/d/1zzkSbHNAWYOaMId-I6Nt0WAtRC1D4o3J/view?usp=sharing" },
                 { name: "Certificate of Participation – Finalist, Odoo X SPIT 25 Hackathon, FEC Club SPIT", url: "https://drive.google.com/file/d/1QXmzU03Jr9VZEIK4ClSgsMw4KvcwwlO2/view?usp=sharing" },
                 { name: "Certificate of Achievement, Hack-AI-Thon 3.0 Hackathon – AI Colegion VESIT", url: "https://drive.google.com/file/d/1-muADZcB8Ki56JBQDJNf3PVclV3-Rywy/view" },
