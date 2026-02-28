@@ -79,8 +79,8 @@ const Experience = () => {
         }
     ];
 
-    // Calculate rocket position - starts at first pulse point (0%) and moves based on scroll progress
-    const rocketPosition = scrollProgress * 85; // 85% to end near the last experience
+    // Calculate rocket position - starts at apex (top) and moves slowly to the end
+    const rocketPosition = scrollProgress * 100; // Moves from 0% (top) to 100% (bottom)
 
     return (
         <section id="experience" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">

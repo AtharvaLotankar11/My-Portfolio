@@ -23,7 +23,7 @@ const Projects = () => {
             desc: "Designed modular AI-enabled HIS using Django, PostgreSQL, React, REST APIs, RBAC dashboards, Gemini-powered NLP summarization, voice notes, intelligent scheduling automation.",
             image: clinifyImg,
             links: [
-                { icon: <FaGithub />, url: "https://github.com/ronitsahoo/Clinify_HIS" }
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Clinify_Hospital_Project.git" }
             ]
         },
         {
@@ -81,7 +81,7 @@ const Projects = () => {
             desc: "Developed responsive GreenFork platform reducing food waste through surprise bags 40%, Integrated Firebase notifications enabling real-time donations.",
             image: greenforkImg,
             links: [
-                { icon: <FaGithub />, url: "https://github.com/Flappleton/Greenfork.git" },
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/GreenFork---Field-Project.git" },
                 { icon: <FaExternalLinkAlt />, url: "https://greenfork-jade.vercel.app/index.html" },
                 { icon: <FaFileAlt />, url: "https://drive.google.com/file/d/1tHJ5wZJ07ukBEksNFJkZSL7ioQGmYrgn/view" }
             ]
