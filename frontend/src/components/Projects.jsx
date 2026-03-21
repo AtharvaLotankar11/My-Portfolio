@@ -4,20 +4,29 @@ import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
 // Import project images
 import myPortfolioImg from '../assets/project_images/myPortfolio.png';
-import studentPerfImg from '../assets/project_images/student_perf.png';
+
 import officepulseImg from '../assets/project_images/officepulse.png';
-import kicadImg from '../assets/project_images/kicad.jpg';
+
 import greenforkImg from '../assets/project_images/greenfork.png';
 import railwayImg from '../assets/project_images/railway_cust_java.jpg';
 import compliflowImg from '../assets/project_images/compliflow_img.png';
 import instagramWrapImg from '../assets/project_images/Instagram_wrap.png';
 import clinifyImg from '../assets/project_images/clinify_his.png';
+import nexCartImg from '../assets/project_images/nexCart.png';
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const cardRefs = useRef([]);
 
     const projects = [
+        {
+            title: "NexCart AI – Predictive E-Commerce Platform",
+            desc: "Engineered an AI-driven full-stack e-commerce platform using Next.js and Django REST, featuring LSTM-based predictive modeling for personalized recommendations and Ethereum smart contracts for immutable order tracking.",
+            image: nexCartImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/NexCart-DL_Project_using_LSTM.git" }
+            ]
+        },
         {
             title: "Clinify – Smart Hospital Information Ecosystem",
             desc: "Designed modular AI-enabled HIS using Django, PostgreSQL, React, REST APIs, RBAC dashboards, Gemini-powered NLP summarization, voice notes, intelligent scheduling automation.",
@@ -51,14 +60,7 @@ const Projects = () => {
                 { icon: <FaExternalLinkAlt />, url: "https://atharva-lotankar-portfolio.onrender.com/" }
             ]
         },
-        {
-            title: "Student Performance Predictor",
-            desc: "Developed Python Decision Tree and Random Forest models improving accuracy 25%, Integrated GROQ API enabling 3x faster AI insight generation efficiency.",
-            image: studentPerfImg,
-            links: [
-                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Student-Performance-Predictor---Data-Mining-GROQ-API.git" }
-            ]
-        },
+
         {
             title: "OfficePulse",
             desc: "Built smart desk management system using Chart.js, boosting booking efficiency 50%, Integrated GROQ SDK for AI analytics, improving workspace optimization by 3x.",
@@ -68,14 +70,7 @@ const Projects = () => {
                 { icon: <FaExternalLinkAlt />, url: "https://officepulse-frontend.onrender.com/" }
             ]
         },
-        {
-            title: "PCB Design & Implementation",
-            desc: "Designed and routed PCBs using KiCad 9.0 with advanced DRC verification, Developed Touch Piano and Buck Converter schematics with customized footprints.",
-            image: kicadImg,
-            links: [
-                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/PCB-Designing-by-KiCad.git" }
-            ]
-        },
+
         {
             title: "GreenFork",
             desc: "Developed responsive GreenFork platform reducing food waste through surprise bags 40%, Integrated Firebase notifications enabling real-time donations.",
@@ -116,11 +111,11 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="py-12 sm:py-16 md:py-20 bg-secondary/30 relative overflow-hidden">
+        <section id="projects" className="py-12 sm:py-16 md:py-20 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[10%] left-[5%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-pink-500/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[20%] right-[5%] sm:right-[10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-purple-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-[10%] left-[5%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-earth/10 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-[20%] right-[5%] sm:right-[10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6">
@@ -128,7 +123,7 @@ const Projects = () => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-accent font-display tracking-widest uppercase drop-shadow-[0_0_10px_rgba(152,174,179,0.3)]"
                 >
                     Projects
                 </motion.h2>

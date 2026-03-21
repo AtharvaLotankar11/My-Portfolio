@@ -50,12 +50,12 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 bg-primary/95 backdrop-blur-md border-b border-white/10 shadow-lg">
-            <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-[#0B0808]/95 backdrop-blur-md border-b border-white/10 shadow-lg">
+            <div className="container mx-auto px-4 sm:px-6 py-8 flex justify-between items-center">
                 {/* Logo / Name */}
                 <Link to="/" onClick={handleLinkClick}>
                     <motion.h1
-                        className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 cursor-pointer"
+                        className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent to-earth font-display tracking-wider uppercase whitespace-nowrap cursor-pointer"
                         whileHover={{
                             scale: 1.05,
                             textShadow: "0px 0px 8px rgb(56, 189, 248)",
@@ -90,7 +90,7 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
                     {[
                         { name: 'Home', path: '/' },
-                        { name: 'About Me', path: '/#about' },
+                        { name: 'About', path: '/#about' },
                         { name: 'Skills', path: '/#skills' },
                         { name: 'Education', path: '/#education' },
                         { name: 'Experience', path: '/#experience' },
@@ -100,7 +100,7 @@ const Navbar = () => {
                         <Link
                             key={link.name}
                             to={link.path}
-                            className="relative text-gray-300 hover:text-accent transition-colors duration-300 text-xs lg:text-sm font-medium tracking-wider uppercase group"
+                            className="relative text-gray-300 hover:text-accent transition-colors duration-300 text-xs lg:text-sm font-medium tracking-wider uppercase whitespace-nowrap group"
                         >
                             <motion.span
                                 whileHover={{ scale: 1.1, y: -2 }}
@@ -122,14 +122,14 @@ const Navbar = () => {
                     {currentUser && (
                         <button
                             onClick={() => scrollToSection('#message-me')}
-                            className="relative text-gray-300 hover:text-accent transition-colors duration-300 text-xs lg:text-sm font-medium tracking-wider uppercase group"
+                            className="relative text-gray-300 hover:text-accent transition-colors duration-300 text-xs lg:text-sm font-medium tracking-wider uppercase whitespace-nowrap group"
                         >
                             <motion.span
                                 whileHover={{ scale: 1.1, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="block"
                             >
-                                Message Me
+                                Message
                             </motion.span>
                             <motion.span
                                 className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-purple-500 group-hover:w-full transition-all duration-300"
@@ -199,10 +199,10 @@ const Navbar = () => {
                             onMouseLeave={() => setIsConnectOpen(false)}
                         >
                             <motion.button
-                                className="flex items-center space-x-1 text-gray-300 hover:text-accent transition-colors duration-300 text-xs lg:text-sm font-medium focus:outline-none tracking-wider uppercase"
+                                className="flex items-center space-x-1 text-gray-300 hover:text-accent transition-colors duration-300 text-xs lg:text-sm font-medium whitespace-nowrap focus:outline-none tracking-wider uppercase"
                                 whileHover={{ scale: 1.05, y: -2 }}
                             >
-                                <span>Let's Connect</span>
+                                <span>Connect</span>
                                 <motion.div
                                     animate={{ rotate: isConnectOpen ? 180 : 0 }}
                                     transition={{ duration: 0.3 }}
@@ -266,7 +266,7 @@ const Navbar = () => {
                                 animate={{ x: 0 }}
                                 exit={{ x: '100%' }}
                                 transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
-                                className="fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] border-l border-white/10 shadow-2xl md:hidden overflow-y-auto"
+                                className="fixed top-0 right-0 h-screen w-[85%] max-w-sm bg-gradient-to-br from-[#0B0808] via-[#111111] to-[#0B0808] border-l border-white/10 shadow-2xl md:hidden overflow-y-auto"
                                 style={{ zIndex: 999 }}
                             >
                                 {/* Close Button */}
@@ -281,8 +281,8 @@ const Navbar = () => {
                                 </motion.button>
 
                                 {/* Abstract Gradient Decorations */}
-                                <div className="absolute top-10 right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-pulse pointer-events-none" />
-                                <div className="absolute bottom-20 left-10 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
+                                <div className="absolute top-10 right-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+                                <div className="absolute bottom-20 left-10 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
 
                                 <div className="relative z-10 p-8 pt-20">
                                     {/* User Info or Connect */}
@@ -333,7 +333,7 @@ const Navbar = () => {
                                     <nav className="space-y-2">
                                         {[
                                             { name: 'Home', path: '/' },
-                                            { name: 'About Me', path: '/#about' },
+                                            { name: 'About', path: '/#about' },
                                             { name: 'Skills', path: '/#skills' },
                                             { name: 'Education', path: '/#education' },
                                             { name: 'Experience', path: '/#experience' },
@@ -370,7 +370,7 @@ const Navbar = () => {
                                                     className="block w-full text-left py-3 px-4 text-gray-300 hover:text-accent hover:bg-white/5 rounded-lg transition-all font-medium group"
                                                 >
                                                     <span className="flex items-center justify-between">
-                                                        Message Me
+                                                        Message
                                                         <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                                                     </span>
                                                 </button>

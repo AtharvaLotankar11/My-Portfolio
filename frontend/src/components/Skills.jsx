@@ -1,36 +1,42 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGitAlt, FaGithub, FaDocker, FaAws, FaMicrosoft, FaGoogle, FaJava, FaPython, FaReact, FaNodeJs, FaUbuntu } from 'react-icons/fa';
-import { SiJenkins, SiKubernetes, SiAutocad, SiKicad, SiOpenscad, SiMongodb, SiFirebase, SiSupabase, SiMysql, SiPostgresql, SiDjango, SiDart, SiCplusplus, SiC } from 'react-icons/si';
+import { FaGitAlt, FaGithub, FaDocker, FaAws, FaMicrosoft, FaGoogle, FaJava, FaPython, FaReact, FaNodeJs, FaUbuntu, FaHtml5, FaCss3Alt } from 'react-icons/fa';
+import { SiJenkins, SiKubernetes, SiMongodb, SiFirebase, SiSupabase, SiMysql, SiPostgresql, SiDart, SiCplusplus, SiJavascript, SiTensorflow, SiPandas, SiNumpy, SiNextdotjs, SiExpress } from 'react-icons/si';
 
 const Skills = () => {
     const [hoveredCard, setHoveredCard] = useState(null);
 
     const skillCategories = [
         {
-            title: "Automation",
+            title: "Languages",
             skills: [
-                { name: "Git", icon: <FaGitAlt /> },
-                { name: "GitHub", icon: <FaGithub /> },
-                { name: "Jenkins", icon: <SiJenkins /> },
-                { name: "Docker", icon: <FaDocker /> },
-                { name: "Kubernetes", icon: <SiKubernetes /> },
+                { name: "Python", icon: <FaPython /> },
+                { name: "Java", icon: <FaJava /> },
+                { name: "C/C++", icon: <SiCplusplus /> },
+                { name: "Dart", icon: <SiDart /> },
+                { name: "JavaScript (ES6+)", icon: <SiJavascript /> },
             ]
         },
         {
-            title: "CAD/CAM",
+            title: "ML & Data",
             skills: [
-                { name: "AutoCAD", icon: <SiAutocad /> },
-                { name: "KiCad", icon: <SiKicad /> },
-                { name: "OpenSCAD", icon: <SiOpenscad /> },
+                { name: "Machine Learning", icon: <span className="font-bold text-xs">ML</span> },
+                { name: "TensorFlow", icon: <SiTensorflow /> },
+                { name: "Computer Vision", icon: <span className="font-bold text-xs">CV</span> },
+                { name: "Data Analysis", icon: <span className="font-bold text-xs">DA</span> },
+                { name: "Pandas", icon: <SiPandas /> },
+                { name: "NumPy", icon: <SiNumpy /> },
             ]
         },
         {
-            title: "Cloud",
+            title: "Web Dev.",
             skills: [
-                { name: "AWS", icon: <FaAws /> },
-                { name: "Azure", icon: <FaMicrosoft /> },
-                { name: "GCP", icon: <FaGoogle /> },
+                { name: "React.js", icon: <FaReact /> },
+                { name: "Next.js", icon: <SiNextdotjs /> },
+                { name: "Node.js", icon: <FaNodeJs /> },
+                { name: "Express.js", icon: <SiExpress /> },
+                { name: "HTML5", icon: <FaHtml5 /> },
+                { name: "CSS3", icon: <FaCss3Alt /> },
             ]
         },
         {
@@ -44,24 +50,23 @@ const Skills = () => {
             ]
         },
         {
-            title: "Languages",
+            title: "DevOps",
             skills: [
-                { name: "C", icon: <SiC /> },
-                { name: "C++", icon: <SiCplusplus /> },
-                { name: "Java", icon: <FaJava /> },
-                { name: "Python", icon: <FaPython /> },
-                { name: "MERN", icon: <FaReact /> },
-                { name: "Django", icon: <SiDjango /> },
-                { name: "Dart", icon: <SiDart /> },
-                { name: "VB", icon: <span className="font-bold text-xs">VB</span> },
+                { name: "Git", icon: <FaGitAlt /> },
+                { name: "GitHub", icon: <FaGithub /> },
+                { name: "Docker", icon: <FaDocker /> },
+                { name: "Kubernetes", icon: <SiKubernetes /> },
+                { name: "Jenkins", icon: <SiJenkins /> },
+                { name: "AWS", icon: <FaAws /> },
+                { name: "Azure", icon: <FaMicrosoft /> },
+                { name: "GCP", icon: <FaGoogle /> },
             ]
         },
         {
             title: "OS",
             skills: [
-                { name: "Ubuntu", icon: <FaUbuntu /> },
-                { name: "Raspbian", icon: <span className="font-bold text-xs">Pi</span> },
-                { name: "OpenStack", icon: <span className="font-bold text-xs">OS</span> },
+                { name: "Linux (Ubuntu)", icon: <FaUbuntu /> },
+                { name: "Raspberry Pi OS", icon: <span className="font-bold text-[10px] leading-tight text-center">Pi<br/>OS</span> },
                 { name: "MacOS", icon: <span className="font-bold text-xs">Mac</span> },
             ]
         }
@@ -71,8 +76,8 @@ const Skills = () => {
         <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[20%] right-[5%] sm:right-[10%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-purple-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute bottom-[30%] left-[5%] sm:left-[15%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+                <div className="absolute top-[20%] right-[5%] sm:right-[10%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute bottom-[30%] left-[5%] sm:left-[15%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6">
@@ -80,7 +85,7 @@ const Skills = () => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-accent font-display tracking-widest uppercase drop-shadow-[0_0_10px_rgba(152,174,179,0.3)]"
                 >
                     Skills
                 </motion.h2>
@@ -108,7 +113,7 @@ const Skills = () => {
 
                             {/* Glow effect */}
                             {hoveredCard === index && (
-                                <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-purple-500/10 to-pink-500/10 animate-pulse-glow rounded-xl"></div>
+                                <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-earth/5 animate-pulse-glow rounded-xl"></div>
                             )}
 
                             <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5 md:mb-6 text-center text-white relative z-10 group-hover:text-accent transition-colors duration-300">
@@ -128,10 +133,10 @@ const Skills = () => {
                                             stiffness: 200
                                         }}
                                     >
-                                        <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-primary rounded-full text-xl sm:text-2xl text-gray-400 group-hover/skill:text-accent group-hover/skill:scale-110 sm:group-hover/skill:scale-125 transition-all duration-300 mb-1.5 sm:mb-2 magnetic-hover animate-glow-pulse">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#0B0808] rounded-full text-xl sm:text-2xl text-gray-400 group-hover/skill:text-accent group-hover/skill:scale-110 sm:group-hover/skill:scale-125 transition-all duration-300 mb-1.5 sm:mb-2 magnetic-hover animate-glow-pulse">
                                             {skill.icon}
                                         </div>
-                                        <span className="text-[10px] sm:text-xs text-gray-500 group-hover/skill:text-white transition-colors">
+                                        <span className="text-[10px] sm:text-xs text-center text-gray-500 group-hover/skill:text-white transition-colors w-16 sm:w-20 leading-tight">
                                             {skill.name}
                                         </span>
                                     </motion.div>

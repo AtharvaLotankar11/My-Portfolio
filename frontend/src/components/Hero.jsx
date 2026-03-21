@@ -63,9 +63,9 @@ const Hero = () => {
 
             {/* Animated Background Gradients */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-                <div className="absolute top-[-10%] left-[-10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-purple-600/30 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-                <div className="absolute top-[40%] left-[50%] w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+                <div className="absolute top-[-10%] left-[-10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-[40%] left-[50%] w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 bg-earth/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6 flex flex-col items-center text-center z-10">
@@ -76,7 +76,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, type: "spring" }}
                     className="mb-8 sm:mb-10 relative"
                 >
-                    <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full p-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500 animate-gradient-shift animate-pulse-glow">
+                    <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full p-1 bg-gradient-to-r from-accent to-earth animate-gradient-shift animate-pulse-glow">
                         <img
                             src={myPhoto}
                             alt="Atharva Lotankar"
@@ -87,7 +87,7 @@ const Hero = () => {
                             <div className="absolute inset-0 animate-shimmer"></div>
                         </div>
                     </div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent via-purple-500 to-pink-500 blur-2xl -z-10 opacity-60 animate-pulse"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-accent to-earth blur-2xl -z-10 opacity-60 animate-pulse"></div>
                 </motion.div>
 
                 {/* Name - Individual component */}
@@ -95,7 +95,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-accent to-purple-500 animate-gradient-shift magnetic-hover neon-text cursor-pointer px-4"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-accent to-earth font-display tracking-widest uppercase animate-gradient-shift magnetic-hover cursor-pointer px-4"
                 >
                     Atharva Lotankar
                 </motion.h1>

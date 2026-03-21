@@ -10,8 +10,8 @@ const Education = () => {
     const educationData = [
         {
             institution: "Vivekanand Education Society's Institute of Technology",
-            degree: "B.E. in Information Technology",
-            details: "Minors in Cloud Computing. Aggregate CGPA: 9.90",
+            degree: "B.Tech. in Information Technology",
+            details: "Minor in Cloud Computing. Aggregate CGPA: 9.90",
             duration: "Sep 2023 - May 2027",
             logo: fourthwork
         },
@@ -32,11 +32,11 @@ const Education = () => {
     ];
 
     return (
-        <section id="education" className="py-12 sm:py-16 md:py-20 bg-secondary/30 relative overflow-hidden">
+        <section id="education" className="py-12 sm:py-16 md:py-20 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[30%] left-[5%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-purple-500/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[10%] right-[5%] sm:right-[20%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-[30%] left-[5%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-[10%] right-[5%] sm:right-[20%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6">
@@ -44,7 +44,7 @@ const Education = () => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-accent font-display tracking-widest uppercase drop-shadow-[0_0_10px_rgba(152,174,179,0.3)]"
                 >
                     Education
                 </motion.h2>

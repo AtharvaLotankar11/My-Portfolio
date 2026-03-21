@@ -40,7 +40,7 @@ const Experience = () => {
             role: "Senior Technical Officer",
             company: "QuestIT",
             duration: "Aug 2025 - May 2026",
-            desc: "• 🎓 Conducted \"CodeFlix\", a 2-day ML Workshop 🧠 where learners built a Netflix Recommendation Engine Clone 🎬 using KNN",
+            desc: "During my tenure, I led the 'CodeFlix' ML workshop, guiding over 30 students to build and implement a KNN-based recommendation engine, achieving a 95% project completion rate. Beyond technical mentorship, I initiated the council's first O2O sponsorship transaction for the GENESIS 2026 Hackathon—a major event engaging 200+ participants and 3 judging panels. I also took charge of our digital presence by redesigning the QuestIT council website, engineering the complete frontend and partial backend architecture to streamline operations for our 50+ members.",
             logo: firstWork,
             links: []
         },
@@ -86,8 +86,8 @@ const Experience = () => {
         <section id="experience" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[25%] right-[5%] sm:right-[20%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
-                <div className="absolute bottom-[15%] left-[5%] sm:left-[10%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-pink-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '3.5s' }}></div>
+                <div className="absolute top-[25%] right-[5%] sm:right-[20%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+                <div className="absolute bottom-[15%] left-[5%] sm:left-[10%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-earth/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3.5s' }}></div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6">
@@ -95,7 +95,7 @@ const Experience = () => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-accent font-display tracking-widest uppercase drop-shadow-[0_0_10px_rgba(152,174,179,0.3)]"
                 >
                     Experience
                 </motion.h2>
@@ -170,7 +170,7 @@ const Experience = () => {
                             
                             {/* Rocket Trail */}
                             <motion.div
-                                className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-t from-accent via-purple-500 to-transparent rounded-full"
+                                className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-t from-accent to-transparent rounded-full"
                                 style={{
                                     height: `${Math.max(0, scrollProgress * 120)}px`,
                                 }}
@@ -237,7 +237,7 @@ const Experience = () => {
                                             <p className="text-accent text-sm sm:text-base">{exp.company}</p>
                                         </div>
                                     </div>
-                                    <span className="text-xs sm:text-sm text-gray-400 bg-white/5 px-2.5 sm:px-3 py-1 rounded-full group-hover:bg-accent/20 transition-colors duration-300 self-start md:self-auto">{exp.duration}</span>
+                                    <span className="text-xs sm:text-sm text-gray-400 bg-white/5 px-2.5 sm:px-3 py-1 rounded-full group-hover:bg-accent/10 transition-colors duration-300 self-start md:self-auto">{exp.duration}</span>
                                 </div>
 
                                 <p className="text-gray-300 mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed relative z-10 group-hover:text-white transition-colors">{exp.desc}</p>

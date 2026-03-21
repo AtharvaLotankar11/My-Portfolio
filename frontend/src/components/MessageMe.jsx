@@ -53,7 +53,7 @@ const MessageMe = () => {
     }
 
     return (
-        <section id="message-me" className="py-20 bg-secondary/30">
+        <section id="message-me" className="py-20 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5">
             <div className="container mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -121,7 +121,7 @@ const MessageMe = () => {
                                     value={message}
                                     onChange={(e) => setMessage(e.target.value)}
                                     rows="6"
-                                    className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors resize-none"
+                                    className="w-full bg-[#0B0808]/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors resize-none"
                                     placeholder="Type your message here..."
                                     disabled={loading}
                                 />

@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 const About = () => {
     return (
-        <section id="about" className="py-12 sm:py-16 md:py-20 bg-secondary/30 relative overflow-hidden">
+        <section id="about" className="py-12 sm:py-16 md:py-20 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[15%] left-[5%] sm:left-[10%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[25%] right-[5%] sm:right-[15%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-purple-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2.5s' }}></div>
+                <div className="absolute top-[15%] left-[5%] sm:left-[10%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-accent/10 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-[25%] right-[5%] sm:right-[15%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2.5s' }}></div>
             </div>
 
             <div className="container mx-auto px-4 sm:px-6">
@@ -15,7 +15,7 @@ const About = () => {
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-accent via-purple-500 to-pink-500 neon-text"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-accent font-display tracking-widest uppercase drop-shadow-[0_0_10px_rgba(152,174,179,0.3)]"
                 >
                     About Me
                 </motion.h2>
