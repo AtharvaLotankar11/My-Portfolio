@@ -11,6 +11,7 @@ import greenforkImg from '../assets/project_images/greenfork.png';
 import railwayImg from '../assets/project_images/railway_cust_java.jpg';
 import compliflowImg from '../assets/project_images/compliflow_img.png';
 import instagramWrapImg from '../assets/project_images/Instagram_wrap.png';
+import attensiaImg from '../assets/project_images/attensia_pic.png';
 import clinifyImg from '../assets/project_images/clinify_his.png';
 import nexCartImg from '../assets/project_images/nexCart.png';
 
@@ -41,6 +42,14 @@ const Projects = () => {
             image: instagramWrapImg,
             links: [
                 { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Instagram-Wrapped-Project.git" }
+            ]
+        },
+        {
+            title: "Attensia – Smart Attendance Management Application",
+            desc: "Cross-platform Flutter mobile app for academic attendance tracking with MVC architecture, Supabase backend, and PostgreSQL. Features real-time attendance calculation, intelligent timetable management, data analytics, secure authentication, and neo-brutal UI with Material Design 3 across Android and iOS.",
+            image: attensiaImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Attensia.git" }
             ]
         },
         {
