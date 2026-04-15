@@ -41,7 +41,7 @@ const Experience = () => {
             role: "Data Science Intern",
             company: "Vaidsys Technologies",
             duration: "Apr 2026 - May 2026",
-            desc: "Built NLP-based sentiment analysis on social media data enabling trend and polarity insights. Performed healthcare data analytics deriving actionable insights using Python-based pipelines.",
+            desc: "Developed an NLP-based sentiment analysis system on social media data, performing preprocessing, feature engineering, and classification to derive sentiment trends and actionable insights for brand monitoring. Additionally, built Python-based healthcare data analytics pipelines to clean and analyze patient data, applied exploratory analysis and predictive modeling, and generated insights to improve decision-making and resource optimization.",
             logo: vaidsysIntern,
             links: []
         },
