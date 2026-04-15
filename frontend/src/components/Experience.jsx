@@ -4,6 +4,7 @@ import firstWork from '../assets/firstWork.png';
 import secondWork from '../assets/secondWork.jpg';
 import thirdWork from '../assets/thirdWork.png';
 import fourthwork from '../assets/fourthwork.png';
+import vaidsysIntern from '../assets/vaidsysIntern.png';
 
 const Experience = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -36,6 +37,14 @@ const Experience = () => {
     }, []);
 
     const experiences = [
+        {
+            role: "Data Science Intern",
+            company: "Vaidsys Technologies",
+            duration: "Apr 2026 - May 2026",
+            desc: "Built NLP-based sentiment analysis on social media data enabling trend and polarity insights. Performed healthcare data analytics deriving actionable insights using Python-based pipelines.",
+            logo: vaidsysIntern,
+            links: []
+        },
         {
             role: "Senior Technical Officer",
             company: "QuestIT Council - IT Department, VESIT",
