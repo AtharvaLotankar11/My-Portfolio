@@ -21,6 +21,14 @@ const Projects = () => {
 
     const projects = [
         {
+            title: "Sentiqo AI: Social Media Sentimental Analysis",
+            desc: "Built a multi-tenant NLP sentiment analysis platform using React and Django, featuring a Hybrid Ensemble ML model for real-time brand monitoring, bulk CSV ingestion, Recharts-powered trend visualization, and JWT-secured analyst dashboards.",
+            image: nexCartImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Sentiqo-AI---Social-Media-Sentimental-Analysis.git" }
+            ]
+        },
+        {
             title: "NexCart AI – Predictive E-Commerce Platform",
             desc: "Engineered an AI-driven full-stack e-commerce platform using Next.js and Django REST, featuring LSTM-based predictive modeling for personalized recommendations and Ethereum smart contracts for immutable order tracking.",
             image: nexCartImg,
