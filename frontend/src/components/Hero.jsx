@@ -95,10 +95,11 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 font-display tracking-widest uppercase animate-gradient-shift magnetic-hover cursor-pointer px-4"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 font-display uppercase animate-gradient-shift magnetic-hover cursor-pointer px-4"
                     style={{
                         filter: 'brightness(1.4) contrast(1.15)',
-                        textShadow: '0 0 30px rgba(56, 189, 248, 0.8), 0 0 60px rgba(56, 189, 248, 0.4), 0 0 90px rgba(56, 189, 248, 0.2)'
+                        textShadow: '0 0 30px rgba(56, 189, 248, 0.8), 0 0 60px rgba(56, 189, 248, 0.4), 0 0 90px rgba(56, 189, 248, 0.2)',
+                        letterSpacing: '0.15em'
                     }}
                 >
                     Atharva Lotankar
