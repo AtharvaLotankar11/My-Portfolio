@@ -73,7 +73,7 @@ const Skills = () => {
     ];
 
     return (
-        <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
+        <section id="skills" className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute top-[20%] right-[5%] sm:right-[10%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>

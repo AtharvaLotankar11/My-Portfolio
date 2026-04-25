@@ -128,7 +128,7 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="py-12 sm:py-16 md:py-20 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
+        <section id="projects" className="py-6 sm:py-8 md:py-10 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute top-[10%] left-[5%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-earth/10 rounded-full blur-3xl animate-float"></div>
