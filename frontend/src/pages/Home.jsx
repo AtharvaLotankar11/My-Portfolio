@@ -35,17 +35,23 @@ const Home = () => {
 
             <main>
                 <Hero />
+
                 <About />
+
                 <Skills />
+
                 <Education />
+
                 <Experience />
+
                 <Projects />
+
                 <Certifications />
 
-                {/* Message Me Section - Only visible when logged in */}
+                {/* Message Me Section - Only visible when logged in */}        
                 {currentUser && <MessageMe />}
 
-                {/* Let's Connect Card - Only visible when NOT logged in */}
+                {/* Let's Connect Card - Only visible when NOT logged in */}    
                 {!currentUser && <section className="py-12 sm:py-16 md:py-20 bg-secondary/30">
                     <div className="container mx-auto px-4 sm:px-6 flex justify-center">
                         <motion.div

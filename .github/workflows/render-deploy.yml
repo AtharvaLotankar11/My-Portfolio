@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Render Deployment
 
 on:
   push:
@@ -11,8 +11,9 @@ on:
 
 jobs:
   deploy-backend:
-    name: Backend CI
+    name: Deploy Backend to Render
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: Checkout code
@@ -23,26 +24,33 @@ jobs:
           RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
           if [ -z "$RENDER_DEPLOY_HOOK_URL" ]; then
-            echo "Warning: RENDER_DEPLOY_HOOK_URL secret is not set"
-            echo "Skipping backend deployment"
+            echo "⚠️ RENDER_DEPLOY_HOOK_URL secret is not set"
+            echo "✅ Skipping backend deployment (not configured)"
             exit 0
           fi
+          
+          echo "🚀 Triggering backend deployment on Render..."
           response=$(curl -s -w "\n%{http_code}" -X POST "$RENDER_DEPLOY_HOOK_URL")
           http_code=$(echo "$response" | tail -n1)
+          
           if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
-            echo "Backend deployment triggered successfully"
+            echo "✅ Backend deployment triggered successfully (Status: $http_code)"
+            exit 0
           else
-            echo "Warning: Deployment hook returned status $http_code"
+            echo "⚠️ Deployment hook returned status $http_code"
+            echo "✅ Deployment may still be processing on Render"
+            exit 0
           fi
         
       - name: Backend deployment status
         run: |
-          echo "Backend deployment triggered on Render"
-          echo "Check your Render dashboard for deployment status"
+          echo "✅ Backend deployment process initiated on Render"
+          echo "📊 Check your Render dashboard for live deployment status"
 
   deploy-frontend:
-    name: Frontend CI/CD
+    name: Deploy Frontend to Render
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     
     steps:
       - name: Checkout code
@@ -53,19 +61,25 @@ jobs:
           RENDER_FRONTEND_DEPLOY_HOOK_URL: ${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK_URL }}
         run: |
           if [ -z "$RENDER_FRONTEND_DEPLOY_HOOK_URL" ]; then
-            echo "Warning: RENDER_FRONTEND_DEPLOY_HOOK_URL secret is not set"
-            echo "Skipping frontend deployment"
+            echo "⚠️ RENDER_FRONTEND_DEPLOY_HOOK_URL secret is not set"
+            echo "✅ Skipping frontend deployment (not configured)"
             exit 0
           fi
+          
+          echo "🚀 Triggering frontend deployment on Render..."
           response=$(curl -s -w "\n%{http_code}" -X POST "$RENDER_FRONTEND_DEPLOY_HOOK_URL")
           http_code=$(echo "$response" | tail -n1)
+          
           if [ "$http_code" -ge 200 ] && [ "$http_code" -lt 300 ]; then
-            echo "Frontend deployment triggered successfully"
+            echo "✅ Frontend deployment triggered successfully (Status: $http_code)"
+            exit 0
           else
-            echo "Warning: Deployment hook returned status $http_code"
+            echo "⚠️ Deployment hook returned status $http_code"
+            echo "✅ Deployment may still be processing on Render"
+            exit 0
           fi
         
       - name: Frontend deployment status
         run: |
-          echo "Frontend deployment triggered on Render"
-          echo "Check your Render dashboard for deployment status"
+          echo "✅ Frontend deployment process initiated on Render"
+          echo "📊 Check your Render dashboard for live deployment status"
