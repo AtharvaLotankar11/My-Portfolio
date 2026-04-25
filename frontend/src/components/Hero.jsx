@@ -149,65 +149,6 @@ const Hero = () => {
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '1.75s' }}>t</span>
                 </motion.p>
 
-                {/* Interactive Floating Orbs */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, type: "spring", delay: 0.7 }}
-                    className="mb-8 sm:mb-10 relative w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 flex justify-center items-center gap-4 sm:gap-6 md:gap-8"
-                >
-                    {/* Orb 1 */}
-                    <motion.div
-                        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 shadow-lg cursor-pointer"
-                        whileHover={{ scale: 1.2, rotate: 180 }}
-                        animate={{ 
-                            y: [0, -20, 0],
-                            rotate: [0, 360]
-                        }}
-                        transition={{ 
-                            y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                            rotate: { duration: 8, repeat: Infinity, ease: "linear" }
-                        }}
-                        style={{
-                            boxShadow: '0 0 40px rgba(56, 189, 248, 0.6), 0 0 80px rgba(56, 189, 248, 0.3)'
-                        }}
-                    />
-                    
-                    {/* Orb 2 */}
-                    <motion.div
-                        className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 shadow-lg cursor-pointer"
-                        whileHover={{ scale: 1.2, rotate: -180 }}
-                        animate={{ 
-                            y: [0, -30, 0],
-                            rotate: [0, -360]
-                        }}
-                        transition={{ 
-                            y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
-                            rotate: { duration: 10, repeat: Infinity, ease: "linear" }
-                        }}
-                        style={{
-                            boxShadow: '0 0 40px rgba(168, 85, 247, 0.6), 0 0 80px rgba(168, 85, 247, 0.3)'
-                        }}
-                    />
-                    
-                    {/* Orb 3 */}
-                    <motion.div
-                        className="w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 shadow-lg cursor-pointer"
-                        whileHover={{ scale: 1.2, rotate: 180 }}
-                        animate={{ 
-                            y: [0, -25, 0],
-                            rotate: [0, 360]
-                        }}
-                        transition={{ 
-                            y: { duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 },
-                            rotate: { duration: 9, repeat: Infinity, ease: "linear" }
-                        }}
-                        style={{
-                            boxShadow: '0 0 40px rgba(16, 185, 129, 0.6), 0 0 80px rgba(16, 185, 129, 0.3)'
-                        }}
-                    />
-                </motion.div>
-
                 {/* Scroll Indicator */}
                 <motion.div
                     initial={{ opacity: 0 }}
