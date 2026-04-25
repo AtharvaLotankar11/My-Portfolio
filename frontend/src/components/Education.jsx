@@ -76,7 +76,8 @@ const Education = () => {
                             )}
 
                             <motion.div
-                                className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 bg-white rounded-lg p-2 overflow-hidden magnetic-hover relative z-10"
+                                className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 rounded-lg p-2 overflow-hidden magnetic-hover relative z-10"
+                                style={{ backgroundColor: '#ffffff' }}
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >

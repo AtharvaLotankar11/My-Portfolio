@@ -55,10 +55,14 @@ const Navbar = () => {
                 {/* Logo / Name */}
                 <Link to="/" onClick={handleLinkClick}>
                     <motion.h1
-                        className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent to-earth font-display tracking-wider uppercase whitespace-nowrap cursor-pointer"
+                        className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 font-display tracking-wider uppercase whitespace-nowrap cursor-pointer"
+                        style={{
+                            filter: 'brightness(1.3) contrast(1.1)',
+                            textShadow: '0 0 20px rgba(56, 189, 248, 0.6), 0 0 40px rgba(56, 189, 248, 0.3)'
+                        }}
                         whileHover={{
                             scale: 1.05,
-                            textShadow: "0px 0px 8px rgb(56, 189, 248)",
+                            textShadow: "0px 0px 25px rgb(56, 189, 248), 0px 0px 50px rgb(56, 189, 248)",
                         }}
                         transition={{ type: "spring", stiffness: 300 }}
                     >

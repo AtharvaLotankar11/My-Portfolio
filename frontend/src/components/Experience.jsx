@@ -44,7 +44,9 @@ const Experience = () => {
             desc: "Developed an NLP-based sentiment analysis system on social media data, performing preprocessing, feature engineering, and classification to derive sentiment trends and actionable insights for brand monitoring. Additionally, built Python-based healthcare data analytics pipelines to clean and analyze patient data, applied exploratory analysis and predictive modeling, and generated insights to improve decision-making and resource optimization.",
             logo: vaidsysIntern,
             links: [
-                { label: "Internship Offer", url: "https://drive.google.com/file/d/1QfEW4I7bewMeRAfyXOaUNCBcq-ooXp7p/view?usp=drive_link" }
+                { label: "Internship Offer", url: "https://drive.google.com/file/d/1QfEW4I7bewMeRAfyXOaUNCBcq-ooXp7p/view?usp=drive_link" },
+                { label: "Sentiqo AI", url: "https://github.com/AtharvaLotankar11/Sentiqo-AI---Social-Media-Sentimental-Analysis.git" },
+                { label: "Clinify EHR", url: "https://github.com/AtharvaLotankar11/Clinify_Hospital_Project.git" }
             ]
         },
         {
@@ -62,7 +64,7 @@ const Experience = () => {
             desc: "My team and I built an AI-powered snooker scoring system using Python, combining YOLO for object detection, DeepSort for real-time tracking, and OpenCV for video processing to enable live ball and cue-action detection with instant score updates. The solution was selected for the Intern to Innovator Start-up Challenge 2025 by VESIT and won 3rd prize as Best Startup.",
             logo: secondWork,
             links: [
-                { label: "Github Repo", url: "https://github.com/AtharvaLotankar11/Snooker-Scoring-via-Video-Analytics-Project.git" },
+                { label: "SnookerSync", url: "https://github.com/AtharvaLotankar11/Snooker-Scoring-via-Video-Analytics-Project.git" },
                 { label: "Certificate", url: "https://drive.google.com/file/d/1q07ZYcK5BF9Brdi7dHuq_uuHgNGziYR9/view?usp=sharing" }
             ]
         },
@@ -73,7 +75,7 @@ const Experience = () => {
             desc: "I led a team in a four-month CRM project focused on managing and optimizing large datasets of AtomBerg to improve visibility into customer and technician issue handling. Transformed raw data into structured Excel formats, leveraging PivotTables and advanced spreadsheet techniques. Utilized Power BI for dynamic data visualization.",
             logo: thirdWork,
             links: [
-                { label: "Github Repo", url: "https://github.com/AtharvaLotankar11/Electrolyte-Solutions-Internship.git" },
+                { label: "Atomberg CRM (priv)", url: "https://github.com/AtharvaLotankar11/Electrolyte-Solutions-Internship.git" },
                 { label: "Certificate", url: "https://drive.google.com/file/d/1LpGCWEarYQkom_LYEM81M0iz2kDKZrXe/view?usp=sharing" }
             ]
         },
@@ -84,7 +86,7 @@ const Experience = () => {
             desc: "My team and I spent three months at VESIT developing a Multi-Agent AI Website Builder capable of generating deployment-ready code from a single prompt. We then expanded this work into the Agentic AI project and entered the Intern to Innovator Start-up Challenge 2025, where our idea, design, and consistent innovation earned us the 2nd prize for Best Idea & Design.",
             logo: fourthwork,
             links: [
-                { label: "Github Repo", url: "https://github.com/AtharvaLotankar11/Autogen_Mini_Projects.git" },
+                { label: "AutoGen_Proj", url: "https://github.com/AtharvaLotankar11/Autogen_Mini_Projects.git" },
                 { label: "Certificate", url: "https://drive.google.com/file/d/1HNQyuAjgEF2vbxsHL2eznAXZSH2ys3dJ/view?usp=sharing" }
             ]
         }
@@ -112,91 +114,6 @@ const Experience = () => {
                 </motion.h2>
 
                 <div className="relative border-l-2 border-white/10 ml-3 sm:ml-4 md:ml-10 space-y-8 sm:space-y-10 md:space-y-12">
-                    {/* Animated Rocket */}
-                    <motion.div
-                        className="absolute -left-[30px] sm:-left-[35px] z-20 pointer-events-none"
-                        style={{
-                            top: `${rocketPosition}%`,
-                        }}
-                        animate={{
-                            rotate: scrollProgress > 0.5 ? [0, 5, -5, 0] : [0, -5, 5, 0],
-                        }}
-                        transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    >
-                        {/* Rocket SVG - Increased Size */}
-                        <div className="relative">
-                            <svg 
-                                width="60" 
-                                height="60" 
-                                viewBox="0 0 100 100" 
-                                className="drop-shadow-lg"
-                            >
-                                {/* Rocket Body */}
-                                <ellipse cx="50" cy="45" rx="15" ry="30" fill="url(#rocketGradient)" stroke="#38bdf8" strokeWidth="2"/>
-                                
-                                {/* Rocket Nose */}
-                                <path d="M35 18 L50 8 L65 18 Z" fill="#ec4899" stroke="#38bdf8" strokeWidth="1"/>
-                                
-                                {/* Rocket Fins */}
-                                <path d="M35 65 L28 80 L35 75 Z" fill="#a855f7" stroke="#38bdf8" strokeWidth="1"/>
-                                <path d="M65 65 L72 80 L65 75 Z" fill="#a855f7" stroke="#38bdf8" strokeWidth="1"/>
-                                
-                                {/* Window */}
-                                <circle cx="50" cy="35" r="8" fill="#38bdf8" opacity="0.8"/>
-                                <circle cx="50" cy="35" r="6" fill="#ffffff" opacity="0.9"/>
-                                
-                                {/* Flame */}
-                                <motion.path 
-                                    d="M42 75 L50 92 L58 75 L54 82 L46 82 Z" 
-                                    fill="url(#flameGradient)"
-                                    animate={{
-                                        scaleY: [1, 1.3, 0.8, 1.2, 1],
-                                        opacity: [0.8, 1, 0.6, 1, 0.8]
-                                    }}
-                                    transition={{
-                                        duration: 0.5,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
-                                />
-                                
-                                {/* Gradients */}
-                                <defs>
-                                    <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stopColor="#38bdf8" />
-                                        <stop offset="50%" stopColor="#a855f7" />
-                                        <stop offset="100%" stopColor="#ec4899" />
-                                    </linearGradient>
-                                    <linearGradient id="flameGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" stopColor="#fbbf24" />
-                                        <stop offset="50%" stopColor="#f97316" />
-                                        <stop offset="100%" stopColor="#dc2626" />
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                            
-                            {/* Rocket Trail */}
-                            <motion.div
-                                className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-2 bg-gradient-to-t from-accent to-transparent rounded-full"
-                                style={{
-                                    height: `${Math.max(0, scrollProgress * 120)}px`,
-                                }}
-                                animate={{
-                                    opacity: [0.3, 0.7, 0.3],
-                                }}
-                                transition={{
-                                    duration: 1.5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                            />
-                        </div>
-                    </motion.div>
-
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={index}
@@ -237,7 +154,8 @@ const Experience = () => {
                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-3 sm:mb-4 gap-3 sm:gap-4 relative z-10">
                                     <div className="flex items-center gap-3 sm:gap-4">
                                         <motion.div
-                                            className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full p-1 overflow-hidden magnetic-hover flex-shrink-0"
+                                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full p-1 overflow-hidden magnetic-hover flex-shrink-0"
+                                            style={{ backgroundColor: '#ffffff' }}
                                             whileHover={{ scale: 1.15, rotate: 360 }}
                                             transition={{ type: "spring", stiffness: 300 }}
                                         >
