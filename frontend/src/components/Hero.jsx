@@ -109,7 +109,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent -mb-12 sm:-mb-20 md:-mb-28 lg:-mb-36 xl:-mb-44 relative px-4"
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl text-accent mb-8 sm:mb-12 md:mb-16 relative px-4"
                 >
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0s' }}>F</span>
                     <span className="inline-block animate-fade-scale" style={{ animationDelay: '0.05s' }}>u</span>

@@ -96,7 +96,7 @@ const Experience = () => {
     const rocketPosition = scrollProgress * 100; // Moves from 0% (top) to 100% (bottom)
 
     return (
-        <section id="experience" className="py-6 sm:py-8 md:py-10 relative overflow-hidden">
+        <section id="experience" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute top-[25%] right-[5%] sm:right-[20%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>

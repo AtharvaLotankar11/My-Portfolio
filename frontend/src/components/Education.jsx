@@ -32,7 +32,7 @@ const Education = () => {
     ];
 
     return (
-        <section id="education" className="py-6 sm:py-8 md:py-10 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
+        <section id="education" className="py-12 sm:py-16 md:py-20 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
             {/* Animated Background */}
             <div className="absolute inset-0 -z-10">
                 <div className="absolute top-[30%] left-[5%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float"></div>
