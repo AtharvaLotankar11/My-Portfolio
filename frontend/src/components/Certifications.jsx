@@ -17,6 +17,7 @@ const Certifications = () => {
         {
             title: "Co-Curriculum Achievements",
             items: [
+                { name: "Master Ethereum & Solidity Programming From Scratch by Udemy", url: "https://www.udemy.com/certificate/UC-c95806c1-aa87-43c3-a293-ad39bfc1c9cb/" },
                 { 
                     name: "Oracle Academy & VESIT's Award of Achievement in Dual Course Program", 
                     hasDropdown: true,
