@@ -44,9 +44,10 @@ const Experience = () => {
             desc: "Developed an NLP-based sentiment analysis system on social media data, performing preprocessing, feature engineering, and classification to derive sentiment trends and actionable insights for brand monitoring. Additionally, built Python-based healthcare data analytics pipelines to clean and analyze patient data, applied exploratory analysis and predictive modeling, and generated insights to improve decision-making and resource optimization.",
             logo: vaidsysIntern,
             links: [
-                { label: "Internship Offer", url: "https://drive.google.com/file/d/1QfEW4I7bewMeRAfyXOaUNCBcq-ooXp7p/view?usp=drive_link" },
+                { label: "Internship Offer Letter", url: "https://drive.google.com/file/d/1QfEW4I7bewMeRAfyXOaUNCBcq-ooXp7p/view?usp=drive_link" },
                 { label: "Sentiqo AI", url: "https://github.com/AtharvaLotankar11/Sentiqo-AI---Social-Media-Sentimental-Analysis.git" },
-                { label: "Clinify EHR", url: "https://github.com/AtharvaLotankar11/Clinify_Hospital_Project.git" }
+                { label: "Clinify EHR", url: "https://github.com/AtharvaLotankar11/Clinify_Hospital_Project.git" },
+                { label: "Internship Certificate", url: "https://drive.google.com/file/d/1Vw_ozNWGZ7tiRmEKLaOOx5xUxnDcsB1j/view" }
             ]
         },
         {
@@ -64,8 +65,8 @@ const Experience = () => {
             desc: "My team and I built an AI-powered snooker scoring system using Python, combining YOLO for object detection, DeepSort for real-time tracking, and OpenCV for video processing to enable live ball and cue-action detection with instant score updates. The solution was selected for the Intern to Innovator Start-up Challenge 2025 by VESIT and won 3rd prize as Best Startup.",
             logo: secondWork,
             links: [
-                { label: "SnookerSync", url: "https://github.com/AtharvaLotankar11/Snooker-Scoring-via-Video-Analytics-Project.git" },
-                { label: "Certificate", url: "https://drive.google.com/file/d/1q07ZYcK5BF9Brdi7dHuq_uuHgNGziYR9/view?usp=sharing" }
+                { label: "SnookerSync Repo", url: "https://github.com/AtharvaLotankar11/Snooker-Scoring-via-Video-Analytics-Project.git" },
+                { label: "Internship Certificate", url: "https://drive.google.com/file/d/1q07ZYcK5BF9Brdi7dHuq_uuHgNGziYR9/view?usp=sharing" }
             ]
         },
         {
@@ -75,8 +76,8 @@ const Experience = () => {
             desc: "I led a team in a four-month CRM project focused on managing and optimizing large datasets of AtomBerg to improve visibility into customer and technician issue handling. Transformed raw data into structured Excel formats, leveraging PivotTables and advanced spreadsheet techniques. Utilized Power BI for dynamic data visualization.",
             logo: thirdWork,
             links: [
-                { label: "Atomberg CRM (priv)", url: "https://github.com/AtharvaLotankar11/Electrolyte-Solutions-Internship.git" },
-                { label: "Certificate", url: "https://drive.google.com/file/d/1LpGCWEarYQkom_LYEM81M0iz2kDKZrXe/view?usp=sharing" }
+                { label: "Atomberg CRM (PrivateRepo)", url: "https://github.com/AtharvaLotankar11/Electrolyte-Solutions-Internship.git" },
+                { label: "Internship Certificate", url: "https://drive.google.com/file/d/1LpGCWEarYQkom_LYEM81M0iz2kDKZrXe/view?usp=sharing" }
             ]
         },
         {
@@ -86,8 +87,8 @@ const Experience = () => {
             desc: "My team and I spent three months at VESIT developing a Multi-Agent AI Website Builder capable of generating deployment-ready code from a single prompt. We then expanded this work into the Agentic AI project and entered the Intern to Innovator Start-up Challenge 2025, where our idea, design, and consistent innovation earned us the 2nd prize for Best Idea & Design.",
             logo: fourthwork,
             links: [
-                { label: "AutoGen_Proj", url: "https://github.com/AtharvaLotankar11/Autogen_Mini_Projects.git" },
-                { label: "Certificate", url: "https://drive.google.com/file/d/1HNQyuAjgEF2vbxsHL2eznAXZSH2ys3dJ/view?usp=sharing" }
+                { label: "AutoGen_Proj Repo", url: "https://github.com/AtharvaLotankar11/Autogen_Mini_Projects.git" },
+                { label: "Internship Certificate", url: "https://drive.google.com/file/d/1HNQyuAjgEF2vbxsHL2eznAXZSH2ys3dJ/view?usp=sharing" }
             ]
         }
     ];
