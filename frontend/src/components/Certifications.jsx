@@ -17,6 +17,7 @@ const Certifications = () => {
         {
             title: "Co-Curriculum Achievements",
             items: [
+                { name: "Cisco Network Academy's Course of Completion in Introduction to Data Science", url: "https://drive.google.com/file/d/1sxzXBtJW_bLsKl49LtPLWDJc2WTzpZv0/view?usp=drive_link" },
                 { name: "Master Ethereum & Solidity Programming From Scratch by Udemy", url: "https://www.udemy.com/certificate/UC-c95806c1-aa87-43c3-a293-ad39bfc1c9cb/" },
                 { 
                     name: "Oracle Academy & VESIT's Award of Achievement in Dual Course Program", 
@@ -27,7 +28,6 @@ const Certifications = () => {
                     ]
                 },
                 { name: "Kerala Blockchain Academy's Certificate of Completion in Blockchain Foundation Programs", url: "https://verify.kba.ai/view/IIITMK-KBA-BFP-OL-45490" },
-                { name: "Cisco Network Academy's Course of Completion in Introduction to Data Science", url: "https://drive.google.com/file/d/1sxzXBtJW_bLsKl49LtPLWDJc2WTzpZv0/view?usp=drive_link" },
                 { 
                     name: "Google Cloud Skills Boost Badges", 
                     hasDropdown: true,
