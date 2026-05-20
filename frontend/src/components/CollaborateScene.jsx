@@ -526,24 +526,19 @@ function Cables() {
     );
 }
 
-// Rotating Scene Group - Everything rotates together, scale adapts to viewport
+// Rotating Scene Group - Everything rotates together
+// Scale is fixed at 1.5; camera position handles zoom for responsiveness
 function RotatingScene({ onRegisterClick, onLoginClick, isDraggingRef, isPowerOn, onPowerToggle }) {
     const sceneRef = useRef();
-    const { viewport } = useThree();
-
-    // Base scale of 1.5 at viewport width ~7 (typical desktop canvas).
-    // Clamp between 0.7 (tiny phone) and 1.5 (desktop) so nothing gets clipped.
-    const scale = Math.min(1.5, Math.max(0.7, (viewport.width / 7) * 1.5));
 
     useFrame(() => {
-        // Only auto-rotate when NOT dragging - SLOWER SPEED
         if (!isDraggingRef.current) {
             sceneRef.current.rotation.y += 0.002;
         }
     });
 
     return (
-        <group ref={sceneRef} position={[0, 0.05, 0]} scale={[scale, scale, scale]}>
+        <group ref={sceneRef} position={[0, 0.05, 0]} scale={[1.5, 1.5, 1.5]}>
             <DesktopMonitor onRegisterClick={onRegisterClick} onLoginClick={onLoginClick} isPowerOn={isPowerOn} />
             <Desk />
             <Keyboard />
@@ -554,21 +549,32 @@ function RotatingScene({ onRegisterClick, onLoginClick, isDraggingRef, isPowerOn
     );
 }
 
-// Responsive camera that widens FOV on small screens so the scene fits
+// Responsive camera — moves closer on mobile so the scene fills the canvas
 function ResponsiveCamera() {
     const { camera } = useThree();
     React.useEffect(() => {
-        const updateFov = () => {
+        const update = () => {
             const w = window.innerWidth;
-            if (w < 380)       camera.fov = 85;   // tiny phones
-            else if (w < 480)  camera.fov = 75;   // phones
-            else if (w < 768)  camera.fov = 62;   // large phones / small tablets
-            else               camera.fov = 50;   // tablet & desktop
+            if (w < 380) {
+                // tiny phones: pull right in, slight upward angle
+                camera.position.set(0, 1.5, 3.2);
+                camera.fov = 65;
+            } else if (w < 480) {
+                camera.position.set(0, 1.4, 3.6);
+                camera.fov = 60;
+            } else if (w < 768) {
+                camera.position.set(0, 1.3, 4.2);
+                camera.fov = 55;
+            } else {
+                // desktop — original position
+                camera.position.set(0, 1.2, 5);
+                camera.fov = 50;
+            }
             camera.updateProjectionMatrix();
         };
-        updateFov();
-        window.addEventListener('resize', updateFov);
-        return () => window.removeEventListener('resize', updateFov);
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
     }, [camera]);
     return null;
 }
@@ -594,7 +600,7 @@ function Scene({ onRegisterClick, onLoginClick }) {
                 autoRotate={false}
                 rotateSpeed={0.5}
                 minPolarAngle={Math.PI / 3}
-                maxPolarAngle={Math.PI / 2}
+                maxPolarAngle={Math.PI / 2.2}
                 target={[0, 0.5, 0]}
                 onStart={() => { isDraggingRef.current = true; }}
                 onEnd={() => { isDraggingRef.current = false; }}
@@ -681,7 +687,7 @@ const CollaborateScene = () => {
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500"></div>
 
                     {/* Full 3D Scene */}
-                    <div className="w-full h-[280px] sm:h-[420px] md:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-yellow-900/20 via-orange-900/20 to-yellow-800/20 relative">
+                    <div className="w-full h-[340px] sm:h-[420px] md:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-yellow-900/20 via-orange-900/20 to-yellow-800/20 relative">
                         {/* Animated shine effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent animate-shimmer pointer-events-none z-10"></div>
                         <Suspense fallback={
