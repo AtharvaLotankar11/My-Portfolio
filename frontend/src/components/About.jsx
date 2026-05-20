@@ -32,9 +32,9 @@ const About = () => {
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute inset-0 animate-shimmer"></div>
                         </div>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">🎓 Education & Skills</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">🎓 𝐄𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 𝐚𝐧𝐝 𝐓𝐞𝐜𝐡𝐧𝐢𝐜𝐚𝐥 𝐅𝐨𝐮𝐧𝐝𝐚𝐭𝐢𝐨𝐧</h3>
                         <p className="text-sm sm:text-base text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors">
-                            I'm currently pursuing a B.E. in Information Technology at Vivekanand Education Society's Institute of Technology (VESIT), building a strong foundation in computer science, software development, and IT domains. I've gained hands-on experience with languages and technologies like Java, Python, C/C++, MySQL and PostgreSQL, HTML/CSS/JS, Django, Bash, Dart, and MERN.
+                            Currently pursuing a B.E. in Information Technology at Vivekanand Education Society's Institute of Technology, with a strong academic foundation in Data Science, Machine Learning, Deep Learning, and Software Engineering. Proficient in Python, Java, SQL, C/C++, and JavaScript, with practical experience in modern development frameworks including Next.js, Django, PostgreSQL, and the MERN stack.
                         </p>
                     </motion.div>
 
@@ -49,9 +49,9 @@ const About = () => {
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute inset-0 animate-shimmer"></div>
                         </div>
-                        <h3 className="text-xl font-semibold mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">💡 Interests and Focus</h3>
+                        <h3 className="text-xl font-semibold mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">📊 𝐀𝐫𝐞𝐚𝐬 𝐨𝐟 𝐈𝐧𝐭𝐞𝐫𝐞𝐬𝐭 𝐚𝐧𝐝 𝐄𝐱𝐩𝐞𝐫𝐭𝐢𝐬𝐞</h3>
                         <p className="text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors">
-                            Beyond web development, I'm passionate about programming languages, databases, scripting, and cloud solutions. I actively explore emerging tech like AI, Generative AI, and automation to drive innovation.
+                            Primarily focused on Data Analytics, Data Science, and AI/ML, applying data-driven methodologies to build intelligent and impactful solutions. Hands-on experience across domains such as predictive analytics, automation, computer vision, sentiment analysis, and AI-powered applications. Additionally interested in full-stack development, with a preference for building scalable applications using Next.js, Django, and PostgreSQL.
                         </p>
                     </motion.div>
 
@@ -66,9 +66,9 @@ const About = () => {
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute inset-0 animate-shimmer"></div>
                         </div>
-                        <h3 className="text-xl font-semibold mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">🚀 Goals and Mindset</h3>
+                        <h3 className="text-xl font-semibold mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">🚀 𝐏𝐫𝐨𝐟𝐞𝐬𝐬𝐢𝐨𝐧𝐚𝐥 𝐀𝐬𝐩𝐢𝐫𝐚𝐭𝐢𝐨𝐧𝐬</h3>
                         <p className="text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors">
-                            With growing expertise in data structures and algorithms, I aim to create scalable, user-focused solutions. I'm driven by curiosity, continuous learning, and a desire to contribute as a Full Stack Developer to impactful, boundary-pushing projects.
+                            Continuously strengthening expertise in Data Structures & Algorithms, backend engineering, and applied AI. Aspiring to contribute as a Data Scientist or Machine Learning Engineer, while developing strong full-stack capabilities to bridge advanced intelligence with seamless user experiences.
                         </p>
                     </motion.div>
                 </div>
