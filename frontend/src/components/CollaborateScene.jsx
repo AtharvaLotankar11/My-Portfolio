@@ -12,6 +12,8 @@ function usePinchZoom(canvasRef, cameraRef) {
         if (!el) return;
 
         let lastDist = null;
+        let velocity = 0;
+        let rafId = null;
 
         const getDistance = (touches) => {
             const dx = touches[0].clientX - touches[1].clientX;
@@ -19,9 +21,20 @@ function usePinchZoom(canvasRef, cameraRef) {
             return Math.sqrt(dx * dx + dy * dy);
         };
 
+        // Momentum loop — keeps coasting after fingers lift
+        const applyMomentum = () => {
+            const cam = cameraRef.current;
+            if (!cam || Math.abs(velocity) < 0.001) { velocity = 0; return; }
+            cam.position.z = Math.min(7, Math.max(2.5, cam.position.z + velocity));
+            velocity *= 0.88;   // friction — lower = stops faster, higher = longer coast
+            rafId = requestAnimationFrame(applyMomentum);
+        };
+
         const onTouchStart = (e) => {
             if (e.touches.length === 2) {
                 lastDist = getDistance(e.touches);
+                velocity = 0;
+                cancelAnimationFrame(rafId);
             }
         };
 
@@ -31,16 +44,20 @@ function usePinchZoom(canvasRef, cameraRef) {
                 const cam = cameraRef.current;
                 if (!cam) return;
                 const newDist = getDistance(e.touches);
-                const delta = lastDist - newDist;          // positive = pinch in = zoom out
-                const speed = 0.03;
-                const newZ = Math.min(7, Math.max(2.5, cam.position.z + delta * speed));
-                cam.position.z = newZ;
+                const delta = lastDist - newDist;   // positive = fingers closing = zoom out
+                const speed = 0.12;                 // swift response
+                velocity = delta * speed;
+                cam.position.z = Math.min(7, Math.max(2.5, cam.position.z + velocity));
                 lastDist = newDist;
             }
         };
 
         const onTouchEnd = (e) => {
-            if (e.touches.length < 2) lastDist = null;
+            if (e.touches.length < 2) {
+                lastDist = null;
+                // kick off momentum coast
+                rafId = requestAnimationFrame(applyMomentum);
+            }
         };
 
         el.addEventListener('touchstart', onTouchStart, { passive: true });
@@ -51,6 +68,7 @@ function usePinchZoom(canvasRef, cameraRef) {
             el.removeEventListener('touchstart', onTouchStart);
             el.removeEventListener('touchmove', onTouchMove);
             el.removeEventListener('touchend', onTouchEnd);
+            cancelAnimationFrame(rafId);
         };
     }, [canvasRef, cameraRef]);
 }
