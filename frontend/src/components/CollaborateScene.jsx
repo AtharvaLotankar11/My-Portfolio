@@ -5,6 +5,56 @@ import { Text, PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
+// Custom hook: native pinch-to-zoom on the canvas div, moves camera Z directly
+function usePinchZoom(canvasRef, cameraRef) {
+    React.useEffect(() => {
+        const el = canvasRef.current;
+        if (!el) return;
+
+        let lastDist = null;
+
+        const getDistance = (touches) => {
+            const dx = touches[0].clientX - touches[1].clientX;
+            const dy = touches[0].clientY - touches[1].clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        };
+
+        const onTouchStart = (e) => {
+            if (e.touches.length === 2) {
+                lastDist = getDistance(e.touches);
+            }
+        };
+
+        const onTouchMove = (e) => {
+            if (e.touches.length === 2 && lastDist !== null) {
+                e.preventDefault();
+                const cam = cameraRef.current;
+                if (!cam) return;
+                const newDist = getDistance(e.touches);
+                const delta = lastDist - newDist;          // positive = pinch in = zoom out
+                const speed = 0.03;
+                const newZ = Math.min(7, Math.max(2.5, cam.position.z + delta * speed));
+                cam.position.z = newZ;
+                lastDist = newDist;
+            }
+        };
+
+        const onTouchEnd = (e) => {
+            if (e.touches.length < 2) lastDist = null;
+        };
+
+        el.addEventListener('touchstart', onTouchStart, { passive: true });
+        el.addEventListener('touchmove', onTouchMove, { passive: false });
+        el.addEventListener('touchend', onTouchEnd, { passive: true });
+
+        return () => {
+            el.removeEventListener('touchstart', onTouchStart);
+            el.removeEventListener('touchmove', onTouchMove);
+            el.removeEventListener('touchend', onTouchEnd);
+        };
+    }, [canvasRef, cameraRef]);
+}
+
 // Desktop Monitor component (not laptop!)
 function DesktopMonitor({ onRegisterClick, onLoginClick, isPowerOn }) {
     return (
@@ -577,11 +627,10 @@ function ResponsiveCamera() {
     return null;
 }
 
-// Main Scene
-function Scene({ onRegisterClick, onLoginClick }) {
+// Main Scene — camera ref exposed for pinch zoom
+function Scene({ onRegisterClick, onLoginClick, cameraRef }) {
     const isDraggingRef = useRef(false);
     const [isPowerOn, setIsPowerOn] = React.useState(true);
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
     const handlePowerToggle = (e) => {
         if (e) e.stopPropagation();
@@ -590,17 +639,14 @@ function Scene({ onRegisterClick, onLoginClick }) {
 
     return (
         <>
-            <PerspectiveCamera makeDefault position={[0, 1.2, 5]} fov={50} />
+            <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 1.2, 5]} fov={50} />
             <ResponsiveCamera />
-            {/* OrbitControls - pinch zoom enabled on mobile only */}
+            {/* OrbitControls — zoom disabled, pinch handled manually */}
             <OrbitControls 
-                enableZoom={isMobile}
+                enableZoom={false}
                 enablePan={false}
                 autoRotate={false}
                 rotateSpeed={0.5}
-                zoomSpeed={0.8}
-                minDistance={2.5}
-                maxDistance={7}
                 minPolarAngle={Math.PI / 3}
                 maxPolarAngle={Math.PI / 2.2}
                 target={[0, 0.5, 0]}
@@ -653,6 +699,11 @@ function Scene({ onRegisterClick, onLoginClick }) {
 const CollaborateScene = () => {
     const [hasError, setHasError] = React.useState(false);
     const navigate = useNavigate();
+    const canvasWrapperRef = useRef(null);
+    const cameraRef = useRef(null);
+
+    // Native pinch-to-zoom — works independently of OrbitControls
+    usePinchZoom(canvasWrapperRef, cameraRef);
 
     const handleRegisterClick = (e) => {
         e.stopPropagation();
@@ -689,7 +740,7 @@ const CollaborateScene = () => {
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500"></div>
 
                     {/* Full 3D Scene */}
-                    <div className="w-full h-[340px] sm:h-[420px] md:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-yellow-900/20 via-orange-900/20 to-yellow-800/20 relative">
+                    <div ref={canvasWrapperRef} className="w-full h-[340px] sm:h-[420px] md:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-yellow-900/20 via-orange-900/20 to-yellow-800/20 relative">
                         {/* Animated shine effect */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent animate-shimmer pointer-events-none z-10"></div>
                         <Suspense fallback={
@@ -704,7 +755,7 @@ const CollaborateScene = () => {
                                     gl.setClearColor('#0a0a00');
                                 }}
                             >
-                                <Scene onRegisterClick={handleRegisterClick} onLoginClick={handleLoginClick} />
+                                <Scene onRegisterClick={handleRegisterClick} onLoginClick={handleLoginClick} cameraRef={cameraRef} />
                             </Canvas>
                         </Suspense>
                     </div>
