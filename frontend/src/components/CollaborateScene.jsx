@@ -556,17 +556,15 @@ function ResponsiveCamera() {
         const update = () => {
             const w = window.innerWidth;
             if (w < 380) {
-                // tiny phones: pull right in, slight upward angle
-                camera.position.set(0, 1.5, 3.2);
+                camera.position.set(0, 1.5, 4.0);
                 camera.fov = 65;
             } else if (w < 480) {
-                camera.position.set(0, 1.4, 3.6);
+                camera.position.set(0, 1.4, 4.4);
                 camera.fov = 60;
             } else if (w < 768) {
-                camera.position.set(0, 1.3, 4.2);
+                camera.position.set(0, 1.3, 4.8);
                 camera.fov = 55;
             } else {
-                // desktop — original position
                 camera.position.set(0, 1.2, 5);
                 camera.fov = 50;
             }
@@ -583,6 +581,7 @@ function ResponsiveCamera() {
 function Scene({ onRegisterClick, onLoginClick }) {
     const isDraggingRef = useRef(false);
     const [isPowerOn, setIsPowerOn] = React.useState(true);
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
     const handlePowerToggle = (e) => {
         if (e) e.stopPropagation();
@@ -593,12 +592,15 @@ function Scene({ onRegisterClick, onLoginClick }) {
         <>
             <PerspectiveCamera makeDefault position={[0, 1.2, 5]} fov={50} />
             <ResponsiveCamera />
-            {/* OrbitControls - manual rotation when dragging */}
+            {/* OrbitControls - pinch zoom enabled on mobile only */}
             <OrbitControls 
-                enableZoom={false}
+                enableZoom={isMobile}
                 enablePan={false}
                 autoRotate={false}
                 rotateSpeed={0.5}
+                zoomSpeed={0.8}
+                minDistance={2.5}
+                maxDistance={7}
                 minPolarAngle={Math.PI / 3}
                 maxPolarAngle={Math.PI / 2.2}
                 target={[0, 0.5, 0]}
