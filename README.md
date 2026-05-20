@@ -4,6 +4,7 @@
 
 ![Portfolio Banner](https://img.shields.io/badge/Portfolio-Atharva_Lotankar-blue?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-0.184.0-000000?style=for-the-badge&logo=three.js&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -17,7 +18,8 @@
 ## ✨ Features
 
 - 🎨 **Modern UI/UX** - Clean and attractive design with smooth animations
-- 📱 **Fully Responsive** - Works seamlessly on all devices
+- 📱 **Fully Responsive** - Works seamlessly on all devices including mobile
+- 🎮 **Interactive 3D Scene** - Fully interactive 3D desk setup built with Three.js & React Three Fiber
 - 🔥 **Firebase Integration** - Real-time data management and authentication
 - 📧 **Contact Form** - Integrated email functionality with Nodemailer
 - ⚡ **Fast Performance** - Built with Vite for lightning-fast load times
@@ -30,10 +32,13 @@
 
 ### Frontend
 - **React 19.2.0** - UI library
-- **Vite** - Build tool and dev server
+- **Vite 7.2** - Build tool and dev server
 - **TailwindCSS 4.1** - Utility-first CSS framework
+- **Three.js 0.184** - 3D graphics library
+- **@react-three/fiber 9.6** - React renderer for Three.js
+- **@react-three/drei 10.7** - Useful helpers for React Three Fiber (Text, OrbitControls, etc.)
 - **Framer Motion** - Animation library
-- **React Router DOM** - Client-side routing
+- **React Router DOM 7** - Client-side routing
 - **React Icons** - Icon library
 - **Axios** - HTTP client
 
@@ -52,11 +57,13 @@
 ```
 My-Portfolio/
 ├── frontend/
+│   ├── public/
+│   │   └── CinzelDecorative.woff  # Bundled font for 3D scene
 │   ├── src/
 │   │   ├── components/      # React components
 │   │   │   ├── About.jsx
-│   │   │   ├── Auth/
 │   │   │   ├── Certifications.jsx
+│   │   │   ├── CollaborateScene.jsx  # Interactive 3D desk scene (Three.js)
 │   │   │   ├── Education.jsx
 │   │   │   ├── Experience.jsx
 │   │   │   ├── Footer.jsx
@@ -68,12 +75,10 @@ My-Portfolio/
 │   │   ├── assets/          # Images and static files
 │   │   ├── context/         # React context providers
 │   │   ├── pages/           # Page components
-│   │   ├── services/        # API services
 │   │   ├── utils/           # Utility functions
 │   │   ├── App.jsx          # Main app component
 │   │   ├── main.jsx         # Entry point
 │   │   └── firebase.js      # Firebase config
-│   ├── public/
 │   ├── package.json
 │   └── vite.config.js
 │
