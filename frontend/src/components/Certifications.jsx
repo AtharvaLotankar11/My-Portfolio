@@ -17,7 +17,14 @@ const Certifications = () => {
         {
             title: "Co-Curriculum Achievements",
             items: [
-                { name: "Cisco Network Academy's Course of Completion in Introduction to Data Science", url: "https://drive.google.com/file/d/1wt_CD-4VdGdT6eGhRUmn6ksmaxqbMjlm/view?usp=drive_link" },
+                {
+                    name: "Cisco Network Academy Courses of Completion",
+                    hasDropdown: true,
+                    dropdownItems: [
+                        { name: "Introduction to Data Science", url: "https://drive.google.com/file/d/1wt_CD-4VdGdT6eGhRUmn6ksmaxqbMjlm/view?usp=drive_link" },
+                        { name: "Data Analytics Essentials", url: "https://drive.google.com/file/d/1onQL68j3BrPc1lOjRDIlifx1bkZFt6Bv/view?usp=sharing" }
+                    ]
+                },
                 { name: "Master Ethereum & Solidity Programming From Scratch by Udemy", url: "https://www.udemy.com/certificate/UC-c95806c1-aa87-43c3-a293-ad39bfc1c9cb/" },
                 { 
                     name: "Oracle Academy & VESIT's Award of Achievement in Dual Course Program", 
