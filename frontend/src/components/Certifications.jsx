@@ -25,6 +25,7 @@ const Certifications = () => {
                         { name: "Data Analytics Essentials", url: "https://drive.google.com/file/d/1onQL68j3BrPc1lOjRDIlifx1bkZFt6Bv/view?usp=sharing" }
                     ]
                 },
+                { name: "IBM Skillsbuild - Make Agentic AI Work For You", url: "https://drive.google.com/file/d/186JPM5FLnKJbGgpwYQwQj5hwDfl3yjRV/view?usp=drive_link" },
                 { name: "Master Ethereum & Solidity Programming From Scratch by Udemy", url: "https://www.udemy.com/certificate/UC-c95806c1-aa87-43c3-a293-ad39bfc1c9cb/" },
                 { 
                     name: "Oracle Academy & VESIT's Award of Achievement in Dual Course Program", 
@@ -79,6 +80,7 @@ const Certifications = () => {
             title: "Extra Curriculum Achievements",
             items: [
                 { name: "Advanced Aircraft Design Workshop by Bharat Space Education Research Centre", url: "https://drive.google.com/file/d/1BkgHljW-MhDvtq-7sLL1RrL3G-TXt5y6/view?usp=drive_link" },
+                { name: "Manthan: Paper Presentation Competition - Technology Day - Certificate of Participation", url: "https://drive.google.com/file/d/1A2DXfBcyI-WWZIbScP6XiqpiVWJ6P-Ku/view?usp=drive_link" },
                 { name: "Games of Shows – Certificate of Participation by VESLIT Council", url: "https://drive.google.com/file/d/1mNv3ubFKAidBkVgAxXe4eTbU3AkpxiPJ/view?usp=drive_link" },
                 { 
                     name: "Maharashtra Youth For Climate Action Certifications by MYCA Foundation", 
