@@ -17,6 +17,7 @@ const Certifications = () => {
         {
             title: "Co-Curriculum Achievements",
             items: [
+                { name: "IBM Skillsbuild - Make Agentic AI Work For You", url: "https://drive.google.com/file/d/186JPM5FLnKJbGgpwYQwQj5hwDfl3yjRV/view?usp=drive_link" },
                 {
                     name: "Cisco Network Academy Courses of Completion",
                     hasDropdown: true,
@@ -25,7 +26,6 @@ const Certifications = () => {
                         { name: "Data Analytics Essentials", url: "https://drive.google.com/file/d/1onQL68j3BrPc1lOjRDIlifx1bkZFt6Bv/view?usp=sharing" }
                     ]
                 },
-                { name: "IBM Skillsbuild - Make Agentic AI Work For You", url: "https://drive.google.com/file/d/186JPM5FLnKJbGgpwYQwQj5hwDfl3yjRV/view?usp=drive_link" },
                 { name: "Master Ethereum & Solidity Programming From Scratch by Udemy", url: "https://www.udemy.com/certificate/UC-c95806c1-aa87-43c3-a293-ad39bfc1c9cb/" },
                 { 
                     name: "Oracle Academy & VESIT's Award of Achievement in Dual Course Program", 
@@ -54,15 +54,21 @@ const Certifications = () => {
                         { name: "Applications of AI for Anomaly Detection", url: "https://learn.nvidia.com/certificates?id=ll-DmDRGRCO-LVUMUYpasA" }
                     ]
                 },
-                { name: "Certificate of Participation in AppSprint Workshop by ISA VESIT", url: "https://drive.google.com/file/d/1SPW5jG1m2PPcnp0oJ6Ya2SUwzlgG7inT/view" },
+                { 
+                    name: "ISA VESIT Workshop Certifications",
+                    hasDropdown: true,
+                    dropdownItems: [
+                        { name: "Certificate of Participation in AppSprint Workshop by ISA VESIT", url: "https://drive.google.com/file/d/1SPW5jG1m2PPcnp0oJ6Ya2SUwzlgG7inT/view" },
+                        { name: "Bootcamp Certification in Intro to Raspberry Pi and Linux by ISA VESIT", url: "https://drive.google.com/file/d/1-49tSFn5knydETNt3FzTtRJt1uxBMw1q/view?usp=drive_link" },
+                    ] 
+                },
                 { name: "Data Warehouse Concepts, Design, and Data Integration by University of Colorado", url: "https://www.coursera.org/account/accomplishments/verify/V3W7V399KY7K" },
                 { name: "Blockchain Basics - Certificate of Completion by Great Learning", url: "https://www.mygreatlearning.com/certificate/DPWRRJJH" },
                 { name: "Introduction to Cybersecurity Essentials by IBM", url: "https://www.coursera.org/account/accomplishments/verify/2UAQCKUTUSXY" },
                 { name: "AI Agentic Design Patterns with AutoGen by DeepLearning.AI", url: "https://learn.deeplearning.ai/accomplishments/672d7fdf-454c-490f-87f6-71e96ac9e1dd?usp=sharing" },
                 { name: "Supervised Machine Learning: Regression and Classification by Stanford University", url: "https://www.coursera.org/account/accomplishments/verify/DVDKP2VFTKVK" },
                 { name: "The Complete Flutter Dev Bootcamp with Dart Certificate by Udemy", url: "https://www.udemy.com/certificate/UC-1ae0c945-a0d8-4b0c-9338-06f211bfec2a/" },
-                { name: "Udemy's 100 Days of Code: The Complete Python Pro Bootcamp Certificate by Udemy", url: "https://www.udemy.com/certificate/UC-517e5de0-e6bc-4f92-82e0-22322f45df56/" },
-                { name: "Bootcamp Certification in Intro to Raspberry Pi and Linux by ISA VESIT", url: "https://drive.google.com/file/d/1-49tSFn5knydETNt3FzTtRJt1uxBMw1q/view?usp=drive_link" },
+                { name: "Udemy's 100 Days of Code: The Complete Python Pro Bootcamp Certificate by Udemy", url: "https://www.udemy.com/certificate/UC-517e5de0-e6bc-4f92-82e0-22322f45df56/" },          
             ]
         },
         {
@@ -79,8 +85,8 @@ const Certifications = () => {
         {
             title: "Extra Curriculum Achievements",
             items: [
-                { name: "Advanced Aircraft Design Workshop by Bharat Space Education Research Centre", url: "https://drive.google.com/file/d/1BkgHljW-MhDvtq-7sLL1RrL3G-TXt5y6/view?usp=drive_link" },
                 { name: "Manthan: Paper Presentation Competition - Technology Day - Certificate of Participation", url: "https://drive.google.com/file/d/1A2DXfBcyI-WWZIbScP6XiqpiVWJ6P-Ku/view?usp=drive_link" },
+                { name: "Advanced Aircraft Design Workshop by Bharat Space Education Research Centre", url: "https://drive.google.com/file/d/1BkgHljW-MhDvtq-7sLL1RrL3G-TXt5y6/view?usp=drive_link" },
                 { name: "Games of Shows – Certificate of Participation by VESLIT Council", url: "https://drive.google.com/file/d/1mNv3ubFKAidBkVgAxXe4eTbU3AkpxiPJ/view?usp=drive_link" },
                 { 
                     name: "Maharashtra Youth For Climate Action Certifications by MYCA Foundation", 
