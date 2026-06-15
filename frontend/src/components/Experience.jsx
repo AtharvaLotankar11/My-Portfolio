@@ -56,7 +56,10 @@ const Experience = () => {
             duration: "Aug 2025 - May 2026",
             desc: "During my tenure, I led the 'CodeFlix' ML workshop, guiding over 30 students to build and implement a KNN-based recommendation engine, achieving a 95% project completion rate. Beyond technical mentorship, I initiated the council's first O2O sponsorship transaction for the GENESIS 2026 Hackathon—a major event engaging 200+ participants and 3 judging panels. I also took charge of our digital presence by redesigning the QuestIT council website, engineering the complete frontend and partial backend architecture to streamline operations for our 50+ members.",
             logo: firstWork,
-            links: []
+            links: [
+                {label: "QuestIT Certificate of Contribution", url: "https://drive.google.com/file/d/1LHUbsr_iVhSPXtPhsGT4HQjbiDlIEo7f/view?usp=drive_link"},
+                {label: "My_QuestIT_Post on LinkedIn", url: "https://www.linkedin.com/posts/atharva-lotankar-51824537b_questit-team-professionalgrowth-ugcPost-7466477261291057152-3LIl/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF3UcKQBGiEbzBqaMbrcLuCQpcZqg4FoOyY"}
+            ]
         },
         {
             role: "AI & ML Project Intern",
