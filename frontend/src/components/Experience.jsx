@@ -5,6 +5,7 @@ import secondWork from '../assets/secondWork.jpg';
 import thirdWork from '../assets/thirdWork.png';
 import fourthwork from '../assets/fourthwork.png';
 import vaidsysIntern from '../assets/vaidsysIntern.png';
+import zidioIntern from '../assets/zidioIntern.png';
 
 const Experience = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -37,6 +38,19 @@ const Experience = () => {
     }, []);
 
     const experiences = [
+        {
+            role: "Data Science & Analytics Intern",
+            company: "Zidio Development",
+            duration: "Dec 2025 - Jan 2026",
+            desc: "During my 1-month internship at Zidio Development, I worked on the RetailPulse project as part of a four-member Data Science & Analytics team. My primary responsibility was serving as the Dashboard & Deployment Lead, where I developed and integrated the Streamlit-based dashboard, connected outputs from customer analytics, demand forecasting, churn prediction, and inventory optimization modules, and managed project deployment and GitHub collaboration. One of the key challenges I faced was integrating multiple machine learning components into a single interactive application while ensuring smooth functionality, data consistency, and an intuitive user experience. Through continuous testing, debugging, and team coordination, I successfully contributed to delivering a fully functional end-to-end retail analytics platform, strengthening my practical skills in data science, dashboard development, deployment, and collaborative project execution.",
+            logo: zidioIntern,
+            links: [
+                { label: "Internship Offer Letter", url: "https://drive.google.com/file/d/1cELoDPZJy-W-JBHlnkjjmtThiufXQZab/view?usp=drive_link" },
+                { label: "RetailPulse - Data Sci Project", url: "https://github.com/AtharvaLotankar11/RetailPulse---Data-Analytics-Project.git" },
+                { label: "RetailPulse Website", url: "https://retailpulse-analytics.streamlit.app/" },
+                { label: "Internship Project Report", url: "https://drive.google.com/file/d/17KfUNVuVrT0KLz6WRdIed7F2V5YSdQVT/view?usp=drive_link" }
+            ]
+        },
         {
             role: "Data Science Intern",
             company: "Vaidsys Technologies",

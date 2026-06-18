@@ -6,7 +6,7 @@ import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 import myPortfolioImg from '../assets/project_images/myPortfolio.png';
 import sentiqoImg from '../assets/project_images/sentiqo.jpg';
 import officepulseImg from '../assets/project_images/officepulse.png';
-
+import retailPulseImg from '../assets/project_images/retailpulse_image.png';
 import greenforkImg from '../assets/project_images/greenfork.png';
 import railwayImg from '../assets/project_images/railway_cust_java.jpg';
 import compliflowImg from '../assets/project_images/compliflow_img.png';
@@ -21,11 +21,22 @@ const Projects = () => {
 
     const projects = [
         {
+            title: "RetailPulse – AI Powered Customer Analytics & Demand Forecasting Platform",
+            desc: "Developed a retail analytics platform that transforms transaction data into meaningful business insights. It helps analyze customer behavior, forecast future sales, identify customers at risk of churn, and support inventory planning through interactive dashboards. Deployed with Docker to enable scalable and consistent analytics across different environments.",
+            image: retailPulseImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/RetailPulse---Data-Analytics-Project.git" },
+                { icon: <FaExternalLinkAlt />, url: "https://retailpulse-analytics.streamlit.app/" },
+                { icon: <FaFileAlt />, url: "https://drive.google.com/file/d/17KfUNVuVrT0KLz6WRdIed7F2V5YSdQVT/view?usp=drive_link" }
+            ]
+        },
+        {
             title: "Sentiqo AI: Social Media Sentimental Analysis",
             desc: "Built a multi-tenant NLP sentiment analysis platform using React and Django, featuring a Hybrid Ensemble ML model for real-time brand monitoring, bulk CSV ingestion, Recharts-powered trend visualization, and JWT-secured analyst dashboards.",
             image: sentiqoImg,
             links: [
-                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Sentiqo-AI---Social-Media-Sentimental-Analysis.git" }
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Sentiqo-AI---Social-Media-Sentimental-Analysis.git" },
+                { icon: <FaFileAlt />, url: "https://drive.google.com/file/d/10XwzbOtdMhHNPPaG7b89Vgwae3h1n_iB/view?usp=drive_link" }
             ]
         },
         {
@@ -41,7 +52,8 @@ const Projects = () => {
             desc: "Designed modular AI-enabled HIS using Django, PostgreSQL, React, REST APIs, RBAC dashboards, Gemini-powered NLP summarization, voice notes, intelligent scheduling automation.",
             image: clinifyImg,
             links: [
-                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Clinify_Hospital_Project.git" }
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/Clinify_Hospital_Project.git" },
+                { icon: <FaFileAlt />, url: "https://drive.google.com/file/d/1FlrtbpZICt9mf9TP31nVCJFPKjUcfdWn/view?usp=drive_link" }
             ]
         },
         {
