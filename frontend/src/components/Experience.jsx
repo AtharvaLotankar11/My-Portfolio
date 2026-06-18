@@ -41,7 +41,7 @@ const Experience = () => {
         {
             role: "Data Science & Analytics Intern",
             company: "Zidio Development",
-            duration: "Dec 2025 - Jan 2026",
+            duration: "May 2026 - Jun 2026",
             desc: "During my 1-month internship at Zidio Development, I worked on the RetailPulse project as part of a four-member Data Science & Analytics team. My primary responsibility was serving as the Dashboard & Deployment Lead, where I developed and integrated the Streamlit-based dashboard, connected outputs from customer analytics, demand forecasting, churn prediction, and inventory optimization modules, and managed project deployment and GitHub collaboration. One of the key challenges I faced was integrating multiple machine learning components into a single interactive application while ensuring smooth functionality, data consistency, and an intuitive user experience. Through continuous testing, debugging, and team coordination, I successfully contributed to delivering a fully functional end-to-end retail analytics platform, strengthening my practical skills in data science, dashboard development, deployment, and collaborative project execution.",
             logo: zidioIntern,
             links: [
