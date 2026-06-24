@@ -17,7 +17,14 @@ const Certifications = () => {
         {
             title: "Co-Curriculum Achievements",
             items: [
-                { name: "IBM Skillsbuild - Make Agentic AI Work For You", url: "https://drive.google.com/file/d/186JPM5FLnKJbGgpwYQwQj5hwDfl3yjRV/view?usp=drive_link" },
+                { 
+                    name: "IBM SkillsBuild Certifications",
+                    hasDropdown: true,
+                    dropdownItems: [
+                        { name: "Make Agentic AI Work For You", url: "https://drive.google.com/file/d/186JPM5FLnKJbGgpwYQwQj5hwDfl3yjRV/view?usp=drive_link" },
+                        { name: "Quantum Engimas", url: "https://drive.google.com/file/d/1TJCfjtPFieDBce8kxHl6NqK2P6iGwnfc/view?usp=drive_link" }
+                    ]
+                },
                 {
                     name: "Cisco Network Academy Courses of Completion",
                     hasDropdown: true,
