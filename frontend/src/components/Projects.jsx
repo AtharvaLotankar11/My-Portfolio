@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useAnimation, useDragControls } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
 // Import project images
@@ -19,9 +19,8 @@ const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const [isPaused, setIsPaused] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
-    const controls = useAnimation();
     const containerRef = useRef(null);
-    const dragControls = useDragControls();
+    const [offsetX, setOffsetX] = useState(0);
 
     const projects = [
         {
@@ -125,26 +124,33 @@ const Projects = () => {
     ];
 
     // Duplicate projects for seamless loop
-    const duplicatedProjects = [...projects, ...projects];
+    const duplicatedProjects = [...projects, ...projects, ...projects];
 
     // Start animation when component mounts
     useEffect(() => {
-        if (!isPaused && !isMouseDown) {
-            controls.start({
-                x: [0, -100 * projects.length],
-                transition: {
-                    x: {
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: projects.length * 5, // Increased speed (reduced from 8 to 5)
-                        ease: "linear"
-                    }
-                }
-            });
-        } else {
-            controls.stop();
-        }
-    }, [isPaused, isMouseDown, controls, projects.length]);
+        let animationFrameId;
+        let startTime = Date.now();
+        const totalWidth = 100 * projects.length; // percentage
+        const duration = projects.length * 5 * 1000; // 5 seconds per project in milliseconds
+
+        const animate = () => {
+            if (!isPaused && !isMouseDown) {
+                const elapsed = Date.now() - startTime;
+                const progress = (elapsed % duration) / duration;
+                const newOffset = -(progress * totalWidth);
+                setOffsetX(newOffset);
+            }
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        animationFrameId = requestAnimationFrame(animate);
+
+        return () => {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+        };
+    }, [isPaused, isMouseDown, projects.length]);
 
     const handleMouseDown = () => {
         setIsMouseDown(true);
@@ -156,18 +162,10 @@ const Projects = () => {
         setIsPaused(false);
     };
 
-    const handleTouchStart = () => {
-        setIsMouseDown(true);
-        setIsPaused(true);
-    };
-
-    const handleTouchEnd = () => {
-        setIsMouseDown(false);
-        setIsPaused(false);
-    };
-
     const handleDragEnd = (event, info) => {
-        // Resume animation after drag ends
+        // Update offset based on drag
+        const newOffset = offsetX + (info.offset.x / window.innerWidth) * 100;
+        setOffsetX(newOffset);
         setIsMouseDown(false);
         setIsPaused(false);
     };
@@ -196,8 +194,6 @@ const Projects = () => {
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
                     onMouseLeave={handleMouseUp}
-                    onTouchStart={handleTouchStart}
-                    onTouchEnd={handleTouchEnd}
                     style={{ cursor: isMouseDown ? 'grabbing' : 'grab' }}
                 >
                     {/* Gradient overlays for fade effect */}
@@ -208,11 +204,10 @@ const Projects = () => {
                     <motion.div
                         ref={containerRef}
                         className="flex gap-6 sm:gap-8"
-                        animate={controls}
                         drag="x"
-                        dragConstraints={{ left: -100 * projects.length, right: 0 }}
-                        dragElastic={0.1}
-                        dragMomentum={true}
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.2}
+                        dragMomentum={false}
                         onDragStart={() => {
                             setIsMouseDown(true);
                             setIsPaused(true);
@@ -220,7 +215,8 @@ const Projects = () => {
                         onDragEnd={handleDragEnd}
                         style={{ 
                             width: 'fit-content',
-                            touchAction: 'pan-y' // Allow vertical scroll while enabling horizontal swipe
+                            touchAction: 'pan-y',
+                            transform: `translateX(${offsetX}%)`
                         }}
                     >
                         {duplicatedProjects.map((project, index) => (
