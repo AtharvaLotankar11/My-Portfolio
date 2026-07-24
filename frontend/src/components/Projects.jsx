@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
 // Import project images
@@ -17,10 +17,9 @@ import nexCartImg from '../assets/project_images/nexCart.png';
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
-    const [isPaused, setIsPaused] = useState(false);
     const [isMouseDown, setIsMouseDown] = useState(false);
+    const controls = useAnimation();
     const containerRef = useRef(null);
-    const [offsetX, setOffsetX] = useState(0);
 
     const projects = [
         {
@@ -124,50 +123,33 @@ const Projects = () => {
     ];
 
     // Duplicate projects for seamless loop
-    const duplicatedProjects = [...projects, ...projects, ...projects];
+    const duplicatedProjects = [...projects, ...projects];
 
     // Start animation when component mounts
     useEffect(() => {
-        let animationFrameId;
-        let startTime = Date.now();
-        const totalWidth = 100 * projects.length; // percentage
-        const duration = projects.length * 5 * 1000; // 5 seconds per project in milliseconds
-
-        const animate = () => {
-            if (!isPaused && !isMouseDown) {
-                const elapsed = Date.now() - startTime;
-                const progress = (elapsed % duration) / duration;
-                const newOffset = -(progress * totalWidth);
-                setOffsetX(newOffset);
-            }
-            animationFrameId = requestAnimationFrame(animate);
-        };
-
-        animationFrameId = requestAnimationFrame(animate);
-
-        return () => {
-            if (animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-            }
-        };
-    }, [isPaused, isMouseDown, projects.length]);
+        if (!isMouseDown) {
+            controls.start({
+                x: [0, -100 * projects.length],
+                transition: {
+                    x: {
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: projects.length * 5,
+                        ease: "linear"
+                    }
+                }
+            });
+        } else {
+            controls.stop();
+        }
+    }, [isMouseDown, controls, projects.length]);
 
     const handleMouseDown = () => {
         setIsMouseDown(true);
-        setIsPaused(true);
     };
 
     const handleMouseUp = () => {
         setIsMouseDown(false);
-        setIsPaused(false);
-    };
-
-    const handleDragEnd = (event, info) => {
-        // Update offset based on drag
-        const newOffset = offsetX + (info.offset.x / window.innerWidth) * 100;
-        setOffsetX(newOffset);
-        setIsMouseDown(false);
-        setIsPaused(false);
     };
 
     return (
@@ -204,19 +186,15 @@ const Projects = () => {
                     <motion.div
                         ref={containerRef}
                         className="flex gap-6 sm:gap-8"
+                        animate={controls}
                         drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        dragElastic={0.2}
-                        dragMomentum={false}
-                        onDragStart={() => {
-                            setIsMouseDown(true);
-                            setIsPaused(true);
-                        }}
-                        onDragEnd={handleDragEnd}
+                        dragElastic={0.1}
+                        dragConstraints={containerRef}
+                        onDragStart={handleMouseDown}
+                        onDragEnd={handleMouseUp}
                         style={{ 
                             width: 'fit-content',
-                            touchAction: 'pan-y',
-                            transform: `translateX(${offsetX}%)`
+                            touchAction: 'pan-y'
                         }}
                     >
                         {duplicatedProjects.map((project, index) => (
