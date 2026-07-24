@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useDragControls } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
 // Import project images
@@ -18,8 +18,10 @@ import nexCartImg from '../assets/project_images/nexCart.png';
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const [isPaused, setIsPaused] = useState(false);
+    const [isMouseDown, setIsMouseDown] = useState(false);
     const controls = useAnimation();
     const containerRef = useRef(null);
+    const dragControls = useDragControls();
 
     const projects = [
         {
@@ -127,14 +129,14 @@ const Projects = () => {
 
     // Start animation when component mounts
     useEffect(() => {
-        if (!isPaused) {
+        if (!isPaused && !isMouseDown) {
             controls.start({
                 x: [0, -100 * projects.length],
                 transition: {
                     x: {
                         repeat: Infinity,
                         repeatType: "loop",
-                        duration: projects.length * 8, // Adjust speed here (higher = slower)
+                        duration: projects.length * 5, // Increased speed (reduced from 8 to 5)
                         ease: "linear"
                     }
                 }
@@ -142,23 +144,32 @@ const Projects = () => {
         } else {
             controls.stop();
         }
-    }, [isPaused, controls, projects.length]);
+    }, [isPaused, isMouseDown, controls, projects.length]);
 
     const handleMouseDown = () => {
+        setIsMouseDown(true);
         setIsPaused(true);
     };
 
     const handleMouseUp = () => {
+        setIsMouseDown(false);
         setIsPaused(false);
     };
 
-    const handleMouseEnter = () => {
+    const handleTouchStart = () => {
+        setIsMouseDown(true);
         setIsPaused(true);
     };
 
-    const handleMouseLeave = () => {
+    const handleTouchEnd = () => {
+        setIsMouseDown(false);
         setIsPaused(false);
-        setHoveredProject(null);
+    };
+
+    const handleDragEnd = (event, info) => {
+        // Resume animation after drag ends
+        setIsMouseDown(false);
+        setIsPaused(false);
     };
 
     return (
@@ -184,9 +195,10 @@ const Projects = () => {
                     className="relative overflow-hidden"
                     onMouseDown={handleMouseDown}
                     onMouseUp={handleMouseUp}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    style={{ cursor: isPaused ? 'grab' : 'pointer' }}
+                    onMouseLeave={handleMouseUp}
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                    style={{ cursor: isMouseDown ? 'grabbing' : 'grab' }}
                 >
                     {/* Gradient overlays for fade effect */}
                     <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#0B0808] to-transparent z-10 pointer-events-none"></div>
@@ -197,18 +209,32 @@ const Projects = () => {
                         ref={containerRef}
                         className="flex gap-6 sm:gap-8"
                         animate={controls}
-                        style={{ width: 'fit-content' }}
+                        drag="x"
+                        dragConstraints={{ left: -100 * projects.length, right: 0 }}
+                        dragElastic={0.1}
+                        dragMomentum={true}
+                        onDragStart={() => {
+                            setIsMouseDown(true);
+                            setIsPaused(true);
+                        }}
+                        onDragEnd={handleDragEnd}
+                        style={{ 
+                            width: 'fit-content',
+                            touchAction: 'pan-y' // Allow vertical scroll while enabling horizontal swipe
+                        }}
                     >
                         {duplicatedProjects.map((project, index) => (
                             <motion.div
                                 key={index}
                                 onMouseEnter={() => setHoveredProject(index)}
+                                onMouseLeave={() => setHoveredProject(null)}
                                 className="glass-effect p-5 sm:p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-all duration-500 group relative overflow-hidden flex-shrink-0"
                                 style={{
                                     width: '380px',
-                                    maxWidth: '90vw'
+                                    maxWidth: '90vw',
+                                    pointerEvents: isMouseDown ? 'none' : 'auto' // Prevent card interactions while dragging
                                 }}
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={!isMouseDown ? { scale: 1.05 } : {}}
                             >
                                 {/* Shimmer overlay */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -260,7 +286,7 @@ const Projects = () => {
                 </div>
 
                 {/* Pause indicator */}
-                {isPaused && (
+                {isMouseDown && (
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
