@@ -48,7 +48,9 @@ const Experience = () => {
                 { label: "Internship Offer Letter", url: "https://drive.google.com/file/d/1cELoDPZJy-W-JBHlnkjjmtThiufXQZab/view?usp=drive_link" },
                 { label: "RetailPulse - Data Sci Project", url: "https://github.com/AtharvaLotankar11/RetailPulse---Data-Analytics-Project.git" },
                 { label: "RetailPulse Website", url: "https://retailpulse-analytics.streamlit.app/" },
-                { label: "Internship Project Report", url: "https://drive.google.com/file/d/17KfUNVuVrT0KLz6WRdIed7F2V5YSdQVT/view?usp=drive_link" }
+                { label: "Internship Project Report", url: "https://drive.google.com/file/d/17KfUNVuVrT0KLz6WRdIed7F2V5YSdQVT/view?usp=drive_link" },
+                { label: "Internship Certificate", url: "https://drive.google.com/file/d/1bFGA66T88pTsf08sl6Nq_AtUV57kOEp3/view?usp=drive_link" },
+                { label: "Certificate of Training", url: "https://drive.google.com/file/d/1y2txzRtoZHvwjb2tNu7KWpH9xpaoGHNb/view?usp=drive_link" }
             ]
         },
         {

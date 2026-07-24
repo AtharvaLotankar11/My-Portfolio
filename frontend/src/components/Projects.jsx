@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
 // Import project images
@@ -17,7 +17,9 @@ import nexCartImg from '../assets/project_images/nexCart.png';
 
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
-    const cardRefs = useRef([]);
+    const [isPaused, setIsPaused] = useState(false);
+    const controls = useAnimation();
+    const containerRef = useRef(null);
 
     const projects = [
         {
@@ -120,23 +122,43 @@ const Projects = () => {
         }
     ];
 
-    const handle3DTilt = (e, index) => {
-        if (!cardRefs.current[index]) return;
-        const card = cardRefs.current[index];
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * 5;
-        const rotateY = ((x - centerX) / centerX) * 5;
+    // Duplicate projects for seamless loop
+    const duplicatedProjects = [...projects, ...projects];
 
-        card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    // Start animation when component mounts
+    useEffect(() => {
+        if (!isPaused) {
+            controls.start({
+                x: [0, -100 * projects.length],
+                transition: {
+                    x: {
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: projects.length * 8, // Adjust speed here (higher = slower)
+                        ease: "linear"
+                    }
+                }
+            });
+        } else {
+            controls.stop();
+        }
+    }, [isPaused, controls, projects.length]);
+
+    const handleMouseDown = () => {
+        setIsPaused(true);
     };
 
-    const resetTilt = (index) => {
-        if (!cardRefs.current[index]) return;
-        cardRefs.current[index].style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    const handleMouseUp = () => {
+        setIsPaused(false);
+    };
+
+    const handleMouseEnter = () => {
+        setIsPaused(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsPaused(false);
+        setHoveredProject(null);
     };
 
     return (
@@ -157,76 +179,96 @@ const Projects = () => {
                     Projects
                 </motion.h2>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            ref={(el) => (cardRefs.current[index] = el)}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: index * 0.1,
-                                duration: 0.5,
-                                ease: "easeOut"
-                            }}
-                            onMouseMove={(e) => handle3DTilt(e, index)}
-                            onMouseLeave={() => {
-                                resetTilt(index);
-                                setHoveredProject(null);
-                            }}
-                            onMouseEnter={() => setHoveredProject(index)}
-                            className="glass-effect p-5 sm:p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-all duration-500 group relative overflow-hidden"
-                            style={{
-                                transition: 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), border 0.5s',
-                            }}
-                        >
-                            {/* Shimmer overlay */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div className="absolute inset-0 animate-shimmer"></div>
-                            </div>
+                {/* Marquee Container */}
+                <div 
+                    className="relative overflow-hidden"
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    style={{ cursor: isPaused ? 'grab' : 'pointer' }}
+                >
+                    {/* Gradient overlays for fade effect */}
+                    <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#0B0808] to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-[#0B0808] to-transparent z-10 pointer-events-none"></div>
 
-                            {/* Glow effect */}
-                            {hoveredProject === index && (
-                                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-purple-500/20 to-pink-500/20 animate-pulse-glow rounded-xl"></div>
-                            )}
-
-                            <div className="relative z-10">
-                                {/* Project Image */}
-                                <div className="mb-4 overflow-hidden rounded-lg border-2 border-white/10 group-hover:border-accent/50 transition-all duration-300">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
+                    {/* Scrolling Projects */}
+                    <motion.div
+                        ref={containerRef}
+                        className="flex gap-6 sm:gap-8"
+                        animate={controls}
+                        style={{ width: 'fit-content' }}
+                    >
+                        {duplicatedProjects.map((project, index) => (
+                            <motion.div
+                                key={index}
+                                onMouseEnter={() => setHoveredProject(index)}
+                                className="glass-effect p-5 sm:p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-all duration-500 group relative overflow-hidden flex-shrink-0"
+                                style={{
+                                    width: '380px',
+                                    maxWidth: '90vw'
+                                }}
+                                whileHover={{ scale: 1.05 }}
+                            >
+                                {/* Shimmer overlay */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <div className="absolute inset-0 animate-shimmer"></div>
                                 </div>
 
-                                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-accent transition-colors duration-300 group-hover:scale-105 inline-block">
-                                    {project.title}
-                                </h3>
-                                <p className="text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed group-hover:text-gray-300 transition-colors">
-                                    {project.desc}
-                                </p>
+                                {/* Glow effect */}
+                                {hoveredProject === index && (
+                                    <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-purple-500/20 to-pink-500/20 animate-pulse-glow rounded-xl"></div>
+                                )}
 
-                                <div className="flex gap-3 sm:gap-4 mt-auto">
-                                    {project.links.map((link, idx) => (
-                                        <motion.a
-                                            key={idx}
-                                            href={link.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="text-gray-400 hover:text-accent transition-all duration-300 text-base sm:text-lg magnetic-hover"
-                                            whileHover={{ scale: 1.2, rotate: 360 }}
-                                            whileTap={{ scale: 0.9 }}
-                                        >
-                                            {link.icon}
-                                        </motion.a>
-                                    ))}
+                                <div className="relative z-10">
+                                    {/* Project Image */}
+                                    <div className="mb-4 overflow-hidden rounded-lg border-2 border-white/10 group-hover:border-accent/50 transition-all duration-300">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                                        />
+                                    </div>
+
+                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-accent transition-colors duration-300 line-clamp-2">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed group-hover:text-gray-300 transition-colors line-clamp-3">
+                                        {project.desc}
+                                    </p>
+
+                                    <div className="flex gap-3 sm:gap-4 mt-auto">
+                                        {project.links.map((link, idx) => (
+                                            <motion.a
+                                                key={idx}
+                                                href={link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-gray-400 hover:text-accent transition-all duration-300 text-base sm:text-lg magnetic-hover"
+                                                whileHover={{ scale: 1.2, rotate: 360 }}
+                                                whileTap={{ scale: 0.9 }}
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                {link.icon}
+                                            </motion.a>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 </div>
+
+                {/* Pause indicator */}
+                {isPaused && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-center mt-6 text-accent/70 text-sm"
+                    >
+                        ⏸ Paused - Release to continue scrolling
+                    </motion.div>
+                )}
             </div>
         </section>
     );
