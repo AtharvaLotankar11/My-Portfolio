@@ -17,6 +17,7 @@ const Certifications = () => {
         {
             title: "Co-Curriculum Achievements",
             items: [
+                { name: "ISTE VESIT's Certificate of Participation in Instagram Wrapped - Data Analytics", url: "https://drive.google.com/file/d/1ovjHUT_doOfxiXJbRmWLQUtXe_fefPe7/view?usp=drive_link" },
                 { 
                     name: "IBM SkillsBuild Certifications",
                     hasDropdown: true,
