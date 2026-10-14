@@ -54,6 +54,7 @@ const Certifications = () => {
                         { name: "Set up a google cloud network", url: "https://www.credly.com/badges/2d0609cd-1056-431f-8af6-b4708bfceda7/public_url" }
                     ]
                 },
+                { name: "CSI VESIT's Certification of Participation in Git Set Go", url: "https://drive.google.com/file/d/1PsG32aerbBMEV_ipmuacUavMHflV2gzy/view?usp=drive_link" },
                 { name: "AWS Academy Graduate in Cloud Foundations by Amazon Web Services (AWS)", url: "https://drive.google.com/file/d/1ChS3ITWU6tdWz9xH01BLvHFxRY1b2aVD/view?usp=drive_link" },
                 { 
                     name: "NVIDIA's Certificate of Competency", 
