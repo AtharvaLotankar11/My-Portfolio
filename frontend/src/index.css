@@ -1,7 +1,25 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+/* ============================================
+   FONTS (self-hosted, same families as the Canva cover)
+   ============================================ */
+@font-face { font-family: 'Anton'; src: url('/fonts/Anton-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('/fonts/Poppins-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('/fonts/Poppins-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('/fonts/Poppins-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url('/fonts/Poppins-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+
 @layer base {
+  :root {
+    --ink: #1C1C1C;
+    --charcoal: #2F2F2F;
+    --bone: #E6E6E6;
+    --blush: #E3BFB2;
+    --slate: #98AEB3;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -9,7 +27,8 @@
   }
 
   body {
-    @apply bg-primary text-white font-sans overflow-x-hidden;
+    @apply bg-primary text-bone font-sans overflow-x-hidden;
+    font-weight: 300;
     max-width: 100vw;
     position: relative;
   }
@@ -17,24 +36,77 @@
   * {
     box-sizing: border-box;
   }
+
+  ::selection {
+    background: var(--blush);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--blush);
+    outline-offset: 3px;
+  }
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: #4a4a4a; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--blush); }
+
+/* ============================================
+   DESIGN SYSTEM (new portfolio)
+   ============================================ */
+
+/* Giant condensed display type, as on the cover */
+.display-type {
+  font-family: 'Anton', Impact, sans-serif;
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-secondary;
+/* Wide-tracked small line, as on the cover ("GRAPHIC DESIGN | NAME") */
+.tracked {
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-accent rounded-full;
+/* Hollow type for the marquee */
+.outline-type {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(230, 230, 230, 0.55);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent-glow;
+/* Fine film grain over dark surfaces - keeps the charcoal from looking flat */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
+
+/* Infinite marquee */
+@keyframes marquee-left { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@keyframes marquee-right { from { transform: translate3d(-50%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
+.marquee-track { display: flex; width: max-content; will-change: transform; }
+.marquee-left { animation: marquee-left 40s linear infinite; }
+.marquee-right { animation: marquee-right 46s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+
+/* Slow drifting haze in the hero sky (the clouds in the cover) */
+@keyframes haze-drift { 0% { transform: translate3d(-4%, 0, 0); } 50% { transform: translate3d(4%, -2%, 0); } 100% { transform: translate3d(-4%, 0, 0); } }
+.haze { animation: haze-drift 24s ease-in-out infinite; will-change: transform; }
+
+/* Underline that draws in on hover */
+.link-draw { background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size .5s var(--ease-out-expo); }
+.link-draw:hover, .link-draw:focus-visible { background-size: 100% 1px; }
+
 
 /* ============================================
    OPTIMIZED ANIMATION KEYFRAMES
@@ -301,5 +373,13 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .marquee-track,
+  .marquee-left,
+  .marquee-right,
+  .haze,
+  .animate-float {
+    animation: none !important;
+    transform: none !important;
   }
 }

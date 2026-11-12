@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -17,6 +17,8 @@ import CollaborateScene from '../components/CollaborateScene';
 const Home = () => {
     const location = useLocation();
     const { currentUser } = useAuth();
+    const { scrollYProgress } = useScroll();
+    const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
     useEffect(() => {
         // Handle hash navigation when coming from other pages
@@ -31,7 +33,14 @@ const Home = () => {
     }, [location]);
 
     return (
-        <div className="min-h-screen bg-primary text-white selection:bg-accent selection:text-white">
+        <div className="min-h-screen bg-primary text-bone">
+            {/* Reading progress */}
+            <motion.div
+                aria-hidden="true"
+                style={{ scaleX: progress }}
+                className="fixed inset-x-0 top-0 z-[70] h-[2px] origin-left bg-blush"
+            />
+
             <Navbar />
 
             <main>
@@ -43,10 +52,10 @@ const Home = () => {
                 <Projects />
                 <Certifications />
 
-                {/* Message Me Section - Only visible when logged in */}        
+                {/* Message Me Section - Only visible when logged in */}
                 {currentUser && <MessageMe />}
 
-                {/* 3D Collaborate Scene - Only visible when NOT logged in */}    
+                {/* 3D Collaborate Scene - Only visible when NOT logged in */}
                 {!currentUser && <CollaborateScene />}
             </main>
 

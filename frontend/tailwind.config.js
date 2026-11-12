@@ -24,17 +24,22 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#0B0808", // Dark slate
-        secondary: "#111111", // Slate 800
-        accent: "#98AEB3", // Sky 400
+        // Core palette, sampled from the Canva cover (charcoal sky, bone type, blush + slate facade)
+        primary: "#1C1C1C",        // page base (ink)
+        secondary: "#262626",      // raised surface
+        charcoal: "#2F2F2F",       // hero sky
+        bone: "#E6E6E6",           // display type
+        blush: "#E3BFB2",          // facade pink - interactive highlight
+        "blush-deep": "#C99A8A",
+        accent: "#98AEB3",         // facade slate (kept from the previous theme so Login/Register still match)
         "accent-glow": "#B0C4C8",
         earth: "#967D6A",
-        "earth-glow": "#A8907E", // Sky 500
+        "earth-glow": "#A8907E",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['"Roboto Mono"', 'monospace'],
-        display: ['Syne', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        mono: ['"Roboto Mono"', 'ui-monospace', 'monospace'],
+        display: ['Anton', 'Impact', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

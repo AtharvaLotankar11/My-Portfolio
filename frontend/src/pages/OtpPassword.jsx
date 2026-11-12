@@ -101,17 +101,19 @@ const OtpPassword = () => {
     };
 
     return (
-        <div className="min-h-screen bg-primary relative overflow-hidden flex flex-col">
+        <div className="min-h-screen bg-primary text-bone relative overflow-hidden flex flex-col">
             <Navbar />
-            <div className="flex-grow flex items-center justify-center relative pt-20">
-                <div className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float"></div>
+            <div className="flex-grow flex items-center justify-center relative pt-24 pb-16 px-4">
+                <div className="absolute top-[-15%] left-[-10%] w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div className="absolute bottom-[-15%] right-[-10%] w-96 h-96 bg-blush/10 rounded-full blur-3xl pointer-events-none"></div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-secondary/50 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-2xl w-full max-w-md z-10"
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="bg-secondary/90 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/10 shadow-2xl w-full max-w-md z-10"
                 >
-                    <h2 className="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">
+                    <h2 className="display-type text-3xl sm:text-4xl text-center mb-8 text-bone tracking-wide">
                         Reset Password
                     </h2>
 
@@ -121,15 +123,15 @@ const OtpPassword = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-lg backdrop-blur-sm"
+                                className="mb-5 p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl backdrop-blur-sm"
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="flex-shrink-0">
-                                        <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg className="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p className="text-red-400 text-sm font-medium">{error}</p>
+                                    <p className="text-rose-300 text-sm font-medium">{error}</p>
                                 </div>
                             </motion.div>
                         )}
@@ -139,104 +141,104 @@ const OtpPassword = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="mb-4 p-4 bg-green-500/10 border border-green-500/50 rounded-lg backdrop-blur-sm"
+                                className="mb-5 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl backdrop-blur-sm"
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="flex-shrink-0">
-                                        <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p className="text-green-400 text-sm font-medium">{message}</p>
+                                    <p className="text-emerald-300 text-sm font-medium">{message}</p>
                                 </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
 
                     {step === 1 ? (
-                        <form onSubmit={handleSendOTP} className="space-y-6">
+                        <form onSubmit={handleSendOTP} className="space-y-5">
                             <div>
-                                <label className="block text-gray-400 text-sm mb-2">Email Address</label>
+                                <label className="block text-bone/75 text-sm mb-2 font-light">Email Address</label>
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors"
+                                    className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-3 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                     placeholder="Enter your email"
                                     disabled={loading}
                                     required
                                 />
-                                <p className="text-xs text-gray-400 mt-2">
+                                <p className="text-xs text-bone/50 mt-2 font-light">
                                     We'll send you an OTP to reset your password.
                                 </p>
                             </div>
                             <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
+                                whileHover={{ scale: 1.01 }}
+                                whileTap={{ scale: 0.99 }}
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-gradient-to-r from-accent to-purple-600 text-white font-bold py-3 rounded-lg shadow-lg disabled:opacity-50"
+                                className="w-full min-h-[44px] flex items-center justify-center rounded-full bg-blush text-primary font-medium py-3 px-6 hover:bg-blush-deep transition-all duration-300 disabled:opacity-50 text-base cursor-pointer disabled:cursor-not-allowed"
                             >
                                 {loading ? 'Sending...' : 'Send OTP'}
                             </motion.button>
                         </form>
                     ) : (
-                        <form onSubmit={handleResetPassword} className="space-y-6">
+                        <form onSubmit={handleResetPassword} className="space-y-5">
                             <div>
-                                <label className="block text-gray-400 text-sm mb-2">Email Address</label>
+                                <label className="block text-bone/75 text-sm mb-2 font-light">Email Address</label>
                                 <input
                                     type="email"
                                     value={email}
-                                    className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-gray-500 cursor-not-allowed"
+                                    className="w-full bg-primary/40 border border-white/10 rounded-xl px-4 py-3 text-bone/50 cursor-not-allowed min-h-[44px]"
                                     disabled
                                 />
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-sm mb-2">Enter OTP</label>
+                                <label className="block text-bone/75 text-sm mb-2 font-light">Enter OTP</label>
                                 <input
                                     type="text"
                                     value={otp}
                                     onChange={(e) => setOtp(e.target.value)}
-                                    className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors text-center text-2xl tracking-widest"
+                                    className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-3 text-blush focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors text-center text-2xl tracking-[0.4em] font-mono min-h-[44px]"
                                     placeholder="000000"
                                     maxLength="6"
                                     disabled={loading}
                                     required
                                 />
-                                <p className="text-xs text-gray-400 mt-2">
+                                <p className="text-xs text-bone/50 mt-2 font-light">
                                     Check your email for the 6-digit OTP code.
                                 </p>
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-sm mb-2">New Password</label>
+                                <label className="block text-bone/75 text-sm mb-2 font-light">New Password</label>
                                 <input
                                     type="password"
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
-                                    className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors"
+                                    className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-3 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                     placeholder="Enter new password"
                                     disabled={loading}
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-gray-400 text-sm mb-2">Confirm New Password</label>
+                                <label className="block text-bone/75 text-sm mb-2 font-light">Confirm New Password</label>
                                 <input
                                     type="password"
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
-                                    className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors"
+                                    className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-3 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                     placeholder="Confirm new password"
                                     disabled={loading}
                                     required
                                 />
                             </div>
                             <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
+                                whileHover={{ scale: 1.01 }}
+                                whileTap={{ scale: 0.99 }}
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-gradient-to-r from-accent to-purple-600 text-white font-bold py-3 rounded-lg shadow-lg disabled:opacity-50"
+                                className="w-full min-h-[44px] flex items-center justify-center rounded-full bg-blush text-primary font-medium py-3 px-6 hover:bg-blush-deep transition-all duration-300 disabled:opacity-50 text-base cursor-pointer disabled:cursor-not-allowed"
                             >
                                 {loading ? 'Resetting...' : 'Reset Password'}
                             </motion.button>
@@ -250,7 +252,7 @@ const OtpPassword = () => {
                                     setError('');
                                     setMessage('');
                                 }}
-                                className="w-full text-sm text-gray-400 hover:text-white transition-colors"
+                                className="w-full min-h-[44px] inline-flex items-center justify-center text-sm text-bone/60 hover:text-blush transition-colors cursor-pointer"
                                 disabled={loading}
                             >
                                 Resend OTP
@@ -258,8 +260,8 @@ const OtpPassword = () => {
                         </form>
                     )}
 
-                    <div className="mt-6 text-center">
-                        <Link to="/login" className="text-sm text-gray-400 hover:text-white transition-colors">
+                    <div className="mt-8 text-center">
+                        <Link to="/login" className="text-sm text-blush hover:text-bone transition-colors inline-flex items-center min-h-[44px]">
                             Back to Login
                         </Link>
                     </div>

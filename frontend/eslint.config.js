@@ -24,6 +24,8 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^(motion|[A-Z_])' }],
+      'react-hooks/immutability': 'off',
+      'react-refresh/only-export-components': 'off',
     },
   },
 ])

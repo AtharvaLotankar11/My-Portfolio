@@ -11,6 +11,7 @@ export default defineConfig({
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
           'firebase': ['firebase/app', 'firebase/auth', 'firebase/firestore'],
           'framer-motion': ['framer-motion'],
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
         },
         // Force new hash for cache busting
         entryFileNames: `assets/[name]-[hash]-${Date.now()}.js`,
@@ -18,7 +19,7 @@ export default defineConfig({
         assetFileNames: `assets/[name]-[hash]-${Date.now()}.[ext]`
       }
     },
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 1400,
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'framer-motion']

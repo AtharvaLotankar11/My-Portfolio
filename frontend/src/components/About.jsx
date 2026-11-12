@@ -1,76 +1,84 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import myPhoto from '../assets/myPhoto.png';
+import SectionHeading from './ui/SectionHeading';
+import TiltCard from './ui/TiltCard';
+
+const blocks = [
+    {
+        title: 'Education and Technical Foundation',
+        text: "Currently pursuing a B.E. in Information Technology at Vivekanand Education Society's Institute of Technology, with a strong academic foundation in Data Science, Machine Learning, Deep Learning, and Software Engineering. Proficient in Python, Java, SQL, C/C++, and JavaScript, with practical experience in modern development frameworks including Next.js, Django, PostgreSQL, and the MERN stack.",
+    },
+    {
+        title: 'Areas of Interest and Expertise',
+        text: 'Primarily focused on Data Analytics, Data Science, and AI/ML, applying data-driven methodologies to build intelligent and impactful solutions. Hands-on experience across domains such as predictive analytics, automation, computer vision, sentiment analysis, and AI-powered applications. Additionally interested in full-stack development, with a preference for building scalable applications using Next.js, Django, and PostgreSQL.',
+    },
+    {
+        title: 'Professional Aspirations',
+        text: 'Continuously strengthening expertise in Data Structures & Algorithms, backend engineering, and applied AI. Aspiring to contribute as a Data Scientist or Machine Learning Engineer, while developing strong full-stack capabilities to bridge advanced intelligence with seamless user experiences.',
+    },
+];
 
 const About = () => {
     return (
-        <section id="about" className="py-12 sm:py-16 md:py-20 bg-[#0B0808]/50 backdrop-blur-sm border-y border-white/5 relative overflow-hidden">
-            {/* Animated Background */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[15%] left-[5%] sm:left-[10%] w-60 sm:w-72 md:w-80 h-60 sm:h-72 md:h-80 bg-accent/10 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[25%] right-[5%] sm:right-[15%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '2.5s' }}></div>
-            </div>
-
+        <section id="about" className="relative bg-primary py-24 md:py-36">
             <div className="container mx-auto px-4 sm:px-6">
-                <motion.h2
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-accent font-display tracking-widest uppercase drop-shadow-[0_0_10px_rgba(152,174,179,0.3)]"
-                >
-                    About Me
-                </motion.h2>
+                <SectionHeading title="About" note="An Information Technology student building data, machine learning and full-stack products." />
 
-                <div className="grid md:grid-cols-1 gap-6 sm:gap-8 max-w-4xl mx-auto">
+                <div className="grid items-start gap-14 lg:grid-cols-12 lg:gap-20">
+                    {/* Portrait */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.3, y: -50 }}
-                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-                        className="glass-effect p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-white/10 hover:border-accent/30 transition-all duration-500 shadow-xl hover-lift group relative overflow-hidden"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        className="lg:sticky lg:top-28 lg:col-span-5"
                     >
-                        {/* Shimmer overlay */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <div className="absolute inset-0 animate-shimmer"></div>
-                        </div>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">🎓 𝐄𝐝𝐮𝐜𝐚𝐭𝐢𝐨𝐧 𝐚𝐧𝐝 𝐓𝐞𝐜𝐡𝐧𝐢𝐜𝐚𝐥 𝐅𝐨𝐮𝐧𝐝𝐚𝐭𝐢𝐨𝐧</h3>
-                        <p className="text-sm sm:text-base text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors">
-                            Currently pursuing a B.E. in Information Technology at Vivekanand Education Society's Institute of Technology, with a strong academic foundation in Data Science, Machine Learning, Deep Learning, and Software Engineering. Proficient in Python, Java, SQL, C/C++, and JavaScript, with practical experience in modern development frameworks including Next.js, Django, PostgreSQL, and the MERN stack.
-                        </p>
+                        <TiltCard max={9} className="mx-auto max-w-md">
+                            <div className="group relative overflow-hidden border border-white/10 bg-secondary">
+                                {/* glass-block facade pattern from the hero tower */}
+                                <div
+                                    className="absolute inset-0 opacity-60"
+                                    style={{
+                                        backgroundImage:
+                                            'linear-gradient(rgba(152,174,179,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(152,174,179,0.10) 1px, transparent 1px)',
+                                        backgroundSize: '28px 28px',
+                                    }}
+                                />
+                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-blush/25 to-transparent" />
+                                <div className="relative p-8 pb-6 sm:p-10 sm:pb-8" style={{ transform: 'translateZ(40px)' }}>
+                                    <img
+                                        src={myPhoto}
+                                        alt="Portrait of Atharva Lotankar"
+                                        className="aspect-square w-full rounded-full object-cover grayscale contrast-110 transition-[filter] duration-700 group-hover:grayscale-0"
+                                    />
+                                </div>
+                                <div className="relative flex items-end justify-between px-8 pb-8 sm:px-10" style={{ transform: 'translateZ(24px)' }}>
+                                    <div>
+                                        <p className="display-type text-3xl text-bone">Atharva Lotankar</p>
+                                        <p className="mt-1 text-sm text-bone/60">B.Tech IT, VESIT</p>
+                                    </div>
+                                    <p className="text-sm text-blush">CGPA 9.92</p>
+                                </div>
+                            </div>
+                        </TiltCard>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.3, y: -50 }}
-                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-                        className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-accent/30 transition-all duration-500 shadow-xl hover-lift group relative overflow-hidden"
-                    >
-                        {/* Shimmer overlay */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <div className="absolute inset-0 animate-shimmer"></div>
-                        </div>
-                        <h3 className="text-xl font-semibold mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">📊 𝐀𝐫𝐞𝐚𝐬 𝐨𝐟 𝐈𝐧𝐭𝐞𝐫𝐞𝐬𝐭 𝐚𝐧𝐝 𝐄𝐱𝐩𝐞𝐫𝐭𝐢𝐬𝐞</h3>
-                        <p className="text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors">
-                            Primarily focused on Data Analytics, Data Science, and AI/ML, applying data-driven methodologies to build intelligent and impactful solutions. Hands-on experience across domains such as predictive analytics, automation, computer vision, sentiment analysis, and AI-powered applications. Additionally interested in full-stack development, with a preference for building scalable applications using Next.js, Django, and PostgreSQL.
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.3, y: -50 }}
-                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.6, type: "spring", stiffness: 100 }}
-                        className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-accent/30 transition-all duration-500 shadow-xl hover-lift group relative overflow-hidden"
-                    >
-                        {/* Shimmer overlay */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <div className="absolute inset-0 animate-shimmer"></div>
-                        </div>
-                        <h3 className="text-xl font-semibold mb-4 text-accent relative z-10 group-hover:scale-105 transition-transform duration-300">🚀 𝐏𝐫𝐨𝐟𝐞𝐬𝐬𝐢𝐨𝐧𝐚𝐥 𝐀𝐬𝐩𝐢𝐫𝐚𝐭𝐢𝐨𝐧𝐬</h3>
-                        <p className="text-gray-300 leading-relaxed relative z-10 group-hover:text-white transition-colors">
-                            Continuously strengthening expertise in Data Structures & Algorithms, backend engineering, and applied AI. Aspiring to contribute as a Data Scientist or Machine Learning Engineer, while developing strong full-stack capabilities to bridge advanced intelligence with seamless user experiences.
-                        </p>
-                    </motion.div>
+                    {/* Text */}
+                    <div className="group/list lg:col-span-7">
+                        {blocks.map((b, i) => (
+                            <motion.article
+                                key={b.title}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.4 }}
+                                transition={{ duration: 0.8, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                                className="border-t border-white/10 py-9 transition-opacity duration-500 first:border-t-0 first:pt-0 group-hover/list:opacity-45 hover:!opacity-100 md:py-12"
+                            >
+                                <h3 className="display-type text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-bone">{b.title}</h3>
+                                <p className="mt-5 max-w-[62ch] text-base leading-[1.8] text-bone/70 md:text-lg">{b.text}</p>
+                            </motion.article>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

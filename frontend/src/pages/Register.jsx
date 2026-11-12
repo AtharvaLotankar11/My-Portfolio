@@ -112,18 +112,19 @@ const Register = () => {
     };
 
     return (
-        <div className="min-h-screen bg-primary relative overflow-hidden flex flex-col">
+        <div className="min-h-screen bg-primary text-bone relative overflow-hidden flex flex-col">
             <Navbar />
-            <div className="flex-grow flex items-center justify-center relative py-20 pt-28">
-                <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[-20%] left-[-10%] w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+            <div className="flex-grow flex items-center justify-center relative py-20 pt-28 px-4">
+                <div className="absolute top-[-15%] right-[-10%] w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div className="absolute bottom-[-15%] left-[-10%] w-96 h-96 bg-blush/10 rounded-full blur-3xl pointer-events-none"></div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-secondary/50 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-2xl w-full max-w-md z-10"
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="bg-secondary/90 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/10 shadow-2xl w-full max-w-md z-10"
                 >
-                    <h2 className="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">
+                    <h2 className="display-type text-3xl sm:text-4xl text-center mb-8 text-bone tracking-wide">
                         Create Account
                     </h2>
 
@@ -133,15 +134,15 @@ const Register = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-lg backdrop-blur-sm"
+                                className="mb-5 p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl backdrop-blur-sm"
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="flex-shrink-0">
-                                        <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg className="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p className="text-red-400 text-sm font-medium">{error}</p>
+                                    <p className="text-rose-300 text-sm font-medium">{error}</p>
                                 </div>
                             </motion.div>
                         )}
@@ -151,15 +152,15 @@ const Register = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="mb-4 p-4 bg-green-500/10 border border-green-500/50 rounded-lg backdrop-blur-sm"
+                                className="mb-5 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl backdrop-blur-sm"
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="flex-shrink-0">
-                                        <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p className="text-green-400 text-sm font-medium">{success}</p>
+                                    <p className="text-emerald-300 text-sm font-medium">{success}</p>
                                 </div>
                             </motion.div>
                         )}
@@ -167,59 +168,59 @@ const Register = () => {
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
-                            <label className="block text-gray-400 text-sm mb-1">Full Name</label>
+                            <label className="block text-bone/75 text-sm mb-1 font-light">Full Name</label>
                             <input
                                 type="text"
                                 value={formData.name}
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent transition-colors"
+                                className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-2.5 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block text-gray-400 text-sm mb-1">Email Address</label>
+                            <label className="block text-bone/75 text-sm mb-1 font-light">Email Address</label>
                             <input
                                 type="email"
                                 value={formData.email}
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent transition-colors"
+                                className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-2.5 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block text-gray-400 text-sm mb-1">Password</label>
+                            <label className="block text-bone/75 text-sm mb-1 font-light">Password</label>
                             <input
                                 type="password"
                                 value={formData.password}
                                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                                className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent transition-colors"
+                                className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-2.5 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block text-gray-400 text-sm mb-1">Date of Birth</label>
+                            <label className="block text-bone/75 text-sm mb-1 font-light">Date of Birth</label>
                             <input
                                 type="date"
                                 value={formData.dob}
                                 onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-                                className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent transition-colors"
+                                className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-2.5 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block text-gray-400 text-sm mb-1">Captcha</label>
-                            <div className="flex gap-4 mb-2">
-                                <div className="bg-white/10 px-4 py-2 rounded select-none font-mono text-xl tracking-widest text-accent line-through decoration-white/50">
+                            <label className="block text-bone/75 text-sm mb-1 font-light">Captcha</label>
+                            <div className="flex items-center gap-4 mb-2">
+                                <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl select-none font-mono text-xl tracking-widest text-blush line-through decoration-white/40 min-h-[44px] flex items-center">
                                     {captcha}
                                 </div>
                                 <button
                                     type="button"
                                     onClick={generateCaptcha}
-                                    className="text-xs text-gray-400 hover:text-white"
+                                    className="text-xs text-bone/60 hover:text-blush transition-colors min-h-[44px] inline-flex items-center"
                                 >
                                     Refresh
                                 </button>
@@ -228,26 +229,26 @@ const Register = () => {
                                 type="text"
                                 value={formData.captchaInput}
                                 onChange={(e) => setFormData({ ...formData, captchaInput: e.target.value })}
-                                className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-accent transition-colors"
+                                className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-2.5 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                 placeholder="Enter Captcha"
                                 required
                             />
                         </div>
 
                         <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-gradient-to-r from-accent to-purple-600 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-accent/20 transition-all mt-4 disabled:opacity-50"
+                            className="w-full min-h-[44px] flex items-center justify-center rounded-full bg-blush text-primary font-medium py-3 px-6 hover:bg-blush-deep transition-all duration-300 disabled:opacity-50 text-base cursor-pointer disabled:cursor-not-allowed mt-5"
                         >
                             {loading ? 'Registering...' : 'Register'}
                         </motion.button>
                     </form>
 
-                    <div className="mt-6 text-center text-gray-400 text-sm">
+                    <div className="mt-8 text-center text-bone/60 text-sm">
                         Already have an account?{' '}
-                        <Link to="/login" className="text-accent hover:text-accent-glow font-medium transition-colors">
+                        <Link to="/login" className="text-blush hover:text-bone font-normal transition-colors inline-flex items-center min-h-[44px]">
                             Login
                         </Link>
                     </div>

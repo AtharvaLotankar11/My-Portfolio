@@ -18,7 +18,7 @@ const ROOF_Y = 15.6;                          // roof height above the camera
 const TOWER_H = 80;
 
 // One facade "bay": glass-block panel around a dark window with a railing.
-function makeFacadeTexture({ base, tint, dark, frame, cols, rows, reduce }) {
+function makeFacadeTexture({ base, tint, dark, frame, cols, rows }) {
     const c = document.createElement('canvas');
     c.width = 256;
     c.height = 300;
@@ -98,11 +98,11 @@ function Tower({ pointer, scrollRef, reduce }) {
         const idle = reduce ? 0 : Math.sin(t * 0.45) * 0.045;
 
         // rotate around the apex edge so the corner stays put while the two faces swing
-        group.current.rotation.y = idle + smooth.current.x * 0.22 + scroll * 0.8;
+        group.current.rotation.y = idle + (reduce ? 0 : smooth.current.x * 0.22) + scroll * 0.8;
         group.current.position.y = -(1 - eased) * 16 + scroll * 16;
 
-        camera.rotation.x = PITCH + smooth.current.y * -0.035;
-        camera.position.x = smooth.current.x * 0.35;
+        camera.rotation.x = PITCH + (reduce ? 0 : smooth.current.y * -0.035);
+        camera.position.x = reduce ? 0 : smooth.current.x * 0.35;
     });
 
     return (

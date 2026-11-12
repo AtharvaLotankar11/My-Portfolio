@@ -15,7 +15,7 @@ export default function SectionHeading({ title, note }) {
     return (
         <div className="mb-14 flex flex-col gap-6 border-b border-white/10 pb-8 md:mb-20 md:flex-row md:items-end md:justify-between">
             <motion.h2
-                className="display-type flex text-[19vw] text-bone sm:text-[13vw] lg:text-[9.5vw]"
+                className="display-type flex flex-wrap max-w-full text-[clamp(2.4rem,14vw,8.5rem)] leading-[0.98] text-bone sm:text-[13vw] lg:text-[9.5vw]"
                 aria-label={title}
                 variants={container}
                 initial="hidden"

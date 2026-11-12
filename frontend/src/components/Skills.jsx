@@ -1,147 +1,146 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useMemo } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FaGitAlt, FaGithub, FaDocker, FaAws, FaMicrosoft, FaGoogle, FaJava, FaPython, FaReact, FaNodeJs, FaUbuntu, FaHtml5, FaCss3Alt } from 'react-icons/fa';
 import { SiJenkins, SiKubernetes, SiMongodb, SiFirebase, SiSupabase, SiMysql, SiPostgresql, SiDart, SiCplusplus, SiJavascript, SiTensorflow, SiPandas, SiNumpy, SiNextdotjs, SiExpress } from 'react-icons/si';
+import SectionHeading from './ui/SectionHeading';
+import TiltCard from './ui/TiltCard';
+
+const skillCategories = [
+    {
+        title: "Languages",
+        skills: [
+            { name: "Python", icon: <FaPython /> },
+            { name: "Java", icon: <FaJava /> },
+            { name: "C/C++", icon: <SiCplusplus /> },
+            { name: "Dart", icon: <SiDart /> },
+            { name: "JavaScript (ES6+)", icon: <SiJavascript /> },
+        ]
+    },
+    {
+        title: "ML & Data",
+        skills: [
+            { name: "Machine Learning", icon: <span className="font-bold text-xs">ML</span> },
+            { name: "TensorFlow", icon: <SiTensorflow /> },
+            { name: "Computer Vision", icon: <span className="font-bold text-xs">CV</span> },
+            { name: "Data Analysis", icon: <span className="font-bold text-xs">DA</span> },
+            { name: "Pandas", icon: <SiPandas /> },
+            { name: "NumPy", icon: <SiNumpy /> },
+        ]
+    },
+    {
+        title: "Web Dev.",
+        skills: [
+            { name: "React.js", icon: <FaReact /> },
+            { name: "Next.js", icon: <SiNextdotjs /> },
+            { name: "Node.js", icon: <FaNodeJs /> },
+            { name: "Express.js", icon: <SiExpress /> },
+            { name: "HTML5", icon: <FaHtml5 /> },
+            { name: "CSS3", icon: <FaCss3Alt /> },
+        ]
+    },
+    {
+        title: "Databases",
+        skills: [
+            { name: "MySQL", icon: <SiMysql /> },
+            { name: "PostgreSQL", icon: <SiPostgresql /> },
+            { name: "MongoDB", icon: <SiMongodb /> },
+            { name: "Firebase", icon: <SiFirebase /> },
+            { name: "Supabase", icon: <SiSupabase /> },
+        ]
+    },
+    {
+        title: "DevOps",
+        skills: [
+            { name: "Git", icon: <FaGitAlt /> },
+            { name: "GitHub", icon: <FaGithub /> },
+            { name: "Docker", icon: <FaDocker /> },
+            { name: "Kubernetes", icon: <SiKubernetes /> },
+            { name: "Jenkins", icon: <SiJenkins /> },
+            { name: "AWS", icon: <FaAws /> },
+            { name: "Azure", icon: <FaMicrosoft /> },
+            { name: "GCP", icon: <FaGoogle /> },
+        ]
+    },
+    {
+        title: "OS",
+        skills: [
+            { name: "Linux (Ubuntu)", icon: <FaUbuntu /> },
+            { name: "Raspberry Pi OS", icon: <span className="font-bold text-[10px] leading-tight text-center">Pi<br/>OS</span> },
+            { name: "MacOS", icon: <span className="font-bold text-xs">Mac</span> },
+        ]
+    }
+];
+
+// Words for the two marquee rows (icon-only badges are skipped - they have no readable name of their own)
+const MARQUEE_A = ['Python', 'Java', 'C/C++', 'Dart', 'JavaScript', 'Machine Learning', 'TensorFlow', 'Computer Vision', 'Pandas', 'NumPy'];
+const MARQUEE_B = ['React.js', 'Next.js', 'Node.js', 'Express.js', 'PostgreSQL', 'MongoDB', 'Firebase', 'Supabase', 'Docker', 'Kubernetes', 'AWS'];
+
+const MarqueeRow = ({ words, direction = 'left', reduce = false }) => {
+    const row = [...words, ...words];     // duplicated so the -50% loop is seamless
+    return (
+        <div className="marquee overflow-hidden" aria-hidden="true">
+            <div className={`marquee-track ${reduce ? '' : (direction === 'left' ? 'marquee-left' : 'marquee-right')}`}>
+                {row.map((w, i) => (
+                    <span
+                        key={i}
+                        className={`display-type shrink-0 whitespace-nowrap pr-[0.5em] text-[13vw] sm:text-[9vw] ${i % 2 === 0 ? 'outline-type' : 'text-bone'}`}
+                    >
+                        {w}
+                    </span>
+                ))}
+            </div>
+        </div>
+    );
+};
 
 const Skills = () => {
-    const [hoveredCard, setHoveredCard] = useState(null);
-
-    const skillCategories = [
-        {
-            title: "Languages",
-            skills: [
-                { name: "Python", icon: <FaPython /> },
-                { name: "Java", icon: <FaJava /> },
-                { name: "C/C++", icon: <SiCplusplus /> },
-                { name: "Dart", icon: <SiDart /> },
-                { name: "JavaScript (ES6+)", icon: <SiJavascript /> },
-            ]
-        },
-        {
-            title: "ML & Data",
-            skills: [
-                { name: "Machine Learning", icon: <span className="font-bold text-xs">ML</span> },
-                { name: "TensorFlow", icon: <SiTensorflow /> },
-                { name: "Computer Vision", icon: <span className="font-bold text-xs">CV</span> },
-                { name: "Data Analysis", icon: <span className="font-bold text-xs">DA</span> },
-                { name: "Pandas", icon: <SiPandas /> },
-                { name: "NumPy", icon: <SiNumpy /> },
-            ]
-        },
-        {
-            title: "Web Dev.",
-            skills: [
-                { name: "React.js", icon: <FaReact /> },
-                { name: "Next.js", icon: <SiNextdotjs /> },
-                { name: "Node.js", icon: <FaNodeJs /> },
-                { name: "Express.js", icon: <SiExpress /> },
-                { name: "HTML5", icon: <FaHtml5 /> },
-                { name: "CSS3", icon: <FaCss3Alt /> },
-            ]
-        },
-        {
-            title: "Databases",
-            skills: [
-                { name: "MySQL", icon: <SiMysql /> },
-                { name: "PostgreSQL", icon: <SiPostgresql /> },
-                { name: "MongoDB", icon: <SiMongodb /> },
-                { name: "Firebase", icon: <SiFirebase /> },
-                { name: "Supabase", icon: <SiSupabase /> },
-            ]
-        },
-        {
-            title: "DevOps",
-            skills: [
-                { name: "Git", icon: <FaGitAlt /> },
-                { name: "GitHub", icon: <FaGithub /> },
-                { name: "Docker", icon: <FaDocker /> },
-                { name: "Kubernetes", icon: <SiKubernetes /> },
-                { name: "Jenkins", icon: <SiJenkins /> },
-                { name: "AWS", icon: <FaAws /> },
-                { name: "Azure", icon: <FaMicrosoft /> },
-                { name: "GCP", icon: <FaGoogle /> },
-            ]
-        },
-        {
-            title: "OS",
-            skills: [
-                { name: "Linux (Ubuntu)", icon: <FaUbuntu /> },
-                { name: "Raspberry Pi OS", icon: <span className="font-bold text-[10px] leading-tight text-center">Pi<br/>OS</span> },
-                { name: "MacOS", icon: <span className="font-bold text-xs">Mac</span> },
-            ]
-        }
-    ];
+    const reduce = useReducedMotion();
+    const total = useMemo(() => skillCategories.reduce((n, c) => n + c.skills.length, 0), []);
 
     return (
-        <section id="skills" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
-            {/* Animated Background */}
-            <div className="absolute inset-0 -z-10">
-                <div className="absolute top-[20%] right-[5%] sm:right-[10%] w-56 sm:w-64 md:w-72 h-56 sm:h-64 md:h-72 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
-                <div className="absolute bottom-[30%] left-[5%] sm:left-[15%] w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <section id="skills" className="relative overflow-hidden bg-secondary py-24 md:py-36">
+            <div className="container mx-auto px-4 sm:px-6">
+                <SectionHeading title="Skills" note={`${total} skills across ${skillCategories.length} areas: languages, ML and data, web, databases, DevOps and operating systems.`} />
+            </div>
+
+            <div className="mb-16 space-y-1 md:mb-24">
+                <MarqueeRow words={MARQUEE_A} direction="left" reduce={!!reduce} />
+                <MarqueeRow words={MARQUEE_B} direction="right" reduce={!!reduce} />
             </div>
 
             <div className="container mx-auto px-4 sm:px-6">
-                <motion.h2
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 md:mb-12 text-center text-accent font-display tracking-widest uppercase drop-shadow-[0_0_10px_rgba(152,174,179,0.3)]"
-                >
-                    Skills
-                </motion.h2>
-
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
                     {skillCategories.map((category, index) => (
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0, rotateY: 90 }}
-                            whileInView={{ opacity: 1, rotateY: 0 }}
-                            viewport={{ once: true }}
-                            transition={{
-                                delay: index * 0.1,
-                                type: "spring",
-                                stiffness: 100
-                            }}
-                            onMouseEnter={() => setHoveredCard(index)}
-                            onMouseLeave={() => setHoveredCard(null)}
-                            className="glass-effect p-4 sm:p-5 md:p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-all duration-500 hover-lift relative overflow-hidden group"
+                            key={category.title}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ delay: (index % 3) * 0.08, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-secondary"
                         >
-                            {/* Shimmer effect on hover */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <div className="absolute inset-0 animate-shimmer"></div>
-                            </div>
-
-                            {/* Glow effect */}
-                            {hoveredCard === index && (
-                                <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-earth/5 animate-pulse-glow rounded-xl"></div>
-                            )}
-
-                            <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-5 md:mb-6 text-center text-white relative z-10 group-hover:text-accent transition-colors duration-300">
-                                {category.title}
-                            </h3>
-                            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 relative z-10">
-                                {category.skills.map((skill, idx) => (
-                                    <motion.div
-                                        key={idx}
-                                        className="flex flex-col items-center group/skill"
-                                        initial={{ opacity: 0, scale: 0 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        viewport={{ once: true }}
-                                        transition={{
-                                            delay: index * 0.1 + idx * 0.05,
-                                            type: "spring",
-                                            stiffness: 200
-                                        }}
-                                    >
-                                        <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#0B0808] rounded-full text-xl sm:text-2xl text-gray-400 group-hover/skill:text-accent group-hover/skill:scale-110 sm:group-hover/skill:scale-125 transition-all duration-300 mb-1.5 sm:mb-2 magnetic-hover animate-glow-pulse">
-                                            {skill.icon}
-                                        </div>
-                                        <span className="text-[10px] sm:text-xs text-center text-gray-500 group-hover/skill:text-white transition-colors w-16 sm:w-20 leading-tight">
-                                            {skill.name}
-                                        </span>
-                                    </motion.div>
-                                ))}
-                            </div>
+                            <TiltCard max={3} glare={false} className="h-full">
+                                <div className="group relative h-full overflow-hidden p-7 sm:p-9">
+                                    {/* facade tint that rises on hover */}
+                                    <div className="absolute inset-x-0 bottom-0 h-0 bg-blush transition-[height] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:h-full" />
+                                    <div className="relative">
+                                        <h3 className="display-type mb-7 text-3xl sm:text-4xl leading-[1.05] text-bone transition-colors duration-500 group-hover:text-primary">{category.title}</h3>
+                                        <ul className="flex flex-wrap gap-2.5">
+                                            {category.skills.map((skill) => (
+                                                <li
+                                                    key={skill.name}
+                                                    className="flex items-center gap-2 rounded-full border border-white/15 px-3.5 py-2 text-sm text-bone/85 transition-colors duration-500 group-hover:border-primary/30 group-hover:text-primary"
+                                                >
+                                                    <span className="flex h-4 w-4 items-center justify-center text-base leading-none [&>span]:text-[9px]" aria-hidden="true">
+                                                        {skill.icon}
+                                                    </span>
+                                                    {skill.name}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </TiltCard>
                         </motion.div>
                     ))}
                 </div>

@@ -88,18 +88,19 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-primary relative overflow-hidden flex flex-col">
+        <div className="min-h-screen bg-primary text-bone relative overflow-hidden flex flex-col">
             <Navbar />
-            <div className="flex-grow flex items-center justify-center relative pt-20">
-                <div className="absolute top-[-20%] left-[-10%] w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-                <div className="absolute bottom-[-20%] right-[-10%] w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+            <div className="flex-grow flex items-center justify-center relative pt-24 pb-16 px-4">
+                <div className="absolute top-[-15%] left-[-10%] w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div className="absolute bottom-[-15%] right-[-10%] w-96 h-96 bg-blush/10 rounded-full blur-3xl pointer-events-none"></div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.96 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="bg-secondary/50 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-2xl w-full max-w-md z-10"
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="bg-secondary/90 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/10 shadow-2xl w-full max-w-md z-10"
                 >
-                    <h2 className="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-500">
+                    <h2 className="display-type text-3xl sm:text-4xl text-center mb-8 text-bone tracking-wide">
                         Welcome Back
                     </h2>
 
@@ -109,15 +110,15 @@ const Login = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-lg backdrop-blur-sm"
+                                className="mb-5 p-4 bg-rose-500/10 border border-rose-500/30 rounded-xl backdrop-blur-sm"
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="flex-shrink-0">
-                                        <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg className="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p className="text-red-400 text-sm font-medium">{error}</p>
+                                    <p className="text-rose-300 text-sm font-medium">{error}</p>
                                 </div>
                             </motion.div>
                         )}
@@ -127,78 +128,78 @@ const Login = () => {
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
-                                className="mb-4 p-4 bg-green-500/10 border border-green-500/50 rounded-lg backdrop-blur-sm"
+                                className="mb-5 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl backdrop-blur-sm"
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="flex-shrink-0">
-                                        <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                         </svg>
                                     </div>
-                                    <p className="text-green-400 text-sm font-medium">{success}</p>
+                                    <p className="text-emerald-300 text-sm font-medium">{success}</p>
                                 </div>
                             </motion.div>
                         )}
                     </AnimatePresence>
 
-                    <form onSubmit={handleLogin} className="space-y-6">
+                    <form onSubmit={handleLogin} className="space-y-5">
                         <div>
-                            <label className="block text-gray-400 text-sm mb-2">Email Address</label>
+                            <label className="block text-bone/75 text-sm mb-2 font-light">Email Address</label>
                             <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors"
+                                className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-3 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                 placeholder="Enter your email"
                                 required
                             />
                         </div>
 
                         <div>
-                            <label className="block text-gray-400 text-sm mb-2">Password</label>
+                            <label className="block text-bone/75 text-sm mb-2 font-light">Password</label>
                             <input
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full bg-primary/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors"
+                                className="w-full bg-primary/80 border border-white/15 rounded-xl px-4 py-3 text-bone placeholder-bone/40 focus:outline-none focus:border-blush focus:ring-1 focus:ring-blush transition-colors min-h-[44px]"
                                 placeholder="Enter your password"
                                 required
                             />
                         </div>
 
                         <div className="flex justify-end">
-                            <Link to="/otp" className="text-sm text-accent hover:text-accent-glow transition-colors">
+                            <Link to="/otp" className="text-sm text-blush hover:text-bone transition-colors inline-flex items-center min-h-[44px]">
                                 Forgot Password?
                             </Link>
                         </div>
 
                         <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-gradient-to-r from-accent to-purple-600 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-accent/20 transition-all disabled:opacity-50"
+                            className="w-full min-h-[44px] flex items-center justify-center rounded-full bg-blush text-primary font-medium py-3 px-6 hover:bg-blush-deep transition-all duration-300 disabled:opacity-50 text-base cursor-pointer disabled:cursor-not-allowed"
                         >
                             {loading ? 'Logging in...' : 'Login'}
                         </motion.button>
                     </form>
 
-                    <div className="mt-4">
+                    <div className="mt-6">
                         <div className="relative">
                             <div className="absolute inset-0 flex items-center">
                                 <div className="w-full border-t border-white/10"></div>
                             </div>
-                            <div className="relative flex justify-center text-sm">
-                                <span className="px-2 bg-secondary/50 text-gray-400">Or continue with</span>
+                            <div className="relative flex justify-center text-xs uppercase tracking-wider">
+                                <span className="px-3 bg-secondary text-bone/50">Or continue with</span>
                             </div>
                         </div>
 
                         <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
                             onClick={handleGoogleLogin}
                             disabled={loading}
-                            className="mt-4 w-full bg-white text-gray-800 font-bold py-3 rounded-lg shadow-lg hover:shadow-white/20 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                            className="mt-5 w-full min-h-[44px] bg-bone text-primary font-medium py-3 px-6 rounded-full shadow-md hover:bg-white transition-all disabled:opacity-50 flex items-center justify-center gap-3 text-sm sm:text-base cursor-pointer"
                         >
                             <svg className="w-5 h-5" viewBox="0 0 24 24">
                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -210,9 +211,9 @@ const Login = () => {
                         </motion.button>
                     </div>
 
-                    <div className="mt-6 text-center text-gray-400 text-sm">
+                    <div className="mt-8 text-center text-bone/60 text-sm">
                         Don't have an account?{' '}
-                        <Link to="/register" className="text-accent hover:text-accent-glow font-medium transition-colors">
+                        <Link to="/register" className="text-blush hover:text-bone font-normal transition-colors inline-flex items-center min-h-[44px]">
                             Create An Account
                         </Link>
                     </div>

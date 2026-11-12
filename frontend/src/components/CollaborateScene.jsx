@@ -715,7 +715,7 @@ function Scene({ onRegisterClick, onLoginClick, cameraRef }) {
 
 // Main Component with Error Boundary
 const CollaborateScene = () => {
-    const [hasError, setHasError] = React.useState(false);
+    const [hasError] = React.useState(false);
     const navigate = useNavigate();
     const canvasWrapperRef = useRef(null);
     const cameraRef = useRef(null);
@@ -735,11 +735,12 @@ const CollaborateScene = () => {
 
     if (hasError) {
         return (
-            <section className="py-12 sm:py-16 md:py-20 bg-secondary/30">
+            <section className="relative bg-secondary py-20 md:py-28">
                 <div className="container mx-auto px-4 sm:px-6 flex justify-center">
-                    <div className="bg-gradient-to-r from-secondary to-primary p-6 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl border border-white/10 text-center max-w-4xl w-full shadow-2xl">
-                        <h2 className="text-2xl font-bold mb-4">Ready to Collaborate?</h2>
-                        <p className="text-gray-400 mb-6">💬 Sign In to connect with me directly 🌐</p>
+                    <div className="bg-primary p-6 sm:p-10 rounded-2xl border border-white/10 text-center max-w-4xl w-full shadow-2xl relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate via-blush to-slate"></div>
+                        <h2 className="display-type text-3xl sm:text-4xl text-bone mb-3">Ready to Collaborate?</h2>
+                        <p className="text-bone/70 font-light">Sign in to connect with me directly</p>
                     </div>
                 </div>
             </section>
@@ -747,23 +748,22 @@ const CollaborateScene = () => {
     }
 
     return (
-        <section className="py-12 sm:py-16 md:py-20 bg-secondary/30">
+        <section className="relative bg-secondary py-20 md:py-28">
             <div className="container mx-auto px-4 sm:px-6 flex justify-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="bg-gradient-to-r from-secondary to-primary p-3 sm:p-8 md:p-12 rounded-xl sm:rounded-2xl border border-white/10 text-center max-w-4xl w-full shadow-2xl relative overflow-hidden"
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="bg-primary p-4 sm:p-8 md:p-10 rounded-2xl border border-white/10 text-center max-w-4xl w-full shadow-2xl relative overflow-hidden"
                 >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500"></div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-slate via-blush to-slate"></div>
 
                     {/* Full 3D Scene */}
-                    <div ref={canvasWrapperRef} className="w-full h-[340px] sm:h-[420px] md:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-yellow-900/20 via-orange-900/20 to-yellow-800/20 relative">
-                        {/* Animated shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent animate-shimmer pointer-events-none z-10"></div>
+                    <div ref={canvasWrapperRef} className="w-full h-[340px] sm:h-[420px] md:h-[500px] rounded-xl overflow-hidden border border-white/10 bg-primary/90 relative">
                         <Suspense fallback={
                             <div className="w-full h-full flex items-center justify-center">
-                                <div className="text-yellow-400 text-lg animate-pulse">Loading 3D Scene...</div>
+                                <div className="text-blush text-base font-light animate-pulse">Loading 3D Scene...</div>
                             </div>
                         }>
                             <Canvas 
