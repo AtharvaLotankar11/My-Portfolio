@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
 // Import project images
+import vaultHuntImg from '../assets/project_images/vault_hunt.png';
+import gmailN8nImg from '../assets/project_images/gmail_n8n.png';
 import myPortfolioImg from '../assets/project_images/myPortfolio.png';
 import sentiqoImg from '../assets/project_images/sentiqo.jpg';
 import officepulseImg from '../assets/project_images/officepulse.png';
@@ -20,6 +22,23 @@ const Projects = () => {
     const cardRefs = useRef([]);
 
     const projects = [
+        {
+            title: "🔐 VaultHunt – Decentralized Escrow for Bug Bounty Hunters",
+            desc: "Built a decentralized blockchain escrow platform for bug bounties, featuring encrypted vulnerability proofs, staked jury arbitration, automated payouts, and a Next.js dApp, deployed on Ethereum Sepolia with 299 tests and 99.8% coverage.",
+            image: vaultHuntImg,
+            links: [
+                { icon: <FaGithub />, url: "https://github.com/AtharvaLotankar11/vaulthunt-escrow-blockchain-project.git" },
+                { icon: <FaExternalLinkAlt />, url: "https://vaulthunt-escrow.vercel.app/" }
+            ]
+        },
+        {
+            title: "📧 Gmail Summariser – AI Powered Email Summarisation Workflow",
+            desc: "Built a Docker-hosted n8n email automation workflow integrating Gmail OAuth2 and Gemini AI to automatically trigger, summarize emails into concise bullet points, and generate structured outputs without writing application code.",
+            image: gmailN8nImg,
+            links: [
+                { icon: <FaGithub />, url: "#" }
+            ]
+        },
         {
             title: "RetailPulse – AI Powered Customer Analytics & Demand Forecasting Platform",
             desc: "Developed a retail analytics platform that transforms transaction data into meaningful business insights. It helps analyze customer behavior, forecast future sales, identify customers at risk of churn, and support inventory planning through interactive dashboards. Deployed with Docker to enable scalable and consistent analytics across different environments.",
