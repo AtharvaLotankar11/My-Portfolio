@@ -9,6 +9,17 @@ import zidioIntern from '../assets/zidioIntern.png';
 
 const Experience = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [reducedMotion, setReducedMotion] = useState(false);
+
+    useEffect(() => {
+        // Check for reduced motion preference
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setReducedMotion(mediaQuery.matches);
+
+        const handleChange = (e) => setReducedMotion(e.matches);
+        mediaQuery.addEventListener('change', handleChange);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -149,8 +160,8 @@ const Experience = () => {
                         >
                             {/* Pulsing timeline dot */}
                             <motion.div
-                                className="absolute -left-[7px] sm:-left-[9px] top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-accent border-2 sm:border-4 border-primary animate-pulse-glow"
-                                animate={{
+                                className="absolute -left-[7px] sm:-left-[9px] top-0 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-accent border-2 sm:border-4 border-primary"
+                                animate={reducedMotion ? {} : {
                                     scale: [1, 1.3, 1],
                                     boxShadow: [
                                         "0 0 0 0 rgba(56, 189, 248, 0.7)",
@@ -165,9 +176,14 @@ const Experience = () => {
                                 }}
                             ></motion.div>
 
-                            <div className="glass-effect p-4 sm:p-5 md:p-6 rounded-xl border border-white/10 hover:border-accent/30 transition-all duration-500 hover-lift group relative overflow-hidden">
+                            <div 
+                                className="glass-effect p-4 sm:p-5 md:p-6 rounded-xl border border-white/10 hover:border-accent/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 transition-all duration-500 hover-lift group relative overflow-hidden"
+                                tabIndex={0}
+                                role="article"
+                                aria-label={`${exp.role} at ${exp.company}`}
+                            >
                                 {/* Shimmer overlay */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${reducedMotion ? 'hidden' : ''}`}>
                                     <div className="absolute inset-0 animate-shimmer"></div>
                                 </div>
 
@@ -199,9 +215,9 @@ const Experience = () => {
                                                 href={link.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-[10px] sm:text-xs px-2.5 sm:px-3 py-1 bg-accent/10 text-accent border border-accent/20 rounded hover:bg-accent hover:text-white transition-colors magnetic-hover"
-                                                whileHover={{ scale: 1.1 }}
-                                                whileTap={{ scale: 0.95 }}
+                                                className="text-[10px] sm:text-xs px-2.5 sm:px-3 py-1 min-h-[44px] flex items-center bg-accent/10 text-accent border border-accent/20 rounded hover:bg-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 transition-colors magnetic-hover"
+                                                whileHover={reducedMotion ? {} : { scale: 1.1 }}
+                                                whileTap={reducedMotion ? {} : { scale: 0.95 }}
                                             >
                                                 {link.label}
                                             </motion.a>

@@ -6,9 +6,21 @@ const Hero = () => {
     const [particles, setParticles] = useState([]);
     const imageRef = useRef(null);
     const [tiltStyle, setTiltStyle] = useState({});
+    const [reducedMotion, setReducedMotion] = useState(false);
+
+    useEffect(() => {
+        // Check for reduced motion preference
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setReducedMotion(mediaQuery.matches);
+
+        const handleChange = (e) => setReducedMotion(e.matches);
+        mediaQuery.addEventListener('change', handleChange);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
 
     // Generate particles on mount
     useEffect(() => {
+        if (reducedMotion) return;
         const newParticles = Array.from({ length: 30 }, (_, i) => ({
             id: i,
             left: `${Math.random() * 100}%`,
@@ -17,11 +29,11 @@ const Hero = () => {
             size: Math.random() * 4 + 2
         }));
         setParticles(newParticles);
-    }, []);
+    }, [reducedMotion]);
 
     // 3D Tilt effect on mouse move
     const handleMouseMove = (e) => {
-        if (!imageRef.current) return;
+        if (reducedMotion || !imageRef.current) return;
         const rect = imageRef.current.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;

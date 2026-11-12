@@ -104,7 +104,7 @@ const Navbar = () => {
                         <Link
                             key={link.name}
                             to={link.path}
-                            className="relative text-gray-300 hover:text-accent transition-colors duration-300 text-xs lg:text-sm font-medium tracking-wider uppercase whitespace-nowrap group"
+                            className="relative text-gray-300 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 focus-visible:rounded transition-colors duration-300 text-xs lg:text-sm font-medium tracking-wider uppercase whitespace-nowrap group"
                         >
                             <motion.span
                                 whileHover={{ scale: 1.1, y: -2 }}

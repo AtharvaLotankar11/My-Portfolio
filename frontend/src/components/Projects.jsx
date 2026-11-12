@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFileAlt } from 'react-icons/fa';
 
@@ -20,6 +20,17 @@ import nexCartImg from '../assets/project_images/nexCart.png';
 const Projects = () => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const cardRefs = useRef([]);
+    const [reducedMotion, setReducedMotion] = useState(false);
+
+    useEffect(() => {
+        // Check for reduced motion preference
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setReducedMotion(mediaQuery.matches);
+
+        const handleChange = (e) => setReducedMotion(e.matches);
+        mediaQuery.addEventListener('change', handleChange);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
 
     const projects = [
         {
@@ -140,7 +151,7 @@ const Projects = () => {
     ];
 
     const handle3DTilt = (e, index) => {
-        if (!cardRefs.current[index]) return;
+        if (reducedMotion || !cardRefs.current[index]) return;
         const card = cardRefs.current[index];
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -185,28 +196,31 @@ const Projects = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{
-                                delay: index * 0.1,
-                                duration: 0.5,
+                                delay: reducedMotion ? 0 : index * 0.1,
+                                duration: reducedMotion ? 0 : 0.5,
                                 ease: "easeOut"
                             }}
-                            onMouseMove={(e) => handle3DTilt(e, index)}
+                            onMouseMove={(e) => !reducedMotion && handle3DTilt(e, index)}
                             onMouseLeave={() => {
                                 resetTilt(index);
                                 setHoveredProject(null);
                             }}
                             onMouseEnter={() => setHoveredProject(index)}
-                            className="glass-effect p-5 sm:p-6 rounded-xl border border-white/10 hover:border-accent/50 transition-all duration-500 group relative overflow-hidden"
+                            tabIndex={0}
+                            role="article"
+                            aria-label={project.title}
+                            className="glass-effect p-5 sm:p-6 rounded-xl border border-white/10 hover:border-accent/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 transition-all duration-500 group relative overflow-hidden"
                             style={{
                                 transition: 'transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), border 0.5s',
                             }}
                         >
                             {/* Shimmer overlay */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${reducedMotion ? 'hidden' : ''}`}>
                                 <div className="absolute inset-0 animate-shimmer"></div>
                             </div>
 
                             {/* Glow effect */}
-                            {hoveredProject === index && (
+                            {!reducedMotion && hoveredProject === index && (
                                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-purple-500/20 to-pink-500/20 animate-pulse-glow rounded-xl"></div>
                             )}
 
@@ -234,9 +248,10 @@ const Projects = () => {
                                             href={link.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-gray-400 hover:text-accent transition-all duration-300 text-base sm:text-lg magnetic-hover"
-                                            whileHover={{ scale: 1.2, rotate: 360 }}
-                                            whileTap={{ scale: 0.9 }}
+                                            className="text-gray-400 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 transition-all duration-300 text-base sm:text-lg magnetic-hover min-w-[44px] min-h-[44px] flex items-center justify-center"
+                                            whileHover={reducedMotion ? {} : { scale: 1.2, rotate: 360 }}
+                                            whileTap={reducedMotion ? {} : { scale: 0.9 }}
+                                            aria-label={`${link.icon.type.name} link for ${project.title}`}
                                         >
                                             {link.icon}
                                         </motion.a>
